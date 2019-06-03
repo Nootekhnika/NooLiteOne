@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{38940EF4-EE49-4C7E-8575-8A62AC9819D9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>NooLiteServiceSoft</RootNamespace>
+    <AssemblyName>NooLiteServiceSoft</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>D:\Программы\Zyglin\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>12</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>A8773DEB2F8904E64D4166CEED18DC4CB7B8D9A0</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>NoLiteWindowsForms_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Design\MenuStripDesign.cs" />
+    <Compile Include="Device.cs" />
+    <Compile Include="DeviceProperties\DeviceProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeviceProperties\DeviceProperty.Designer.cs">
+      <DependentUpon>DeviceProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceProperties\PortBaudRateProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeviceProperties\PortBaudRateProperties.Designer.cs">
+      <DependentUpon>PortBaudRateProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceTX.cs" />
+    <Compile Include="DisconnectMTRF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisconnectMTRF.Designer.cs">
+      <DependentUpon>DisconnectMTRF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddRoom.Designer.cs">
+      <DependentUpon>FormAddRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSplashScreen.Designer.cs">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IconClassTX\LabelDeviceChannelTX.cs" />
+    <Compile Include="IconClassTX\LabelDeviceNameTX.cs" />
+    <Compile Include="IconClassTX\PictureDeviceTX.cs" />
+    <Compile Include="Icons.cs" />
+    <Compile Include="IconClass\LabelDeviceChannel.cs" />
+    <Compile Include="IconClass\LabelDeviceName.cs" />
+    <Compile Include="IconClass\PictureDeviceNoConnection.cs" />
+    <Compile Include="IconClass\PictureDeviceOff.cs" />
+    <Compile Include="IconClass\PictureDeviceOn.cs" />
+    <Compile Include="IconClass\PictureMain.cs" />
+    <Compile Include="IconClass\PictureSocket.cs" />
+    <Compile Include="IconClassTX\PictureMainTX.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Port.cs" />
+    <Compile Include="Room.cs" />
+    <Compile Include="SettingFTX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingFTX.Designer.cs">
+      <DependentUpon>SettingFTX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SettingRGB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\SettingRGB.Designer.cs">
+      <DependentUpon>SettingRGB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SettingSRF101000.cs" />
+    <Compile Include="Settings\SettingSRF103000T.cs" />
+    <Compile Include="Settings\SettingSRF11000R.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\SettingSRF11000R.Designer.cs">
+      <DependentUpon>SettingSRF11000R.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SettingSRF13000.cs" />
+    <Compile Include="Settings\SettingSRF13000T.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\SettingSRF13000T.Designer.cs">
+      <DependentUpon>SettingSRF13000T.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SettingSRF1000R.cs" />
+    <Compile Include="Settings\SettingSUF1300.cs" />
+    <Compile Include="Terminal\Terminal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Terminal\Terminal.Designer.cs">
+      <DependentUpon>Terminal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateFW\UpdateDeviceFW.cs" />
+    <Compile Include="UpdateFW\UpdateFW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateFW\UpdateFW.Designer.cs">
+      <DependentUpon>UpdateFW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ValidatorForm2.cs" />
+    <Compile Include="XML\XmlDevice.cs" />
+    <Compile Include="XML\XmlGroup.cs" />
+    <Compile Include="XML\XmlPort.cs" />
+    <Compile Include="XML\XmlTypeDevice.cs" />
+    <EmbeddedResource Include="DeviceProperties\DeviceProperty.resx">
+      <DependentUpon>DeviceProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceProperties\PortBaudRateProperties.resx">
+      <DependentUpon>PortBaudRateProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisconnectMTRF.resx">
+      <DependentUpon>DisconnectMTRF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddRoom.resx">
+      <DependentUpon>FormAddRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSplashScreen.resx">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingFTX.resx">
+      <DependentUpon>SettingFTX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\SettingRGB.resx">
+      <DependentUpon>SettingRGB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\SettingSRF11000R.resx">
+      <DependentUpon>SettingSRF11000R.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\SettingSRF13000T.resx">
+      <DependentUpon>SettingSRF13000T.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Terminal\Terminal.resx">
+      <DependentUpon>Terminal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateFW\UpdateFW.resx">
+      <DependentUpon>UpdateFW.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\baseline_menu_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle.png" />
+    <None Include="Resources\globe_earth_planet_2767.ico" />
+    <None Include="Resources\internet.ico" />
+    <None Include="Resources\Icon.ico" />
+    <None Include="Resources\icon-02%281%29.png" />
+    <None Include="Resources\icon-06 %284%29.png" />
+    <None Include="Resources\icon-06 %283%29.png" />
+    <None Include="Resources\icon-48 %283%29.png" />
+    <None Include="Resources\icon-48 %282%29.png" />
+    <None Include="Resources\icon-48 %281%29.png" />
+    <None Include="Resources\icon-13.png" />
+    <None Include="Resources\icon-13 %281%29.png" />
+    <None Include="Resources\logo.png" />
+    <None Include="Resources\icon-48.png" />
+    <None Include="Resources\icon-64.png" />
+    <None Include="Resources\icon-06.png" />
+    <None Include="Resources\close1.png" />
+    <None Include="Resources\normnal2.png" />
+    <None Include="Resources\normnal1.png" />
+    <None Include="Resources\mini2.png" />
+    <None Include="Resources\mini1.png" />
+    <None Include="Resources\close2.png" />
+    <SplashScreen Include="Icons\c фото фоном-91.jpg" />
+    <Content Include="Icons\baseline_add_white_18dp.png" />
+    <Content Include="Icons\icons8-pu_2-25.png" />
+    <None Include="Icons\ic_power_socket%403x.png" />
+    <Content Include="Icons\srf101000.png" />
+    <Content Include="Icons\ic_state_no_connection.png" />
+    <Content Include="Icons\ic_state_off%403x.png" />
+    <Content Include="Icons\ic_state_on.png" />
+    <Content Include="Icons\SplashScreen.png" />
+    <Content Include="Icons\wpb57ee339_06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
