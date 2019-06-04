@@ -15,7 +15,7 @@ namespace NooLiteServiceSoft.Terminal
     public partial class Terminal : Form
     {
         Port portEx = new Port();
-        Device device = new Device();      
+        Device device = new Device();   
 
         public enum OperationMode
         {
@@ -117,6 +117,7 @@ namespace NooLiteServiceSoft.Terminal
         public Terminal()
         {
             InitializeComponent();
+            ValidationTerminalInput validation = new ValidationTerminalInput();
             //operationModecomboBox.DataSource = Enum.GetValues(typeof(OperationMode));
             OperationModeEnum<OperationMode>(operationModecomboBox);
             OperationModeEnum<CommandNoolite>(comandNooLite_comboBox);
@@ -128,6 +129,24 @@ namespace NooLiteServiceSoft.Terminal
             textBox_ID1.Text = "0";
             textBox_ID2.Text = "0";
             textBox_ID3.Text = "0";
+            numericUpDown_ResTogl.KeyPress += delegate (object _sender, KeyPressEventArgs _e) {validation.ValidatiionKeyPressNum(_sender, _e);};
+            numericUpDown_ResTogl.KeyUp += delegate { validation.ValidateNumericDown(numericUpDown_ResTogl);};
+            numericUpDown_Chaneel.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { validation.ValidatiionKeyPressNum(_sender, _e); };
+            numericUpDown_Chaneel.KeyUp += delegate { validation.ValidateNumericDown(numericUpDown_Chaneel);};
+            numericUpDown_FMT.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { validation.ValidatiionKeyPressNum(_sender, _e); };
+            numericUpDown_FMT.KeyUp += delegate { validation.ValidateNumericDown(numericUpDown_FMT);};
+            numericUpDown2_D0.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { validation.ValidatiionKeyPressNum(_sender, _e); };
+            numericUpDown2_D0.KeyUp += delegate { validation.ValidateNumericDown(numericUpDown2_D0);};
+            numericUpDown_D1.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { validation.ValidatiionKeyPressNum(_sender, _e); };
+            numericUpDown_D1.KeyUp += delegate { validation.ValidateNumericDown(numericUpDown_D1); };
+            numericUpDown_D2.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { validation.ValidatiionKeyPressNum(_sender, _e); };
+            numericUpDown_D2.KeyUp += delegate { validation.ValidateNumericDown(numericUpDown_D2); };
+            numericUpDown_D3.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { validation.ValidatiionKeyPressNum(_sender, _e); };
+            numericUpDown_D3.KeyUp += delegate { validation.ValidateNumericDown(numericUpDown_D3); };
+            textBox_ID0.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { validation.ValidationKeyPressNumId(_sender, _e); };
+            textBox_ID1.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { validation.ValidationKeyPressNumId(_sender, _e); };
+            textBox_ID2.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { validation.ValidationKeyPressNumId(_sender, _e); };
+            textBox_ID3.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { validation.ValidationKeyPressNumId(_sender, _e); };
         }
 
         public static void OperationModeEnum<T>(ComboBox comboBox)

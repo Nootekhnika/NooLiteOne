@@ -195,6 +195,7 @@
     <Compile Include="Terminal\Terminal.Designer.cs">
       <DependentUpon>Terminal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Terminal\ValidationTerminalInput.cs" />
     <Compile Include="UpdateFW\UpdateDeviceFW.cs" />
     <Compile Include="UpdateFW\UpdateFW.cs">
       <SubType>Form</SubType>

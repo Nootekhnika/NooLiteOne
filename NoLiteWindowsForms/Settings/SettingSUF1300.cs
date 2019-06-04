@@ -328,8 +328,8 @@ namespace NooLiteServiceSoft.Settings
             WaitData(port, rx_bufferLvlValueProperties);
             if (port.IsOpen) port.Close();
             string stringByte = Convert.ToString(rx_bufferSettingRequest[7], 2);
-            byte[] arrayByte = new byte[7] {0,0,0,0,0,0,0};
-            int count = stringByte.Length - 1;
+            byte[] arrayByte = new byte[8] {0,0,0,0,0,0,0,0};
+            int count = stringByte.Length-1;
             foreach (var b in stringByte)
             {
                 arrayByte[count] = byte.Parse(b.ToString());
