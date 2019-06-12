@@ -259,6 +259,9 @@ namespace NooLiteServiceSoft.Settings
             //cобытия
             dimer.Click += delegate (object _sender, EventArgs _e) { BlockedRadioButton(dimer, onRetranslation, offRetranslation); };//Если выбрано диммирование тогда заблокировать ретрансляцию
             relay.Click += delegate (object _sender, EventArgs _e) { UnBlockedRadioButton(relay, onRetranslation, offRetranslation); };//Если выбрано релле тогда разблокировать ретрансляцию
+            minValue.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { ValidatiionKeyPressForTextBox(_sender, _e); };
+            maxValue.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { ValidatiionKeyPressForTextBox(_sender, _e); };
+            minLvlValue.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { ValidatiionKeyPressForTextBox(_sender, _e); };
         }
 
 
@@ -571,6 +574,13 @@ namespace NooLiteServiceSoft.Settings
             }
         }
 
-     
+        public void ValidatiionKeyPressForTextBox(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!char.IsDigit(ch) && ch != 8)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
