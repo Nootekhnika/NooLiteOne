@@ -231,8 +231,7 @@ namespace NooLiteServiceSoft.IconClass
 
             using (SerialPort port = Port.TakeDataPort())
             {
-
-
+                
                 string[] idArray = idDevices.Split('&');
 
                 byte[] bufferMainPropertiesFirstWrite = new byte[17] { 171, 2, 9, 0, 0, 128, 0, 170, 0, 0, 0, byte.Parse(idArray[0]), byte.Parse(idArray[1]), byte.Parse(idArray[2]), byte.Parse(idArray[3]), 0, 172 };

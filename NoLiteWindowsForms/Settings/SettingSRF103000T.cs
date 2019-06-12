@@ -148,7 +148,7 @@ namespace NooLiteServiceSoft.Settings
 
             GroupBox SaveState = new GroupBox
             {
-                Left = 5,
+                Left = 8,
                 Top = 145,
                 Width = 195,
                 Height = 100,

@@ -270,6 +270,7 @@ namespace NooLiteServiceSoft.Settings
                 MinValue.Enabled = true;
                 RetranslOn.Enabled = false;
                 RetranslOff.Enabled = false;
+                RetranslOff.Checked = true;
                 MinLvlValue.Enabled = true;
 
             }

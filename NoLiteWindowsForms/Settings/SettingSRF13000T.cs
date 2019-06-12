@@ -38,7 +38,7 @@ namespace NooLiteServiceSoft.Settings
             _deviceNoConnection = deviceNoConnection;
             _labelSRF1300T = srf13000T;
             _i = i;
-            _tempT = temp;
+            _tempT = tempT;
             _tempMaxT = tempMaxT;
             DataNow(port,device.Channel.ToString(),device.Id);
         }
@@ -58,8 +58,8 @@ namespace NooLiteServiceSoft.Settings
             port.Write(tx_bufferCustomMaxTemp, 0, tx_bufferCustomMaxTemp.Length);
             deviceT.WaitData(port, rx_bufferCustomMaxTemp);            
             if (port.IsOpen) port.Close();
-            temp.Text = rx_buffer[10].ToString() + "C";
-            maxTemp.Text = rx_bufferCustomMaxTemp[7].ToString() + "C";
+            temp.Text = rx_buffer[10].ToString() + "C°";
+            maxTemp.Text = rx_bufferCustomMaxTemp[7].ToString() + "C°";
             trackBarTemp.Value = rx_bufferCustomMaxTemp[7];
         }
 

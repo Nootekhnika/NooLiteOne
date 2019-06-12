@@ -164,6 +164,7 @@ namespace NooLiteServiceSoft.UpdateFW
                     if (count == 10) break;
                     
                     bar.PerformStep();
+                    MessageBox.Show("Обновление прошло успешно!");
                 }
                 Thread.Sleep(500);
                 //try

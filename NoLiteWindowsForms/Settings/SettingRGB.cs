@@ -91,7 +91,7 @@ namespace NooLiteServiceSoft.Settings
         private void UpdateColor()
         {
             Color c = Color.FromArgb(trackBar2.Value, trackBar3.Value, trackBar4.Value);
-            panel1.BackColor = c;          
+            panel1.BackColor = c;
         }
 
         private void SendUpdateColorCmd()
@@ -121,32 +121,23 @@ namespace NooLiteServiceSoft.Settings
             UpdateColor();
         }
 
-        private void TrackBar3_Scroll(object sender, EventArgs e)
-        {
-            UpdateColor();
-        }
-
-        private void TrackBar4_Scroll(object sender, EventArgs e)
-        {
-            UpdateColor();
-        }
-
         private void TrackBar2_MouseUp(object sender, MouseEventArgs e)
         {
             SendUpdateColorCmd();
         }
 
-        private void TrackBar3_MouseUp(object sender, MouseEventArgs e)
+
+        private void TrackBright_Scroll(object sender, EventArgs e)
         {
-            SendUpdateColorCmd();
+            BrightControl();
         }
 
-        private void TrackBar4_MouseUp(object sender, MouseEventArgs e)
+        private void TrackBright_Scroll(object sender, MouseEventArgs e)
         {
-            SendUpdateColorCmd();
+            BrightControl();
         }
 
-        private void TrackBar1_Scroll(object sender, EventArgs e)
+        public void BrightControl()
         {
             label1.Text = ((trackBar1.Value - 28) * 100 / (156 - 28)).ToString() + "%";
             byte[] bufferNextColor = new byte[17] { 171, 0, 0, 0, deviceChannel, 6, 1, byte.Parse(trackBar1.Value.ToString()), 0, 0, 0, 0, 0, 0, 0, 0, 172 };

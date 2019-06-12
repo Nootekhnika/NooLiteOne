@@ -102,7 +102,10 @@ namespace NooLiteServiceSoft.IconClass
                 SizeMode = PictureBoxSizeMode.Zoom
             };
             labelTempT.Text = rx_buffer[10].ToString() + "C°";
-            labelTempMaxT.Text = rx_bufferCustomMaxTemp[7].ToString() + "C°";
+            if (rx_bufferCustomMaxTemp[2] == 1)
+            { labelTempMaxT.Text = "------"; }
+            else
+            { labelTempMaxT.Text = rx_bufferCustomMaxTemp[7].ToString() + "C°"; }
             pct.Controls.Add(pct_socet);          
         }    
     }

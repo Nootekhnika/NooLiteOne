@@ -64,7 +64,7 @@ namespace NooLiteServiceSoft
             if (comboBox_mode.Text.Equals("NooLite TX"))
             {
 
-                DialogResult dialogResult = MessageBox.Show("Вы подтвердили привязку, нажав кнопку на устройстве?", "Окно подтверждения", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Вы подтвердили привязку, нажав дважды сервисную кнопку на устройстве?", "Окно подтверждения", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     dvcForm1TX.NameDevice = textBox_name.Text;
@@ -133,7 +133,7 @@ namespace NooLiteServiceSoft
                 comboBox_typeDeviceTx.Top = 315;
                 comboBox_typeDeviceTx.Left = 44;
                 buttonAdd.Left = 125;
-                buttonAdd.Top = 435;
+                buttonAdd.Top = 428;
                 comboBoxGroup.Top = 390;
                 labelname_group.Top = 365;
             }

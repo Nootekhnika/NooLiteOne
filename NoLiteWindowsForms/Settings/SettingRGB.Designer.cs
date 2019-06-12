@@ -54,7 +54,6 @@
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button1.FlatAppearance.BorderSize = 3;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Location = new System.Drawing.Point(210, 39);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 36);
@@ -68,7 +67,6 @@
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button2.FlatAppearance.BorderSize = 3;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Location = new System.Drawing.Point(385, 39);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(129, 36);
@@ -86,7 +84,8 @@
             this.trackBar1.Size = new System.Drawing.Size(304, 56);
             this.trackBar1.TabIndex = 5;
             this.trackBar1.Value = 28;
-            this.trackBar1.Scroll += new System.EventHandler(this.TrackBar1_Scroll);
+            this.trackBar1.Scroll += new System.EventHandler(this.TrackBright_Scroll);
+            this.trackBar1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TrackBright_Scroll);
             // 
             // label1
             // 
@@ -112,7 +111,6 @@
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button3.FlatAppearance.BorderSize = 3;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Location = new System.Drawing.Point(210, 423);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(129, 36);
@@ -126,7 +124,6 @@
             this.button4.BackColor = System.Drawing.Color.White;
             this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button4.FlatAppearance.BorderSize = 3;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4.Location = new System.Drawing.Point(385, 423);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(129, 36);
@@ -164,8 +161,8 @@
             this.trackBar3.Size = new System.Drawing.Size(304, 56);
             this.trackBar3.TabIndex = 12;
             this.trackBar3.Value = 28;
-            this.trackBar3.Scroll += new System.EventHandler(this.TrackBar3_Scroll);
-            this.trackBar3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TrackBar3_MouseUp);
+            this.trackBar3.Scroll += new System.EventHandler(this.TrackBar2_Scroll);
+            this.trackBar3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TrackBar2_MouseUp);
             // 
             // trackBar4
             // 
@@ -175,8 +172,8 @@
             this.trackBar4.Size = new System.Drawing.Size(304, 56);
             this.trackBar4.TabIndex = 13;
             this.trackBar4.Value = 28;
-            this.trackBar4.Scroll += new System.EventHandler(this.TrackBar4_Scroll);
-            this.trackBar4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TrackBar4_MouseUp);
+            this.trackBar4.Scroll += new System.EventHandler(this.TrackBar2_Scroll);
+            this.trackBar4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TrackBar2_MouseUp);
             // 
             // label4
             // 
