@@ -147,6 +147,7 @@
     <Compile Include="IconClassTX\LabelDeviceChannelTX.cs" />
     <Compile Include="IconClassTX\LabelDeviceNameTX.cs" />
     <Compile Include="IconClassTX\PictureDeviceTX.cs" />
+    <Compile Include="IconClass\EventClass.cs" />
     <Compile Include="Icons.cs" />
     <Compile Include="IconClass\LabelDeviceChannel.cs" />
     <Compile Include="IconClass\LabelDeviceName.cs" />

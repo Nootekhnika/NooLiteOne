@@ -68,21 +68,20 @@ namespace NooLiteServiceSoft.IconClass
                 }
                 if (i <= devicesName.Count())
                 {
-                    PictureBox pct = new PictureBox();
-
-                    PictureMain _pct = new PictureMain();
+                    PictureBox pct = new PictureBox();                 
                     PictureSocket pictureSocket = new PictureSocket();
                     PictureDeviceOn _deviceOn = new PictureDeviceOn();
                     PictureDeviceNoConnection deviceNoConnection = new PictureDeviceNoConnection();
                     PictureDeviceOff deviceOff = new PictureDeviceOff();
                     LabelDeviceName deviceName = new LabelDeviceName();
                     LabelDeviceChannel deviceChannel = new LabelDeviceChannel();
+                    PictureMain _pct = new PictureMain();
 
                     pct = _pct.CreatePictureMain(i, port,pct, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i],devicesType[i],tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp,labelTempMax);                  
-                    _deviceOn.CreatePictureDeviceOn(i, pct);
+                    _deviceOn.CreatePictureDeviceOn(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
                     pictureSocket.CreatePictureSocket(i, pct, devicesType[i], port, devicesChannel[i], idDevices[i],labelTemp,labelTempMax);
-                    deviceOff.CreateDeviceOff(i, pct);
-                    deviceNoConnection.CreateDeviceNoConnection(i, pct);
+                    deviceOff.CreateDeviceOff(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
+                    deviceNoConnection.CreateDeviceNoConnection(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
                     deviceName.CreateLabelDeviceName(i, pct, devicesName);
                     deviceChannel.CreateLabelDeviceChannel(i, pct, devicesChannel);
                     if (devicesType[i].Equals("6"))
@@ -149,20 +148,19 @@ namespace NooLiteServiceSoft.IconClass
                 if (i <= devicesName.Count())
                 {
                     PictureBox pct = new PictureBox();
-
-                    PictureMain _pct = new PictureMain();
                     PictureSocket pictureSocket = new PictureSocket();
                     PictureDeviceOn _deviceOn = new PictureDeviceOn();
                     PictureDeviceNoConnection deviceNoConnection = new PictureDeviceNoConnection();
                     PictureDeviceOff deviceOff = new PictureDeviceOff();
                     LabelDeviceName deviceName = new LabelDeviceName();
                     LabelDeviceChannel deviceChannel = new LabelDeviceChannel();
+                    PictureMain _pct = new PictureMain();
 
                     pct = _pct.CreatePictureMain(i, port, pct,devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
-                    _deviceOn.CreatePictureDeviceOn(i, pct);
+                    _deviceOn.CreatePictureDeviceOn(i, pct,port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
                     pictureSocket.CreatePictureSocket(i, pct, devicesType[i],port,devicesChannel[i],idDevices[i],labelTemp,labelTempMax);
-                    deviceOff.CreateDeviceOff(i, pct);
-                    deviceNoConnection.CreateDeviceNoConnection(i, pct);
+                    deviceOff.CreateDeviceOff(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
+                    deviceNoConnection.CreateDeviceNoConnection(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
                     deviceName.CreateLabelDeviceName(i, pct, devicesName);
                     deviceChannel.CreateLabelDeviceChannel(i, pct, devicesChannel);
                     if (devicesType[i].Equals("6"))
