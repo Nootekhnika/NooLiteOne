@@ -7,16 +7,29 @@ namespace NooLiteServiceSoft.IconClass
     {
         public void CreateLabelDeviceName(int i ,PictureBox pct, string[] devicesName)
         {
+            double countWidth = devicesName[i].Length * 7.5;
             Label deviceName = new Label
             {
                 Height = 20,
-                Width = 80,
+                Width = (int)countWidth,
                 Name = "deviceNameTX" + i.ToString(),
                 Left = 20,
                 Top = 80,
                 BackColor = Color.White,
                 Text = devicesName[i]
             };
+            deviceName.Left = ((pct.Width - deviceName.Width) / 2) + 1;
+            ToolTip yourToolTip = new ToolTip
+            {
+                ToolTipIcon = ToolTipIcon.None,
+                IsBalloon = false,
+                ShowAlways = true,
+                BackColor = Color.White
+            };
+            if (deviceName.Text.Length > 13)
+            {
+                yourToolTip.SetToolTip(deviceName, deviceName.Text);
+            }
             pct.Controls.Add(deviceName);
         }
     }

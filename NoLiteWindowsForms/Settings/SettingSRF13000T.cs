@@ -21,13 +21,15 @@ namespace NooLiteServiceSoft.Settings
         PictureDeviceOn _deviceOn = new PictureDeviceOn();
         PictureDeviceNoConnection _deviceNoConnection = new PictureDeviceNoConnection();
         PictureDeviceOff _deviceoff = new PictureDeviceOff();
-        Label _labelSRF1300T;
+        Label _labelSRF13000T;
         Label _tempT;
         Label _tempMaxT;
+        string nameDevice;
+        TabPage _page;
         PictureSocket pictureSocket = new PictureSocket();
         int _i;
 
-        public SettingSRF13000T(Device device,PictureBox pct, PictureDeviceOn deviceOn, PictureDeviceOff deviceOff, PictureDeviceNoConnection deviceNoConnection,Label srf13000T,int i,Label tempT,Label tempMaxT)
+        public SettingSRF13000T(Device device,PictureBox pct, PictureDeviceOn deviceOn, PictureDeviceOff deviceOff, PictureDeviceNoConnection deviceNoConnection,Label srf13000T,int i,string deviceNames,TabPage tabPage,Label tempT,Label tempMaxT)
         {
             InitializeComponent();
             deviceT.Channel = device.Channel;
@@ -36,8 +38,10 @@ namespace NooLiteServiceSoft.Settings
             _deviceOn = deviceOn;
             _deviceoff = deviceOff;
             _deviceNoConnection = deviceNoConnection;
-            _labelSRF1300T = srf13000T;
+            _labelSRF13000T = srf13000T;
             _i = i;
+            nameDevice = deviceNames;
+            _page = tabPage;
             _tempT = tempT;
             _tempMaxT = tempMaxT;
             DataNow(port,device.Channel.ToString(),device.Id);
@@ -76,7 +80,7 @@ namespace NooLiteServiceSoft.Settings
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            byte[] buffer = new byte[17] { 171, 2, 8, 0, deviceT.Channel, 0, 0, 0, 0, 0, 0, deviceT.Id[0], deviceT.Id[1], deviceT.Id[2], deviceT.Id[3], 0, 172 };
+            byte[] buffer = new byte[17] { 171, 2, 8, 0, deviceT.Channel,0, 0, 0, 0, 0, 0, deviceT.Id[0], deviceT.Id[1], deviceT.Id[2], deviceT.Id[3], 0, 172 };
             byte[] tx_buffer = deviceT.CRC(buffer);
             byte[] rx_buffer = new byte[17];
             if (port.IsOpen == false) port.Open();
@@ -113,15 +117,15 @@ namespace NooLiteServiceSoft.Settings
             {
                 maxTemp.Text = trackBarTemp.Value.ToString() + "C°";
             }
-            if (int.Parse(temp.Text.TrimEnd('C','°'))>= int.Parse(maxTemp.Text.TrimEnd('C','°'))){
-                button1.Enabled = false;
-                button2.Enabled = false;
-            }
-            else
-            {
-                button1.Enabled = true;
-                button2.Enabled = true;
-            }
+            //if (int.Parse(temp.Text.TrimEnd('C','°'))>= int.Parse(maxTemp.Text.TrimEnd('C','°'))){
+            //    button1.Enabled = false;
+            //    button2.Enabled = false;
+            //}
+            //else
+            //{
+            //    button1.Enabled = true;
+            //    button2.Enabled = true;
+            //}
         }
 
         private void SettingSRF13000T_FormClosed(object sender, FormClosedEventArgs e)
@@ -132,8 +136,8 @@ namespace NooLiteServiceSoft.Settings
                 Id += deviceT.Id[i].ToString() + "&";
             }
             string IdDevice = Id.TrimEnd('&');
-            icons.StatusAllIcons(_pct, _deviceoff, _deviceOn, _deviceNoConnection, IdDevice, _labelSRF1300T);
-            pictureSocket.CreateLabelForSRF13000T(_i,port, deviceT.Channel.ToString(),_pct,"6", IdDevice,_tempT,_tempMaxT);
+            icons.StatusAllIcons(_pct, _deviceoff, _deviceOn, _deviceNoConnection, IdDevice, _labelSRF13000T);
+            pictureSocket.CreateLabelForSRF13000T(_i,_pct,port, deviceT.Channel.ToString(),_deviceOn,_deviceoff,_deviceNoConnection, IdDevice, nameDevice, "6",_page , _labelSRF13000T, _tempT,_tempMaxT);
         }
 
         private void PictureBox8_Click(object sender, EventArgs e)

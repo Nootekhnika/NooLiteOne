@@ -15,8 +15,9 @@ namespace NooLiteServiceSoft.DeviceProperties
         XmlTypeDevice xmlTypeDevice = new XmlTypeDevice();
 
         const byte SRF101000 = 2;
-        
-       
+        const byte SRF13000T = 6;
+
+
 
         public DeviceProperty(byte[] deviceParams, byte[] secondDeviceParams,byte[] activeChannel,string status)
         {
@@ -26,7 +27,14 @@ namespace NooLiteServiceSoft.DeviceProperties
             labelValue_VersionSoftware.Text = deviceParams[8].ToString();
             labelValue_Status.Text = status;
             label_ParamDevice.Text = $"{xmlTypeDevice.DeviceParamXml(deviceParams[7])}:";
-            labelValue_ParamDevice.Text = $"{ xmlTypeDevice.DeviceParamNowXml(deviceParams)} { xmlTypeDevice.DeviceMeansureXml(deviceParams[7])}";
+            if (deviceParams[7] == SRF13000T)
+            {
+                labelValue_ParamDevice.Text = $"{ xmlTypeDevice.DeviceParamNowXml(deviceParams)} { xmlTypeDevice.DeviceMeansureXml(deviceParams[7])}°";
+            }
+            else
+            {
+                labelValue_ParamDevice.Text = $"{ xmlTypeDevice.DeviceParamNowXml(deviceParams)} { xmlTypeDevice.DeviceMeansureXml(deviceParams[7])}";
+            }
             labelValue_FreeNooLite.Text = secondDeviceParams[9].ToString();
             labelValue_NooLiteF.Text = secondDeviceParams[10].ToString();
             if (deviceParams[7] == SRF101000)

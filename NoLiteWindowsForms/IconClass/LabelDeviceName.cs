@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace NooLiteServiceSoft.IconClass
@@ -8,17 +9,39 @@ namespace NooLiteServiceSoft.IconClass
         // Отображение имени устройства на основной иконке
         public void CreateLabelDeviceName(int i ,PictureBox pct, string[] devicesName)
         {
+            double countWidth = devicesName[i].Length * 7.5;
             Label deviceName = new Label
             {
                 Height = 20,
-                Width = 80,
+                Width =(int)countWidth,
                 Name = "deviceName" + i.ToString(),
-                Left = 20,
                 Top = 80,
                 BackColor = Color.White,
-                Text = devicesName[i]
+                Text = devicesName[i],
+                
             };
+            deviceName.Left = ((pct.Width - deviceName.Width) / 2) + 1;
+            if (deviceName.Text.Length >= 14)
+            {
+                deviceName.Width = 100;
+                deviceName.Left = 0;
+            }
+
+            ToolTip yourToolTip = new ToolTip
+            {
+                ToolTipIcon = ToolTipIcon.None,
+                IsBalloon =false,
+                ShowAlways = true,
+                BackColor =Color.White
+            };
+            if (deviceName.Text.Length > 13)
+            {
+                yourToolTip.SetToolTip(deviceName, deviceName.Text);
+            }
+
             pct.Controls.Add(deviceName);
         }
+
+      
     }
 }

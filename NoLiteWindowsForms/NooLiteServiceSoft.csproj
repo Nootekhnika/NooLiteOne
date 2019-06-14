@@ -144,10 +144,11 @@
     <Compile Include="FormSplashScreen.Designer.cs">
       <DependentUpon>FormSplashScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="IconClassTX\EventMethodTX.cs" />
     <Compile Include="IconClassTX\LabelDeviceChannelTX.cs" />
     <Compile Include="IconClassTX\LabelDeviceNameTX.cs" />
     <Compile Include="IconClassTX\PictureDeviceTX.cs" />
-    <Compile Include="IconClass\EventClass.cs" />
+    <Compile Include="IconClass\EventMethod.cs" />
     <Compile Include="Icons.cs" />
     <Compile Include="IconClass\LabelDeviceChannel.cs" />
     <Compile Include="IconClass\LabelDeviceName.cs" />

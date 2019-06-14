@@ -12,7 +12,7 @@ namespace NooLiteServiceSoft.IconClass
     public class PictureDeviceNoConnection 
     {
         PictureBox pct_noConnection = new PictureBox();
-        EventClass eventClass = new EventClass();
+        EventMethod eventClass = new EventMethod();
 
         public void CreateDeviceNoConnection(int i, PictureBox pictureBox, SerialPort port, string devicesChannel, PictureDeviceOn _deviceOn, PictureDeviceOff _deviceoff, PictureDeviceNoConnection deviceNoConnection, string idDevices, string devicesName, string deviceType, TabPage tabPage, int positionPictureTop, int positionPictureLeft, Label srf13000T, Label tempT, Label tempMaxT)
         {           
@@ -31,7 +31,7 @@ namespace NooLiteServiceSoft.IconClass
 
             if (deviceType.Equals("6"))
             {
-                pct_noConnection.MouseClick += delegate (object sender, MouseEventArgs e) { eventClass.MenuItemSRF13000T_Setting(sender, e, port, pictureBox, devicesChannel, devicesName, idDevices, _deviceOn, _deviceoff, deviceNoConnection, srf13000T, i, tempT, tempMaxT); };
+                pct_noConnection.MouseClick += delegate (object sender, MouseEventArgs e) { eventClass.MenuItemSRF13000T_Setting(sender, e, port, pictureBox, devicesChannel, devicesName, idDevices, _deviceOn, _deviceoff, deviceNoConnection, srf13000T, i, tempT, tempMaxT,tabPage); };
                 pct_noConnection.MouseUp += delegate (object sender, MouseEventArgs e) { eventClass.Btn_MouseUp(sender, e, port, pictureBox, _deviceOn, _deviceoff, deviceNoConnection, devicesChannel, idDevices, pct_noConnection, devicesName, deviceType, tabPage, srf13000T); };
             }
             else

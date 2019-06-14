@@ -21,23 +21,7 @@ namespace NooLiteServiceSoft.IconClass
         XmlTypeDevice xmlTypeDevice = new XmlTypeDevice();
         XmlGroup xmlGroup = new XmlGroup();
         Device device = new Device();
-        Label labelHeatingSRF13000T = new Label();
-        readonly Label labelTemp = new Label
-        {
-            Height = 30,
-            Width = 35,
-            Top = 5,
-            Left = 30
-        };
-        readonly Label labelTempMax = new Label
-        {
-            Height = 15,
-            Width = 30,
-            Top = 30,
-            Left = 30,
-            BackColor = Color.FromArgb(0,192,0),
-            ForeColor = Color.White
-        };
+       
 
 
         public void IconAddallDevices(TabPage tabPage1)
@@ -76,17 +60,38 @@ namespace NooLiteServiceSoft.IconClass
                     LabelDeviceName deviceName = new LabelDeviceName();
                     LabelDeviceChannel deviceChannel = new LabelDeviceChannel();
                     PictureMain _pct = new PictureMain();
+                    Label labelTemp = new Label
+                    {
+                        Height = 30,
+                        Width = 35,
+                        Top = 5,
+                        Left = 31
+                    };
+                    Label labelTempMax = new Label
+                    {
+                        Height = 20,
+                        Width = 35,
+                        Top = 30,
+                        Left = 30,
+                        BackColor = Color.FromArgb(0, 192, 0),
+                        ForeColor = Color.White,
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        AutoSize = false,
+                        Padding = new Padding(1, 3, 0, 0)
+                    };
+
+                    Label labelHeatingSRF13000T = new Label();
 
                     pct = _pct.CreatePictureMain(i, port,pct, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i],devicesType[i],tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp,labelTempMax);                  
                     _deviceOn.CreatePictureDeviceOn(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
-                    pictureSocket.CreatePictureSocket(i, pct, devicesType[i], port, devicesChannel[i], idDevices[i],labelTemp,labelTempMax);
+                    pictureSocket.CreatePictureSocket(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, labelHeatingSRF13000T, labelTemp, labelTempMax);
                     deviceOff.CreateDeviceOff(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
                     deviceNoConnection.CreateDeviceNoConnection(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
                     deviceName.CreateLabelDeviceName(i, pct, devicesName);
                     deviceChannel.CreateLabelDeviceChannel(i, pct, devicesChannel);
                     if (devicesType[i].Equals("6"))
                     {
-                        CreateLabelForSRF13000T(i,devicesType[i],pct);
+                        CreateLabelForSRF13000T(i,devicesType[i],pct,labelHeatingSRF13000T);
                     }
                     StatusAllIcons(pct, deviceOff, _deviceOn, deviceNoConnection, idDevices[i],labelHeatingSRF13000T);
 
@@ -102,14 +107,13 @@ namespace NooLiteServiceSoft.IconClass
                     positionLeft = 0;
                 }
                 PictureBox pct = new PictureBox();
-
                 PictureMainTX _pct = new PictureMainTX();
                 LabelDeviceChannelTX deviceChannelTX = new LabelDeviceChannelTX();
                 LabelDeviceNameTX deviceNameTX = new LabelDeviceNameTX();
                 PictureDeviceTX pictureDeviceTX = new PictureDeviceTX();
 
                 pct = _pct.CreatePictureMain(i, port, devicesChannelTX[i], devicesNameTX[i], tabPage1, positionTop, positionLeft, devicesTypeTX[i]);
-                pictureDeviceTX.CreatePictureTX(i,pct, devicesTypeTX[i]);
+                pictureDeviceTX.CreatePictureTX(i,port,pct, devicesChannelTX[i], devicesNameTX[i], tabPage1, devicesTypeTX[i]);
                 deviceNameTX.CreateLabelDeviceName(i, pct, devicesNameTX);
                 deviceChannelTX.CreateLabelDeviceChannel(i, pct, devicesChannelTX);
 
@@ -147,6 +151,7 @@ namespace NooLiteServiceSoft.IconClass
                 }
                 if (i <= devicesName.Count())
                 {
+                   
                     PictureBox pct = new PictureBox();
                     PictureSocket pictureSocket = new PictureSocket();
                     PictureDeviceOn _deviceOn = new PictureDeviceOn();
@@ -155,17 +160,20 @@ namespace NooLiteServiceSoft.IconClass
                     LabelDeviceName deviceName = new LabelDeviceName();
                     LabelDeviceChannel deviceChannel = new LabelDeviceChannel();
                     PictureMain _pct = new PictureMain();
-
+                    Label labelTemp = new Label();
+                    Label labelTempMax = new Label();
+                    Label labelHeatingSRF13000T = new Label();
+                    CreateMainPropsTempForSRF13000T(labelTemp,labelTempMax);
                     pct = _pct.CreatePictureMain(i, port, pct,devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
                     _deviceOn.CreatePictureDeviceOn(i, pct,port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
-                    pictureSocket.CreatePictureSocket(i, pct, devicesType[i],port,devicesChannel[i],idDevices[i],labelTemp,labelTempMax);
+                    pictureSocket.CreatePictureSocket(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, labelHeatingSRF13000T, labelTemp, labelTempMax);
                     deviceOff.CreateDeviceOff(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
                     deviceNoConnection.CreateDeviceNoConnection(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
                     deviceName.CreateLabelDeviceName(i, pct, devicesName);
                     deviceChannel.CreateLabelDeviceChannel(i, pct, devicesChannel);
                     if (devicesType[i].Equals("6"))
                     {
-                        CreateLabelForSRF13000T(i, devicesType[i], pct);
+                        CreateLabelForSRF13000T(i, devicesType[i], pct,labelHeatingSRF13000T);
                     }
                     StatusAllIcons(pct, deviceOff, _deviceOn, deviceNoConnection, idDevices[i],labelHeatingSRF13000T);
 
@@ -190,7 +198,7 @@ namespace NooLiteServiceSoft.IconClass
                 pct = _pct.CreatePictureMain(i, port, devicesChannelTX[i], devicesNameTX[i], tabPage1, positionTop, positionLeft,devicesTypeTX[i]);
                 deviceNameTX.CreateLabelDeviceName(i, pct, devicesNameTX);
                 deviceChannelTX.CreateLabelDeviceChannel(i, pct, devicesChannelTX);
-                pictureDeviceTX.CreatePictureTX(i,pct,devicesTypeTX[i]);
+                pictureDeviceTX.CreatePictureTX(i, port, pct, devicesChannelTX[i], devicesNameTX[i], tabPage1, devicesTypeTX[i]);
 
                 positionLeft++;
                 countDevices++;
@@ -305,7 +313,7 @@ namespace NooLiteServiceSoft.IconClass
             }
         }
 
-        private void CreateLabelForSRF13000T(int i,string devicesType,PictureBox pct)
+        private void CreateLabelForSRF13000T(int i,string devicesType,PictureBox pct, Label labelHeatingSRF13000T)
         {           
                 labelHeatingSRF13000T.Height = 20;
                 labelHeatingSRF13000T.Width = 120;
@@ -314,6 +322,24 @@ namespace NooLiteServiceSoft.IconClass
                 pct.Controls.Add(labelHeatingSRF13000T);           
         }
 
+        private void CreateMainPropsTempForSRF13000T(Label Temp, Label TempMax)
+        {
+            Temp.Height = 30;
+            Temp.Width = 35;
+            Temp.Top = 5;
+            Temp.Left = 31;
+            TempMax.Height = 20;
+            TempMax.Width = 35;
+            TempMax.Top = 30;
+            TempMax.Left = 30;
+            TempMax.BackColor = Color.FromArgb(0, 192, 0);
+            TempMax.ForeColor = Color.White;
+            TempMax.TextAlign = ContentAlignment.MiddleCenter;
+            TempMax.AutoSize = false;
+            TempMax.Padding = new Padding(1, 3, 0, 0);
+        }
+
+        
         public void AddRooms( TabControl tabControl)
         {
             string[] RoomName = xmlGroup.RoomNameXml();

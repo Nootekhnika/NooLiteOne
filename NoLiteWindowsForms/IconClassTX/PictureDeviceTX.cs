@@ -1,13 +1,18 @@
-﻿using System.Drawing;
+﻿using NooLiteServiceSoft.IconClassTX;
+using System.Drawing;
+using System.IO.Ports;
 using System.Windows.Forms;
 
 namespace NooLiteServiceSoft.IconClass
 {
     public class PictureDeviceTX
     {
-        public void CreatePictureTX(int i, PictureBox pct, string deviceType)
+
+        EventMethodTX eventMethod = new EventMethodTX();
+
+        public void CreatePictureTX(int i, SerialPort port, PictureBox pictureBox,string devicesChannel, string devicesName,TabPage tabPage, string deviceTypeTx)
         {
-            if (deviceType.Equals("Светодиодный контроллер"))
+            if (deviceTypeTx.Equals("Светодиодный контроллер"))
             {
                 PictureBox pct_socet = new PictureBox
                 {
@@ -19,7 +24,9 @@ namespace NooLiteServiceSoft.IconClass
                     BackColor = Color.White,
                     SizeMode = PictureBoxSizeMode.Zoom
                 };
-                pct.Controls.Add(pct_socet);
+                pct_socet.MouseClick += delegate (object sender, MouseEventArgs e) { eventMethod.MenuItemRGB_Setting(sender, e, port, devicesChannel, devicesName); };
+                pct_socet.MouseUp += delegate (object sender, MouseEventArgs e) { eventMethod.Btn_MouseUp(sender, e, port, devicesChannel, pictureBox, devicesName, tabPage); };
+                pictureBox.Controls.Add(pct_socet);
             }
             else
             {
@@ -34,7 +41,9 @@ namespace NooLiteServiceSoft.IconClass
                     BackColor = Color.White,
                     SizeMode = PictureBoxSizeMode.Normal
                 };
-                pct.Controls.Add(pct_socet);
+                pct_socet.MouseClick += delegate (object sender, MouseEventArgs e) { eventMethod.DbClick_Connection(sender, e, port, devicesChannel); };
+                pct_socet.MouseUp += delegate (object sender, MouseEventArgs e) { eventMethod.Btn_MouseUp(sender, e, port, devicesChannel, pictureBox, devicesName, tabPage); };
+                pictureBox.Controls.Add(pct_socet);
             }
         }
     }
