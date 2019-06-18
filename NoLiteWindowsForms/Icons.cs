@@ -1,4 +1,5 @@
-﻿using NooLiteServiceSoft.XML;
+﻿using NooLiteServiceSoft.IconClassTX;
+using NooLiteServiceSoft.XML;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -37,11 +38,13 @@ namespace NooLiteServiceSoft.IconClass
             string[] devicesChannel = new string[devicesName.Length];
             string[] devicesType = new string[devicesName.Length];
             string[] idDevices = new string[devicesName.Length];
-            xmlDevice.DeviceElementsXml(devicesChannel, devicesType, idDevices);//каналы устройств
+            string[] roomName = new string[devicesName.Length];
+            xmlDevice.DeviceElementsXml(devicesChannel, devicesType, idDevices, roomName);//каналы устройств
             string[] devicesNameTX = xmlDevice.DeviceNameXml(DEVICEPATHTX);
             string[] devicesChannelTX = new string[devicesNameTX.Length];
             string[] devicesTypeTX = new string[devicesNameTX.Length];
-            xmlDevice.DeviceElementsXmlTX(devicesChannelTX, devicesTypeTX);
+            string[] roomNameTX = new string[devicesNameTX.Length];
+            xmlDevice.DeviceElementsXmlTX(devicesChannelTX, devicesTypeTX,roomNameTX);// не забыть сделать
 
             for (int i = 0; i < devicesName.Count(); i++)
             {
@@ -57,27 +60,28 @@ namespace NooLiteServiceSoft.IconClass
                     PictureDeviceOn _deviceOn = new PictureDeviceOn();
                     PictureDeviceNoConnection deviceNoConnection = new PictureDeviceNoConnection();
                     PictureDeviceOff deviceOff = new PictureDeviceOff();
+                    LabelRoomName labelRoomName = new LabelRoomName();
                     LabelDeviceName deviceName = new LabelDeviceName();
                     LabelDeviceChannel deviceChannel = new LabelDeviceChannel();
                     PictureMain _pct = new PictureMain();
                     Label labelTemp = new Label
                     {
-                        Height = 30,
+                        Height = 20,
                         Width = 35,
                         Top = 5,
                         Left = 31
                     };
                     Label labelTempMax = new Label
                     {
-                        Height = 20,
-                        Width = 35,
-                        Top = 30,
-                        Left = 30,
+                        Height = 17,
+                        Width = 34,
+                        Top = 25,
+                        Left = 31,
                         BackColor = Color.FromArgb(0, 192, 0),
                         ForeColor = Color.White,
                         TextAlign = ContentAlignment.MiddleCenter,
                         AutoSize = false,
-                        Padding = new Padding(1, 3, 0, 0)
+                        Padding = new Padding(0,0, 0, 1)
                     };
 
                     Label labelHeatingSRF13000T = new Label();
@@ -87,6 +91,7 @@ namespace NooLiteServiceSoft.IconClass
                     pictureSocket.CreatePictureSocket(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, labelHeatingSRF13000T, labelTemp, labelTempMax);
                     deviceOff.CreateDeviceOff(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
                     deviceNoConnection.CreateDeviceNoConnection(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
+                    labelRoomName.CreateLabelRoomName(i,pct,roomName);
                     deviceName.CreateLabelDeviceName(i, pct, devicesName);
                     deviceChannel.CreateLabelDeviceChannel(i, pct, devicesChannel);
                     if (devicesType[i].Equals("6"))
@@ -110,11 +115,13 @@ namespace NooLiteServiceSoft.IconClass
                 PictureMainTX _pct = new PictureMainTX();
                 LabelDeviceChannelTX deviceChannelTX = new LabelDeviceChannelTX();
                 LabelDeviceNameTX deviceNameTX = new LabelDeviceNameTX();
+                LabelRoomNameTX labelRoomNameTX = new LabelRoomNameTX();
                 PictureDeviceTX pictureDeviceTX = new PictureDeviceTX();
 
                 pct = _pct.CreatePictureMain(i, port, devicesChannelTX[i], devicesNameTX[i], tabPage1, positionTop, positionLeft, devicesTypeTX[i]);
                 pictureDeviceTX.CreatePictureTX(i,port,pct, devicesChannelTX[i], devicesNameTX[i], tabPage1, devicesTypeTX[i]);
                 deviceNameTX.CreateLabelDeviceName(i, pct, devicesNameTX);
+                labelRoomNameTX.CreateLabelRoomNameTX(i,pct,roomNameTX);
                 deviceChannelTX.CreateLabelDeviceChannel(i, pct, devicesChannelTX);
 
                 positionLeft++;
@@ -313,13 +320,13 @@ namespace NooLiteServiceSoft.IconClass
             }
         }
 
-        private void CreateLabelForSRF13000T(int i,string devicesType,PictureBox pct, Label labelHeatingSRF13000T)
-        {           
-                labelHeatingSRF13000T.Height = 20;
-                labelHeatingSRF13000T.Width = 120;
-                labelHeatingSRF13000T.Top = 50;
-                labelHeatingSRF13000T.Left = 15;
-                pct.Controls.Add(labelHeatingSRF13000T);           
+        private void CreateLabelForSRF13000T(int i, string devicesType, PictureBox pct, Label labelHeatingSRF13000T)
+        {
+            labelHeatingSRF13000T.Height = 20;
+            labelHeatingSRF13000T.Width = 120;
+            labelHeatingSRF13000T.Top = 45;
+            labelHeatingSRF13000T.Left = 10;
+            pct.Controls.Add(labelHeatingSRF13000T);
         }
 
         private void CreateMainPropsTempForSRF13000T(Label Temp, Label TempMax)

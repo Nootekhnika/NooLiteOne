@@ -247,7 +247,7 @@ namespace NooLiteServiceSoft
             }
         }
 
-        public void DeviceElementsXml(string[] deviceChannel, string[] deviceType, string[] idDevice)
+        public void DeviceElementsXml(string[] deviceChannel, string[] deviceType, string[] idDevice, string[] roomName)
         {
             try
             {
@@ -258,7 +258,8 @@ namespace NooLiteServiceSoft
                                      select new
                                      {
                                          dChannel = el.Element("channel").Value,
-                                         dType = el.Element("typeDeviceId").Value
+                                         dType = el.Element("typeDeviceId").Value,
+                                         dRoomName = el.Element("RoomName").Value
                                      };
 
                 var IdDeviceElements = from el in xdoc.Root.Elements("device").Elements("IdDevice")
@@ -273,6 +274,7 @@ namespace NooLiteServiceSoft
                 {
                     deviceChannel[count] = param.dChannel;
                     deviceType[count] = param.dType;
+                    roomName[count] = param.dRoomName;
                     count++;
                 }
                 count = 0;
@@ -329,7 +331,7 @@ namespace NooLiteServiceSoft
             }
         }
 
-        public void DeviceElementsXmlTX(string[] deviceName, string[] deviceType)
+        public void DeviceElementsXmlTX(string[] deviceName, string[] deviceType,string[] roomName)
         {
             try
             {
@@ -339,12 +341,15 @@ namespace NooLiteServiceSoft
                                      select new
                                      {
                                          dName = el.Element("channel").Value,
-                                         dType = el.Element("typeDevice").Value
+                                         dType = el.Element("typeDevice").Value,
+                                         dRoomName = el.Element("RoomName").Value
+
                                      };
                 foreach (var param in deviceElements)
                 {
                     deviceName[count] = param.dName;
                     deviceType[count] = param.dType;
+                    roomName[count] = param.dRoomName;
                     count++;
                 }
             }

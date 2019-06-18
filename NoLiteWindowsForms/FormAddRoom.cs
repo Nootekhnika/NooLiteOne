@@ -39,7 +39,7 @@ namespace NooLiteServiceSoft
             {   Id = Guid.NewGuid().ToString(),
                 RoomName = room_textBox.Text
             };
-            if (room_textBox.Text.Length>0)
+            if (room_textBox.Text.Length > 0 && room_textBox.Text.Equals("Все") == false)
             {
                 if (File.Exists("rooms.xml") == false)
                 {

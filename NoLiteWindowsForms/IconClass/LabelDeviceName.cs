@@ -8,19 +8,18 @@ namespace NooLiteServiceSoft.IconClass
     {
         // Отображение имени устройства на основной иконке
         public void CreateLabelDeviceName(int i ,PictureBox pct, string[] devicesName)
-        {
-            double countWidth = devicesName[i].Length * 7.5;
+        {          
             Label deviceName = new Label
             {
                 Height = 20,
-                Width =(int)countWidth,
+                Width = 100,
                 Name = "deviceName" + i.ToString(),
                 Top = 80,
                 BackColor = Color.White,
                 Text = devicesName[i],
-                
-            };
-            deviceName.Left = ((pct.Width - deviceName.Width) / 2) + 1;
+                TextAlign = ContentAlignment.MiddleCenter
+
+            };         
             if (deviceName.Text.Length >= 14)
             {
                 deviceName.Width = 100;

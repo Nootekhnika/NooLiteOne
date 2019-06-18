@@ -62,7 +62,8 @@ namespace NooLiteServiceSoft.IconClassTX
             {
                 port.Close();
             }
-            icons.IconAddallDevices(tabPage);
+            if (tabPage.Text.Equals("Все")) { icons.IconAddallDevices(tabPage); }
+            else { icons.IconsAddRoom(tabPage); }
         }
 
         public void MenuItemRGB_Setting(object _sender, MouseEventArgs e, SerialPort port, string devicesChannel, string devicesName)

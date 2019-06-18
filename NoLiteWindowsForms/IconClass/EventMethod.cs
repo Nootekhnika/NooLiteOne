@@ -181,14 +181,14 @@ namespace NooLiteServiceSoft.IconClass
                                 _deviceOn.VisibleTrue();
                                 deviceOff.VisibleFalse();
                                 deviceNoConnection.VisibleFalse();
-                                MessageBox.Show("Передача");
+                               
                             }
                             if (rx_buffer[9] == 0)
                             {
                                 _deviceOn.VisibleFalse();
                                 deviceOff.VisibleTrue();
                                 deviceNoConnection.VisibleFalse();
-                                MessageBox.Show("Передача");
+                               
                             }
                         }
                         else
@@ -266,7 +266,8 @@ namespace NooLiteServiceSoft.IconClass
                 pct.Dispose();
             }
             if (port.IsOpen) port.Close();
-            icons.IconAddallDevices(tabPage);
+            if (tabPage.Text.Equals("Все")) { icons.IconAddallDevices(tabPage); }
+            else { icons.IconsAddRoom(tabPage);}
         }
 
         public void MenuItem2_ClickProperty(object _sender, EventArgs _e, SerialPort port, string devicesChannel, string idDevices, PictureBox pct, string devicesName, string deviceType)

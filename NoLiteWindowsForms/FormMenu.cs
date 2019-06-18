@@ -76,6 +76,7 @@ namespace NooLiteServiceSoft
 
                     using (FormMain fm = new FormMain(dvcForm1TX))
                     {
+                        formMain.Hide();
                         Hide();
                         fm.ShowDialog();
                     }
