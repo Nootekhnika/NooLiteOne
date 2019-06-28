@@ -164,7 +164,6 @@ namespace NooLiteServiceSoft.UpdateFW
                     if (count == 10) break;
                     
                     bar.PerformStep();
-                    MessageBox.Show("Обновление прошло успешно!");
                 }
                 Thread.Sleep(500);
                 //try
@@ -181,6 +180,7 @@ namespace NooLiteServiceSoft.UpdateFW
                     port.Write(BufferBootOff(), 0, BufferBootOff().Length);
                 }
                 if (port.IsOpen) port.Close();
+                MessageBox.Show("Обновление прошло успешно!");
             }
         }
 
@@ -225,8 +225,9 @@ namespace NooLiteServiceSoft.UpdateFW
             byte[] bufferBoot = new byte[26] { 175, 5, 11, 0, 170, 85, 170, 85, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, byte.Parse(idArray[0]), byte.Parse(idArray[1]), byte.Parse(idArray[2]), byte.Parse(idArray[3]), 0, 172 };
             byte[] tx_bufferBoot = CRC(bufferBoot);
             byte[] rx_bufferBoot = new byte[17];
-            if (port.IsOpen == false) port.Open();
-            port.Write(tx_bufferM, 0, tx_bufferM.Length);
+            //if (port.IsOpen == false) port.Open();
+            //port.Write(tx_bufferM, 0, tx_bufferM.Length);
+            WriteData(port,tx_bufferM);
             WaitData(port, rx_bufferM);
             port.Write(tx_buffer, 0, tx_buffer.Length);
             Thread.Sleep(500);

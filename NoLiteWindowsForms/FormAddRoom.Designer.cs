@@ -74,7 +74,7 @@
             // 
             // room_textBox
             // 
-            this.room_textBox.Location = new System.Drawing.Point(261, 205);
+            this.room_textBox.Location = new System.Drawing.Point(199, 205);
             this.room_textBox.Name = "room_textBox";
             this.room_textBox.Size = new System.Drawing.Size(263, 22);
             this.room_textBox.TabIndex = 0;
@@ -83,11 +83,11 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(261, 243);
+            this.button1.Location = new System.Drawing.Point(199, 243);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(263, 33);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Добавить комнату";
+            this.button1.Text = "Добавить группу";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
@@ -96,7 +96,7 @@
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(-9, 22);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(818, 70);
+            this.panel1.Size = new System.Drawing.Size(669, 70);
             this.panel1.TabIndex = 11;
             // 
             // panel2
@@ -106,7 +106,7 @@
             this.panel2.Controls.Add(this.hidePicture);
             this.panel2.Location = new System.Drawing.Point(-9, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(818, 29);
+            this.panel2.Size = new System.Drawing.Size(669, 29);
             this.panel2.TabIndex = 12;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseDown);
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseMove);
@@ -115,7 +115,7 @@
             // closePicture
             // 
             this.closePicture.Image = global::NooLiteServiceSoft.Properties.Resources.close1;
-            this.closePicture.Location = new System.Drawing.Point(772, -2);
+            this.closePicture.Location = new System.Drawing.Point(625, -2);
             this.closePicture.Name = "closePicture";
             this.closePicture.Size = new System.Drawing.Size(44, 36);
             this.closePicture.TabIndex = 1;
@@ -127,7 +127,7 @@
             // hidePicture
             // 
             this.hidePicture.Image = global::NooLiteServiceSoft.Properties.Resources.mini1;
-            this.hidePicture.Location = new System.Drawing.Point(727, -2);
+            this.hidePicture.Location = new System.Drawing.Point(580, -2);
             this.hidePicture.Name = "hidePicture";
             this.hidePicture.Size = new System.Drawing.Size(45, 36);
             this.hidePicture.TabIndex = 2;
@@ -142,9 +142,9 @@
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.pictureBox6);
             this.panel6.Controls.Add(this.pictureBox7);
-            this.panel6.Location = new System.Drawing.Point(804, 91);
+            this.panel6.Location = new System.Drawing.Point(657, 76);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(3, 407);
+            this.panel6.Size = new System.Drawing.Size(3, 382);
             this.panel6.TabIndex = 25;
             // 
             // panel7
@@ -203,9 +203,9 @@
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Location = new System.Drawing.Point(0, 84);
+            this.panel3.Location = new System.Drawing.Point(0, 83);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(3, 420);
+            this.panel3.Size = new System.Drawing.Size(3, 373);
             this.panel3.TabIndex = 26;
             // 
             // panel4
@@ -264,9 +264,9 @@
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.pictureBox8);
             this.panel5.Controls.Add(this.pictureBox9);
-            this.panel5.Location = new System.Drawing.Point(3, 495);
+            this.panel5.Location = new System.Drawing.Point(3, 396);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(815, 4);
+            this.panel5.Size = new System.Drawing.Size(671, 4);
             this.panel5.TabIndex = 27;
             // 
             // panel8
@@ -324,7 +324,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(807, 497);
+            this.ClientSize = new System.Drawing.Size(660, 400);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel6);
@@ -334,7 +334,7 @@
             this.Controls.Add(this.room_textBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(807, 497);
-            this.MinimumSize = new System.Drawing.Size(807, 497);
+            this.MinimumSize = new System.Drawing.Size(600, 400);
             this.Name = "FormAddRoom";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

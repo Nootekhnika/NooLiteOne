@@ -144,6 +144,27 @@ namespace NooLiteServiceSoft
             }
         }
 
+        public void WriteData(SerialPort port, byte[] arrayData)
+        {
+            try
+            {
+                if (port.IsOpen == false)
+                {
+                    port.Open();
+                }
+
+                port.Write(arrayData, 0, arrayData.Length);
+            }
+            catch
+            {
+                using (DisconnectMTRF disconnectMTRF = new DisconnectMTRF())
+                {
+                    disconnectMTRF.ShowDialog();
+                }
+                Application.Exit();
+            }
+        }
+
         public char[] Binary(byte x)
         {
             int k = Convert.ToInt32(x);

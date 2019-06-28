@@ -87,20 +87,20 @@ namespace NooLiteServiceSoft.XML
             if (File.Exists("devices.xml")==true)
             {
                 XDocument xdevice = XDocument.Load("devices.xml");
-                var deviceElements = xdoc.Root.Elements("device").Where(s => s.Element("RoomName").Value.Equals(roomName));
+                var deviceElements = xdevice.Root.Elements("device").Where(s => s.Element("RoomName").Value.Equals(roomName));
                 foreach (var p in deviceElements)
                 {
-                    p.Element("device").Element("RoomName").Value = "";
+                    p.Element("RoomName").Value = "";
                 }
                 xdevice.Save("devices.xml");
             }
             if (File.Exists("devicesTX.xml") == true)
             {
                 XDocument xdeviceTX = XDocument.Load("devicesTX.xml");
-                var deviceElementsTX = xdoc.Root.Elements("device").Where(s => s.Element("RoomName").Value.Equals(roomName));
-                foreach (var p in deviceElementsTX)
+                var deviceElementsTX = xdeviceTX.Root.Elements("device").Where(s => s.Element("RoomName").Value.Equals(roomName));
+                foreach (XElement p in deviceElementsTX)
                 {
-                    p.Element("device").Element("RoomName").Value = "";
+                    p.Element("RoomName").Value = "";
                 }
                 xdeviceTX.Save("devicesTX.xml");
             }         

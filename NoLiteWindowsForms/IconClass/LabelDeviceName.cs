@@ -12,7 +12,7 @@ namespace NooLiteServiceSoft.IconClass
             Label deviceName = new Label
             {
                 Height = 20,
-                Width = 100,
+                Width = 97,
                 Name = "deviceName" + i.ToString(),
                 Top = 80,
                 BackColor = Color.White,
@@ -20,9 +20,9 @@ namespace NooLiteServiceSoft.IconClass
                 TextAlign = ContentAlignment.MiddleCenter
 
             };         
-            if (deviceName.Text.Length >= 14)
+            if (deviceName.Text.Length >= 13)
             {
-                deviceName.Width = 100;
+                deviceName.Width = 97;
                 deviceName.Left = 0;
             }
 
@@ -33,7 +33,7 @@ namespace NooLiteServiceSoft.IconClass
                 ShowAlways = true,
                 BackColor =Color.White
             };
-            if (deviceName.Text.Length > 13)
+            if (deviceName.Text.Length > 12)
             {
                 yourToolTip.SetToolTip(deviceName, deviceName.Text);
             }

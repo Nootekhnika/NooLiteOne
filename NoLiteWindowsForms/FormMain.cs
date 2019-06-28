@@ -10,6 +10,7 @@ using NooLiteServiceSoft.Design;
 using NooLiteServiceSoft.DeviceProperties;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace NooLiteServiceSoft
 {
@@ -38,7 +39,7 @@ namespace NooLiteServiceSoft
                 xmlTypeDevice.CreateXmlFile();
             }
             icons.IconAddallDevices(tabPage1);
-            icons.AddRooms(tabControl);
+            icons.AddRooms(tabControl,tabPage1);
 
             if (contextToolStripMenuItem.Checked == true) { contextToolStripMenuItem.ForeColor = Color.White; }
         }
@@ -53,7 +54,7 @@ namespace NooLiteServiceSoft
             {
                 deviceTX.BindCommandTX(deviceForm2);// BIND
                 icons.IconAddallDevices(tabPage1);
-                icons.AddRooms(tabControl);
+                icons.AddRooms(tabControl,tabPage1);
             }
             catch (IOException)
             {
@@ -71,7 +72,7 @@ namespace NooLiteServiceSoft
             {
                 device.BindCommandFTX(deviceForm2);// BIND
                 icons.IconAddallDevices(tabPage1);
-                icons.AddRooms(tabControl);
+                icons.AddRooms(tabControl,tabPage1);
             }
             catch (IOException)
             {
@@ -94,7 +95,7 @@ namespace NooLiteServiceSoft
         {
             contextToolStripMenuItem.ForeColor = Color.Black;
             await Task.Delay(100);
-            FormAddRoom rooms = new FormAddRoom(tabControl);           
+            FormAddRoom rooms = new FormAddRoom(tabControl,tabPage1);           
                 rooms.ShowDialog();
             
         }
@@ -202,6 +203,7 @@ namespace NooLiteServiceSoft
         private void Panel2_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;
+            //UpdateTabPage();
         }    
 
         private void UpdatePoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -224,5 +226,7 @@ namespace NooLiteServiceSoft
                 terminal.ShowDialog();
             }
         }
+
+      
     }
 }

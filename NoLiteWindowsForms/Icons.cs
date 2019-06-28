@@ -224,11 +224,11 @@ namespace NooLiteServiceSoft.IconClass
 
                     byte[] buffer = new byte[17] { 171, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 175, 172 };
                     byte[] rx_buffer = new byte[17];
-                    if (port.IsOpen == false)
-                    {
-                        port.Open();
-                    }
-                    port.Write(buffer, 0, buffer.Length);
+                    //if (port.IsOpen == false)
+                    //{
+                    //    port.Open();
+                    //}
+                    device.WriteData(port,buffer);
                     device.WaitData(port, rx_buffer);
                     if (rx_buffer != null)
                     {
@@ -250,9 +250,10 @@ namespace NooLiteServiceSoft.IconClass
                 byte[] bufferMainPropertiesFirstWrite = new byte[17] { 171, 2, 9, 0, 0, 128, 0, 170, 0, 0, 0, byte.Parse(idArray[0]), byte.Parse(idArray[1]), byte.Parse(idArray[2]), byte.Parse(idArray[3]), 0, 172 };
                 byte[] tx_bufferMainPropertiesFirstWrite = device.CRC(bufferMainPropertiesFirstWrite);             
                 byte[] rx_bufferMainPropertiesFirstRequest = new byte[17];
-               
-                if (port.IsOpen == false) port.Open();
-                port.Write(tx_bufferMainPropertiesFirstWrite, 0, tx_bufferMainPropertiesFirstWrite.Length);//БАГ              
+
+                // if (port.IsOpen == false) port.Open();
+                //port.Write(tx_bufferMainPropertiesFirstWrite, 0, tx_bufferMainPropertiesFirstWrite.Length);//БАГ   
+                device.WriteData(port, tx_bufferMainPropertiesFirstWrite);
                 device.WaitData(port, rx_bufferMainPropertiesFirstRequest);
 
                 if (port.IsOpen) port.Close();
@@ -347,7 +348,7 @@ namespace NooLiteServiceSoft.IconClass
         }
 
         
-        public void AddRooms( TabControl tabControl)
+        public void AddRooms( TabControl tabControl, TabPage mainTabPage)
         {
             string[] RoomName = xmlGroup.RoomNameXml();
             if (RoomName != null)
@@ -359,13 +360,13 @@ namespace NooLiteServiceSoft.IconClass
                         BackColor = Color.White
                     };
                     page.Enter += delegate (object sender, EventArgs e) { IconsAddRoom(page); };
-                    page.MouseUp += delegate (object sender, MouseEventArgs e) { Btn_RightClickRoom(sender, e, page.Text.Remove(0,1), tabControl,page); };
+                    page.MouseUp += delegate (object sender, MouseEventArgs e) { Btn_RightClickRoom(sender, e, page.Text.Remove(0,1), tabControl,page, mainTabPage); };
                     tabControl.Controls.Add(page);
                 }
             }
         }
         
-        public void UpdateRooms(TabControl tab,TextBox textBox)
+        public void UpdateRooms(TabControl tab,TextBox textBox, TabPage mainTabPage)
         {
             if (textBox.Text.Length>0)
             {
@@ -374,12 +375,12 @@ namespace NooLiteServiceSoft.IconClass
                     BackColor = Color.White
                 };
                 page.Enter += delegate (object sender, EventArgs e) { IconsAddRoom(page); };
-                page.MouseUp += delegate (object sender, MouseEventArgs e) { Btn_RightClickRoom(sender, e, page.Text.Remove(0,2), tab, page); };
+                page.MouseUp += delegate (object sender, MouseEventArgs e) { Btn_RightClickRoom(sender, e, page.Text.Remove(0,2), tab, page, mainTabPage); };
                 tab.Controls.Add(page);
             }
         }      
 
-        private void Btn_RightClickRoom(object sender, MouseEventArgs e,string roomName, TabControl tabControl,TabPage page)
+        private void Btn_RightClickRoom(object sender, MouseEventArgs e,string roomName, TabControl tabControl,TabPage page, TabPage mainTabPage)
         {
             if (e.Button == MouseButtons.Right)
             {
@@ -393,15 +394,44 @@ namespace NooLiteServiceSoft.IconClass
                 menuItem3.Text = "Удалить группу";
                 //menuItem1.Click += delegate (object _sender, EventArgs _e) { MenuItem1_ClickRemove(_sender, _e); };
                 //menuItem2.Click += delegate (object _sender, EventArgs _e) { MenuItem2_ClickProperty(_sender, _e, port, devicesChannel, idDevices, pct, devicesName, deviceType); };
-                menuItem3.Click += delegate (object _sender, EventArgs _e) { MenuItem3_ClickRemove(_sender, _e, roomName, tabControl, page); };
+                menuItem3.Click += delegate (object _sender, EventArgs _e) { MenuItem3_ClickRemove(_sender, _e, roomName, tabControl, page, mainTabPage); };
                 context.Show(Cursor.Position);
             }
         }
 
-        private void MenuItem3_ClickRemove(object _sender, EventArgs _e,string roomName, TabControl tabControl, TabPage page)
+        private void MenuItem3_ClickRemove(object _sender, EventArgs _e,string roomName, TabControl tabControl, TabPage page,TabPage mainTabPage)
         {                     
-            tabControl.TabPages.Remove(page);           
+            tabControl.TabPages.Remove(page);
             xmlGroup.RemoveRoom(roomName);
+            UpdateTabPage(mainTabPage,page);
+
+        }
+
+        public void UpdateTabPage(TabPage mainPage,TabPage removePage)
+        {
+            foreach (PictureBox p in mainPage.Controls)
+            {
+                UpdatePictureBox(p);
+            };
+
+            void UpdatePictureBox(PictureBox p)
+            {
+                foreach (var g in p.Controls)
+                {
+                    if (g is Label label)
+                    {
+                        string name = label.Name.Substring(0, 4);
+                        string _nameRoom = removePage.Text.Substring(1);
+                        if (name.Equals("room"))
+                        {
+                            if (label.Text.Equals(_nameRoom))
+                            {
+                                label.Text = "";
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

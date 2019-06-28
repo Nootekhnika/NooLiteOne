@@ -195,18 +195,20 @@ namespace NooLiteServiceSoft.Terminal
                 byte[] tx_buffer = device.CRC(buffer);
                 byte[] rx_buffer = new byte[17];
 
-                try
-                {
-                    if (port.IsOpen == false)
-                    {
-                        port.Open();
-                    }
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Проблемы с открытием порта");
-                }
-                port.Write(tx_buffer, 0, tx_buffer.Length);
+                //try
+                //{
+                //    if (port.IsOpen == false)
+                //    {
+                //        port.Open();
+                //    }
+                //}
+                //catch (Exception)
+                //{
+                //    MessageBox.Show("Проблемы с открытием порта");
+                //}
+                //port.Write(tx_buffer, 0, tx_buffer.Length);
+                device.WriteData(port, tx_buffer);
+
                 if ((int)operationMode == 2)
                 {
                     try

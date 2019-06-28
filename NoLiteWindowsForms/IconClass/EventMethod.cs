@@ -161,8 +161,9 @@ namespace NooLiteServiceSoft.IconClass
                     byte[] buffer = new byte[17] { 171, 2, 8, 0, byte.Parse(devicesChannel), 4, 0, 0, 0, 0, 0, byte.Parse(idArray[0]), byte.Parse(idArray[1]), byte.Parse(idArray[2]), byte.Parse(idArray[3]), 0, 172 };
                     byte[] tx_buffer = CRC(buffer);
                     byte[] rx_buffer = new byte[17];
-                    if (port.IsOpen == false) port.Open();
-                    port.Write(tx_buffer, 0, tx_buffer.Length);
+                    //if (port.IsOpen == false) port.Open();
+                    //port.Write(tx_buffer, 0, tx_buffer.Length);
+                    WriteData(port,tx_buffer);
                     WaitData(port, rx_buffer);
                     if (rx_buffer[2] == 1)
                     {
@@ -255,8 +256,9 @@ namespace NooLiteServiceSoft.IconClass
             byte[] tx_bufferService = CRC(bufferService);
             byte[] tx_bufferRemove = CRC(bufferRemove);
             byte[] rx_buffer = new byte[17];
-            if (port.IsOpen == false) port.Open();
-            port.Write(tx_bufferService, 0, tx_bufferService.Length);
+            //if (port.IsOpen == false) port.Open();
+            //port.Write(tx_bufferService, 0, tx_bufferService.Length);
+            WriteData(port,tx_bufferService);
             Thread.Sleep(500);
             port.Write(tx_bufferRemove, 0, tx_bufferRemove.Length);
             WaitData(port, rx_buffer);
@@ -285,8 +287,9 @@ namespace NooLiteServiceSoft.IconClass
             byte[] rx_bufferActiveChannel = new byte[17];//для активного канала в SRF-10-1000
 
 
-            if (port.IsOpen == false) port.Open();
-            port.Write(tx_bufferMainPropertiesFirstWrite, 0, tx_bufferMainPropertiesFirstWrite.Length);
+            //if (port.IsOpen == false) port.Open();
+            //port.Write(tx_bufferMainPropertiesFirstWrite, 0, tx_bufferMainPropertiesFirstWrite.Length);
+            WriteData(port,tx_bufferMainPropertiesFirstWrite);
             WaitData(port, rx_bufferMainPropertiesFirstRequest);
             port.DiscardInBuffer();
             port.Write(tx_bufferMainPropertiresSecondWrite, 0, tx_bufferMainPropertiresSecondWrite.Length);
@@ -335,8 +338,9 @@ namespace NooLiteServiceSoft.IconClass
             byte[] bufferMainPropertiesFirstWrite = new byte[17] { 171, 2, 8, 0, byte.Parse(devicesChannel), 128, 0, 170, 0, 0, 0, byte.Parse(idArray[0]), byte.Parse(idArray[1]), byte.Parse(idArray[2]), byte.Parse(idArray[3]), 0, 172 };
             byte[] tx_bufferMainPropertiesFirstWrite = device.CRC(bufferMainPropertiesFirstWrite);
             byte[] rx_bufferMainPropertiesFirstRequest = new byte[17];
-            if (port.IsOpen == false) port.Open();
-            port.Write(tx_bufferMainPropertiesFirstWrite, 0, tx_bufferMainPropertiesFirstWrite.Length);
+            //if (port.IsOpen == false) port.Open();
+            //port.Write(tx_bufferMainPropertiesFirstWrite, 0, tx_bufferMainPropertiesFirstWrite.Length);
+            WriteData(port,tx_bufferMainPropertiesFirstWrite);
             WaitData(port, rx_bufferMainPropertiesFirstRequest);
             if (port.IsOpen == true) port.Close();
             device.TypeCode = rx_bufferMainPropertiesFirstRequest[7];

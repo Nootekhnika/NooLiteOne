@@ -16,15 +16,17 @@ namespace NooLiteServiceSoft
     public partial class FormAddRoom : Form
     {
         private TabControl _tab;
+        private TabPage _page;
         Icons icon = new Icons();
         private bool isDragging = false;
         private Point lastCursor;
         private Point lastForm;
 
-        public FormAddRoom(TabControl tab)
+        public FormAddRoom(TabControl tab,TabPage mainTabPage)
         {
             InitializeComponent();
             _tab = tab;
+            _page = mainTabPage;
         }
 
         private void FormAddRoom_FormClosed(object sender, FormClosedEventArgs e)
@@ -61,7 +63,7 @@ namespace NooLiteServiceSoft
         private void CloseFormAddRoom()
         {       
                 Close();
-                icon.UpdateRooms(_tab,room_textBox);
+                icon.UpdateRooms(_tab,room_textBox, _page);
         }
 
         private void Panel2_MouseDown(object sender, MouseEventArgs e)

@@ -226,7 +226,7 @@
             this.tabControl.Name = "tabControl";
             this.tabControl.Padding = new System.Drawing.Point(0, 0);
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(879, 417);
+            this.tabControl.Size = new System.Drawing.Size(879, 445);
             this.tabControl.TabIndex = 8;
             // 
             // tabPage1
@@ -239,7 +239,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(871, 389);
+            this.tabPage1.Size = new System.Drawing.Size(871, 417);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Все";
             this.tabPage1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TabPage1_MouseUp);
@@ -353,7 +353,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(916, 650);
+            this.ClientSize = new System.Drawing.Size(916, 664);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);

@@ -85,6 +85,7 @@ namespace NooLiteServiceSoft
             {
                 MessageBox.Show("Вставте USB-передатчик в один из портов вашего компьютера");
             }
+
         }
 
 
@@ -226,7 +227,7 @@ namespace NooLiteServiceSoft
                 _port.Close();
             }          
         }
-
+        
     }
 }
 

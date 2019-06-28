@@ -138,7 +138,7 @@
             this.TakeNooLiteCommand.Size = new System.Drawing.Size(260, 118);
             this.TakeNooLiteCommand.TabIndex = 3;
             this.TakeNooLiteCommand.TabStop = false;
-            this.TakeNooLiteCommand.Text = "Приём команд от nooLite";
+            this.TakeNooLiteCommand.Text = "Приём NooLite";
             // 
             // banReceivingCommandFromNL
             // 
