@@ -8,13 +8,14 @@ namespace NooLiteServiceSoft.IconClass
     {
         // Отображение имени устройства на основной иконке
         public void CreateLabelDeviceName(int i ,PictureBox pct, string[] devicesName)
-        {          
+        {
             Label deviceName = new Label
             {
-                Height = 20,
-                Width = 97,
+                Height = 19,
+                Width = 94,
                 Name = "deviceName" + i.ToString(),
-                Top = 80,
+                Top = 72,
+                Left = 3,
                 BackColor = Color.White,
                 Text = devicesName[i],
                 TextAlign = ContentAlignment.MiddleCenter
@@ -22,8 +23,8 @@ namespace NooLiteServiceSoft.IconClass
             };         
             if (deviceName.Text.Length >= 13)
             {
-                deviceName.Width = 97;
-                deviceName.Left = 0;
+                deviceName.Width = 94;
+                deviceName.Left = 3;
             }
 
             ToolTip yourToolTip = new ToolTip

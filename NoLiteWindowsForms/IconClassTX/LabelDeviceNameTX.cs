@@ -10,11 +10,11 @@ namespace NooLiteServiceSoft.IconClass
             double countWidth = devicesName[i].Length * 7.5;
             Label deviceName = new Label
             {
-                Height = 20,
+                Height = 18,
                 Width = (int)countWidth,
                 Name = "deviceNameTX" + i.ToString(),
                 Left = 20,
-                Top = 80,
+                Top = 76,
                 BackColor = Color.White,
                 Text = devicesName[i]
             };

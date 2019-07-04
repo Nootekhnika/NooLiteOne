@@ -262,6 +262,8 @@ namespace NooLiteServiceSoft.Settings
             minValue.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { ValidatiionKeyPressForTextBox(_sender, _e); };
             maxValue.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { ValidatiionKeyPressForTextBox(_sender, _e); };
             minLvlValue.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { ValidatiionKeyPressForTextBox(_sender, _e); };
+            minLvlValue.KeyUp += delegate { ValidateTextBox(minLvlValue); };
+
         }
 
 
@@ -582,5 +584,19 @@ namespace NooLiteServiceSoft.Settings
                 e.Handled = true;
             }
         }
+
+        public void ValidateTextBox(TextBox text)
+        {
+            if (text.Text.Equals("") != true)
+            {
+                if (int.Parse(text.Text) > 50) text.Text = "50";
+                if (int.Parse(text.Text) < 5) text.Text = "5";
+            }
+            else
+            {
+                text.Text = "5";
+            }
+        }
+
     }
 }

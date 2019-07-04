@@ -15,9 +15,10 @@ namespace NooLiteServiceSoft.IconClass
             Label labelRoomName = new Label
             {
                 Height = 20,
-                Width = 100,
+                Width = 96,
                 Name = "roomName" + i.ToString(),
-                Top = 60,
+                Top = 55,
+                Left = 2,
                 BackColor = Color.White,
                 Text = roomName[i],
                 TextAlign = ContentAlignment.MiddleCenter

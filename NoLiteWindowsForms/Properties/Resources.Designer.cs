@@ -111,6 +111,16 @@ namespace NooLiteServiceSoft.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cross {
+            get {
+                object obj = ResourceManager.GetObject("cross", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon globe_earth_planet_2767 {
@@ -276,6 +286,26 @@ namespace NooLiteServiceSoft.Properties {
         internal static System.Drawing.Bitmap normnal2 {
             get {
                 object obj = ResourceManager.GetObject("normnal2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap roll_up {
+            get {
+                object obj = ResourceManager.GetObject("roll_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rounded_corner {
+            get {
+                object obj = ResourceManager.GetObject("Rounded_corner", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

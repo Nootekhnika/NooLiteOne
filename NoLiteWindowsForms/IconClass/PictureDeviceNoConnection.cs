@@ -19,10 +19,11 @@ namespace NooLiteServiceSoft.IconClass
             pct_noConnection.Height = 23;
             pct_noConnection.Width = 23;
             pct_noConnection.Name = "pct_noConnection" + i.ToString();
-            pct_noConnection.Left = 73;
+            pct_noConnection.Left = 72;
+            pct_noConnection.Top = 5;
             pct_noConnection.Image = Properties.Resources.ic_state_no_connection;
             pct_noConnection.BackColor = Color.White;
-            pct_noConnection.SizeMode = PictureBoxSizeMode.Zoom;
+            pct_noConnection.SizeMode = PictureBoxSizeMode.StretchImage;
             if (deviceType.Equals("7"))
             {
                 pct_noConnection.MouseClick += delegate (object sender, MouseEventArgs e) { eventClass.MenuItemSRF11000R_Setting(sender, e, port, pictureBox, devicesChannel, devicesName, idDevices, _deviceOn, _deviceoff, deviceNoConnection, i); };

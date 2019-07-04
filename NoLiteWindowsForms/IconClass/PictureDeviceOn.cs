@@ -20,10 +20,11 @@ namespace NooLiteServiceSoft.IconClass
             pct_on.Height = 26;
             pct_on.Width = 26;
             pct_on.Name = "pct_on" + i.ToString();
-            pct_on.Left = 71;
+            pct_on.Left = 69;
+            pct_on.Top = 5;
             pct_on.Image = Properties.Resources.ic_state_on;
             pct_on.BackColor = Color.White;
-            pct_on.SizeMode = PictureBoxSizeMode.Zoom;
+            pct_on.SizeMode = PictureBoxSizeMode.StretchImage;
             pct_on.Visible = false;
             if (deviceType.Equals("7"))
             {

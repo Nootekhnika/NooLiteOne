@@ -153,15 +153,15 @@ namespace NooLiteServiceSoft
         }
 
         //Hide picture
-        private void HidePicture_MouseEnter(object sender, EventArgs e)
-        {
-            hidePicture.Image = NooLiteServiceSoft.Properties.Resources.mini2;
-        }
+        //private void HidePicture_MouseEnter(object sender, EventArgs e)
+        //{
+        //    hidePicture.Image = NooLiteServiceSoft.Properties.Resources.mini2;
+        //}
 
-        private void HidePicture_MouseLeave(object sender, EventArgs e)
-        {
-            hidePicture.Image = NooLiteServiceSoft.Properties.Resources.mini1;
-        }
+        //private void HidePicture_MouseLeave(object sender, EventArgs e)
+        //{
+        //    hidePicture.Image = NooLiteServiceSoft.Properties.Resources.mini1;
+        //}
 
         private void HidePicture_Click(object sender, EventArgs e)
         {
@@ -174,15 +174,15 @@ namespace NooLiteServiceSoft
             Close();
         }
 
-        private void ClosePicture_MouseEnter(object sender, EventArgs e)
-        {
-            closePicture.Image = NooLiteServiceSoft.Properties.Resources.close2;
-        }
+        //private void ClosePicture_MouseEnter(object sender, EventArgs e)
+        //{
+        //    closePicture.Image = NooLiteServiceSoft.Properties.Resources.close2;
+        //}
 
-        private void ClosePicture_MouseLeave(object sender, EventArgs e)
-        {
-            closePicture.Image = NooLiteServiceSoft.Properties.Resources.close1;
-        }
+        //private void ClosePicture_MouseLeave(object sender, EventArgs e)
+        //{
+        //    closePicture.Image = NooLiteServiceSoft.Properties.Resources.close1;
+        //}
 
         private void Panel2_MouseDown(object sender, MouseEventArgs e)
         {
@@ -227,6 +227,14 @@ namespace NooLiteServiceSoft
             }
         }
 
-      
+        private void tabControl_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            TabPage page = tabControl.TabPages[e.Index];
+            e.Graphics.FillRectangle(new SolidBrush(page.BackColor), e.Bounds);
+            Rectangle paddedBounds = e.Bounds;
+            int yOffset = (e.State == DrawItemState.Selected) ? -2 : 1;
+            paddedBounds.Offset(1, yOffset);
+            TextRenderer.DrawText(e.Graphics, page.Text, Font, paddedBounds, page.ForeColor);
+        }
     }
 }

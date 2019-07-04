@@ -28,8 +28,8 @@ namespace NooLiteServiceSoft.IconClass
                     Height = 40,
                     Width = 40,
                     Name = "pct_socet" + i.ToString(),
-                    Top = 5,
-                    Left = 5,
+                    Top = 7,
+                    Left = 7,
                     Image = Properties.Resources.icon_light,
                     BackColor = Color.White,
                     SizeMode = PictureBoxSizeMode.Normal
@@ -45,8 +45,8 @@ namespace NooLiteServiceSoft.IconClass
                     Height = 40,
                     Width = 40,
                     Name = "pct_light" + i.ToString(),
-                    Left = 5,
-                    Top = 5,
+                    Left = 7,
+                    Top = 7,
                     Image = Properties.Resources.icon_13,
                     BackColor = Color.White,
                     SizeMode = PictureBoxSizeMode.Normal
@@ -68,8 +68,8 @@ namespace NooLiteServiceSoft.IconClass
                     Height = 40,
                     Width = 40,
                     Name = "pct_roll" + i.ToString(),
-                    Left = 5,
-                    Top = 5,
+                    Left = 7,
+                    Top = 7,
                     Image = Properties.Resources.icon_roll,
                     BackColor = Color.White,
                     SizeMode = PictureBoxSizeMode.Normal

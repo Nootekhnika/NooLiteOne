@@ -19,10 +19,11 @@ namespace NooLiteServiceSoft.IconClass
                     Height = 40,
                     Width = 40,
                     Name = "pct_rgb" + i.ToString(),
-                    Left = 1,
+                    Left = 6,
+                    Top = 6,
                     Image = Properties.Resources.icon_rgbdevice,
                     BackColor = Color.White,
-                    SizeMode = PictureBoxSizeMode.Zoom
+                    SizeMode = PictureBoxSizeMode.StretchImage
                 };
                 pct_socet.MouseClick += delegate (object sender, MouseEventArgs e) { eventMethod.MenuItemRGB_Setting(sender, e, port, devicesChannel, devicesName); };
                 pct_socet.MouseUp += delegate (object sender, MouseEventArgs e) { eventMethod.Btn_MouseUp(sender, e, port, devicesChannel, pictureBox, devicesName, tabPage); };
@@ -35,7 +36,7 @@ namespace NooLiteServiceSoft.IconClass
                     Height = 40,
                     Width = 40,
                     Name = "pct_nl" + i.ToString(),
-                    Top = 4,
+                    Top = 5,
                     Left = 5,
                     Image = Properties.Resources.icon_light,
                     BackColor = Color.White,

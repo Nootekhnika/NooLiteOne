@@ -113,7 +113,7 @@
             this.label_IdDevice.Name = "label_IdDevice";
             this.label_IdDevice.Size = new System.Drawing.Size(103, 17);
             this.label_IdDevice.TabIndex = 1;
-            this.label_IdDevice.Text = "Id Устройства:";
+            this.label_IdDevice.Text = "ID устройства:";
             // 
             // labelValue_TypeDevice
             // 
@@ -170,9 +170,9 @@
             this.label_FreeNooLite.AutoSize = true;
             this.label_FreeNooLite.Location = new System.Drawing.Point(64, 239);
             this.label_FreeNooLite.Name = "label_FreeNooLite";
-            this.label_FreeNooLite.Size = new System.Drawing.Size(133, 17);
+            this.label_FreeNooLite.Size = new System.Drawing.Size(131, 17);
             this.label_FreeNooLite.TabIndex = 8;
-            this.label_FreeNooLite.Text = "Свободно  NooLite:";
+            this.label_FreeNooLite.Text = "Свободно  nooLite:";
             // 
             // labelValue_ParamDevice
             // 
@@ -203,9 +203,9 @@
             this.label_FreeNooLiteF.AutoSize = true;
             this.label_FreeNooLiteF.Location = new System.Drawing.Point(64, 268);
             this.label_FreeNooLiteF.Name = "label_FreeNooLiteF";
-            this.label_FreeNooLiteF.Size = new System.Drawing.Size(146, 17);
+            this.label_FreeNooLiteF.Size = new System.Drawing.Size(144, 17);
             this.label_FreeNooLiteF.TabIndex = 13;
-            this.label_FreeNooLiteF.Text = "Свободно  NooLite-F:";
+            this.label_FreeNooLiteF.Text = "Свободно  nooLite-F:";
             // 
             // labelValue_NooLiteF
             // 

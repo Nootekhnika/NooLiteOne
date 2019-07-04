@@ -140,7 +140,7 @@ namespace NooLiteServiceSoft
                 label_typeDeviceTX.Visible = false;
                 comboBoxGroup.Top = 320;
                 labelname_group.Top = 290;
-                buttonAdd.Top = 360;
+                buttonAdd.Top = 390;
             };
         }
 

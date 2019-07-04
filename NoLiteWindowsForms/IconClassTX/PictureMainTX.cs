@@ -22,11 +22,10 @@ namespace NooLiteServiceSoft
                 Height = 100,
                 Width = 100,
                 Name = "pctTx" + i.ToString(),
-                Left = 25 + positionPictureLeft * 120,
+                Left = 5 + positionPictureLeft * 120,
                 Top = 60 + positionPictureTop * 120,
-                SizeMode = PictureBoxSizeMode.Zoom,
-                BorderStyle = BorderStyle.FixedSingle
-
+                Image = Properties.Resources.Rounded_corner,
+                SizeMode = PictureBoxSizeMode.StretchImage
             };
            
             if (deviceTypeTx.Equals("Светодиодный контроллер"))

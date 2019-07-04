@@ -105,14 +105,16 @@ namespace NooLiteServiceSoft.Terminal
             OnBind = 3,
             [Description("Выключить привязку")]
             OffBind = 4,
-            [Description("Очистить ячейку(канал)")]
+            [Description("Очистить ячейку (канал)")]
             ClearCell = 5,
             [Description("Очистить память")]
             ClearMemmory = 6,
             [Description("Отвязать адрес от канала")]
             UnBindIdChanel = 7,
-            [Description("Передать команду по ID")]
-            SendCmdId = 8
+            [Description("Передать команду по ID (с каналом)")]
+            SendCmdIdChannel = 8,
+            [Description("Передать команду по ID (без канала)")]
+            SendCmdId = 9
         }
         public Terminal()
         {
@@ -194,19 +196,6 @@ namespace NooLiteServiceSoft.Terminal
                 byte[] buffer = new byte[17] { 171, (byte)operationMode, (byte)commandIl, (byte)numericUpDown_ResTogl.Value, (byte)numericUpDown_Chaneel.Value, (byte)commandNoolite, (byte)numericUpDown_FMT.Value, (byte)numericUpDown2_D0.Value, (byte)numericUpDown_D1.Value, (byte)numericUpDown_D2.Value, (byte)numericUpDown_D3.Value, Id0, Id1, Id2, Id3, 0, 172 };
                 byte[] tx_buffer = device.CRC(buffer);
                 byte[] rx_buffer = new byte[17];
-
-                //try
-                //{
-                //    if (port.IsOpen == false)
-                //    {
-                //        port.Open();
-                //    }
-                //}
-                //catch (Exception)
-                //{
-                //    MessageBox.Show("Проблемы с открытием порта");
-                //}
-                //port.Write(tx_buffer, 0, tx_buffer.Length);
                 device.WriteData(port, tx_buffer);
 
                 if ((int)operationMode == 2)

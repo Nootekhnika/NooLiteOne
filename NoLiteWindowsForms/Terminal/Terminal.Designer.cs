@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.operationModeLabel = new System.Windows.Forms.Label();
             this.operationModecomboBox = new System.Windows.Forms.ComboBox();
             this.comandNooLite_comboBox = new System.Windows.Forms.ComboBox();
@@ -152,6 +152,8 @@
             // 
             this.comboBox_cmdIL.DropDownHeight = 100;
             this.comboBox_cmdIL.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_cmdIL.DropDownWidth = 230;
+            this.comboBox_cmdIL.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.comboBox_cmdIL.FormattingEnabled = true;
             this.comboBox_cmdIL.IntegralHeight = false;
             this.comboBox_cmdIL.Location = new System.Drawing.Point(11, 199);
@@ -422,10 +424,10 @@
             this.ID});
             this.listView_Write.ForeColor = System.Drawing.Color.Green;
             this.listView_Write.FullRowSelect = true;
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "Mode";
+            listViewGroup5.Header = "ListViewGroup";
+            listViewGroup5.Name = "Mode";
             this.listView_Write.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
+            listViewGroup5});
             this.listView_Write.HideSelection = false;
             this.listView_Write.Location = new System.Drawing.Point(230, 124);
             this.listView_Write.MultiSelect = false;
@@ -519,10 +521,10 @@
             this.ID_R});
             this.listView_Read.ForeColor = System.Drawing.Color.Red;
             this.listView_Read.FullRowSelect = true;
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "Mode";
+            listViewGroup6.Header = "ListViewGroup";
+            listViewGroup6.Name = "Mode";
             this.listView_Read.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup2});
+            listViewGroup6});
             this.listView_Read.HideSelection = false;
             this.listView_Read.Location = new System.Drawing.Point(819, 124);
             this.listView_Read.MultiSelect = false;

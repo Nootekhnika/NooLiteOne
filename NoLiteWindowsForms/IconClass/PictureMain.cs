@@ -26,13 +26,14 @@ namespace NooLiteServiceSoft.IconClass
 
             PictureBox pct = new PictureBox
             {
-                Height = 100,
-                Width = 100,
+                Height = 102,
+                Width = 102,
                 Name = "pct" + i.ToString(),
-                Left = 25 + positionPictureLeft * 120,
+                Left = 5 + positionPictureLeft * 120,
                 Top = 60 + positionPictureTop * 120,
-                SizeMode = PictureBoxSizeMode.Zoom,
-                BorderStyle = BorderStyle.FixedSingle              
+                Image = Properties.Resources.Rounded_corner,
+                SizeMode = PictureBoxSizeMode.StretchImage
+               // BorderStyle = BorderStyle.FixedSingle              
             };
 
             if (deviceType.Equals("7"))

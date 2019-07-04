@@ -86,6 +86,9 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Winform.Metroframework.1.4.0\lib\net20\MetroFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -256,6 +259,7 @@
     <EmbeddedResource Include="UpdateFW\UpdateFW.resx">
       <DependentUpon>UpdateFW.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -280,6 +284,17 @@
     <None Include="Icons\baseline_menu_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\100.png" />
+    <None Include="Resources\100_na_100.png" />
+    <None Include="Resources\Rounded_corner.png" />
+    <None Include="Resources\roll_up.png" />
+    <None Include="Resources\cross.png" />
+    <None Include="Resources\Vector_Smart_Object.png" />
+    <None Include="Resources\mainPicture.png" />
+    <None Include="Resources\photoeditorsdk-export %281%29.png" />
+    <None Include="Resources\photoeditorsdk-export.png" />
+    <None Include="Resources\MainPictureIcon.png" />
+    <None Include="Resources\BlackFon.png" />
     <None Include="Resources\circle.png" />
     <None Include="Resources\globe_earth_planet_2767.ico" />
     <None Include="Resources\internet.ico" />

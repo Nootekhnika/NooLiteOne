@@ -221,7 +221,7 @@ namespace NooLiteServiceSoft.IconClass
                     menuItem1.Text = "Отвязать";
                     menuItem2.Text = "Свойства";
                     menuItem3.Text = "Настройка";
-                    menuItem4.Text = "Обновление Прошивки";
+                    menuItem4.Text = "Обновление прошивки";
                     menuItem1.Click += delegate (object _sender, EventArgs _e) { MenuItem1_ClickRemove(_sender, _e, port, devicesChannel, idDevices, pct, devicesName, tabPage); };
                     menuItem2.Click += delegate (object _sender, EventArgs _e) { MenuItem2_ClickProperty(_sender, _e, port, devicesChannel, idDevices, pct, devicesName, deviceType); };
                     menuItem3.Click += delegate (object _sender, EventArgs _e) { MenuItem3_Setting(_sender, _e, port, devicesChannel, idDevices, pct, devicesName); };
@@ -237,7 +237,7 @@ namespace NooLiteServiceSoft.IconClass
                     context.Items.AddRange(new ToolStripMenuItem[] { menuItem1, menuItem2, menuItem3 });
                     menuItem1.Text = "Отвязать";
                     menuItem2.Text = "Обновить состояние";
-                    menuItem3.Text = "Обновление Прошивки";
+                    menuItem3.Text = "Обновление прошивки";
                     menuItem1.Click += delegate (object _sender, EventArgs _e) { MenuItem1_ClickRemove(_sender, _e, port, devicesChannel, idDevices, pct, devicesName, tabPage); };
                     menuItem2.Click += delegate (object _sender, EventArgs _e) { icons.StatusAllIcons(pictureBox, _deviceoff, _deviceOn, deviceNoConnection, idDevices, srf13000T); };
                     menuItem3.Click += delegate (object _sender, EventArgs _e) { MenuItem4_UpdateFirmware(_sender, _e, port, devicesChannel, idDevices, deviceType); };

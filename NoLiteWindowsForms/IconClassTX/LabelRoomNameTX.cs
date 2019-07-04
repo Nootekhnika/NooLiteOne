@@ -14,10 +14,11 @@ namespace NooLiteServiceSoft.IconClassTX
         {
             Label labelRoomName = new Label
             {
-                Height = 20,
-                Width = 100,
+                Height = 18,
+                Width = 96,
                 Name = "roomName" + i.ToString(),
-                Top = 60,
+                Top = 58,
+                Left =2,
                 BackColor = Color.White,
                 Text = roomName[i],
                 TextAlign = ContentAlignment.MiddleCenter
@@ -25,8 +26,8 @@ namespace NooLiteServiceSoft.IconClassTX
             };
             if (labelRoomName.Text.Length >= 14)
             {
-                labelRoomName.Width = 100;
-                labelRoomName.Left = 0;
+                labelRoomName.Width = 96;
+                labelRoomName.Left = 2;
             }
 
             ToolTip yourToolTip = new ToolTip

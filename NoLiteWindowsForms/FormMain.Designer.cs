@@ -218,16 +218,17 @@
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPage1);
-            this.tabControl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tabControl.Font = new System.Drawing.Font("Segoe Marker", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabControl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tabControl.ItemSize = new System.Drawing.Size(42, 20);
-            this.tabControl.Location = new System.Drawing.Point(19, 198);
+            this.tabControl.Location = new System.Drawing.Point(34, 198);
             this.tabControl.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl.Name = "tabControl";
             this.tabControl.Padding = new System.Drawing.Point(0, 0);
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(879, 445);
+            this.tabControl.Size = new System.Drawing.Size(847, 445);
             this.tabControl.TabIndex = 8;
+            this.tabControl.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl_DrawItem);
             // 
             // tabPage1
             // 
@@ -239,7 +240,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(871, 417);
+            this.tabPage1.Size = new System.Drawing.Size(839, 417);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Все";
             this.tabPage1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TabPage1_MouseUp);
@@ -286,9 +287,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::NooLiteServiceSoft.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(39, 6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(80, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -308,27 +309,25 @@
             // 
             // closePicture
             // 
-            this.closePicture.Image = global::NooLiteServiceSoft.Properties.Resources.close1;
-            this.closePicture.Location = new System.Drawing.Point(884, -2);
+            this.closePicture.Image = global::NooLiteServiceSoft.Properties.Resources.cross;
+            this.closePicture.Location = new System.Drawing.Point(897, 6);
             this.closePicture.Name = "closePicture";
-            this.closePicture.Size = new System.Drawing.Size(32, 34);
+            this.closePicture.Size = new System.Drawing.Size(12, 12);
+            this.closePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.closePicture.TabIndex = 1;
             this.closePicture.TabStop = false;
             this.closePicture.Click += new System.EventHandler(this.ClosePicture_Click);
-            this.closePicture.MouseEnter += new System.EventHandler(this.ClosePicture_MouseEnter);
-            this.closePicture.MouseLeave += new System.EventHandler(this.ClosePicture_MouseLeave);
             // 
             // hidePicture
             // 
-            this.hidePicture.Image = global::NooLiteServiceSoft.Properties.Resources.mini1;
-            this.hidePicture.Location = new System.Drawing.Point(850, -2);
+            this.hidePicture.Image = global::NooLiteServiceSoft.Properties.Resources.roll_up;
+            this.hidePicture.Location = new System.Drawing.Point(873, 9);
             this.hidePicture.Name = "hidePicture";
-            this.hidePicture.Size = new System.Drawing.Size(37, 34);
+            this.hidePicture.Size = new System.Drawing.Size(15, 15);
+            this.hidePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.hidePicture.TabIndex = 2;
             this.hidePicture.TabStop = false;
             this.hidePicture.Click += new System.EventHandler(this.HidePicture_Click);
-            this.hidePicture.MouseEnter += new System.EventHandler(this.HidePicture_MouseEnter);
-            this.hidePicture.MouseLeave += new System.EventHandler(this.HidePicture_MouseLeave);
             // 
             // panel3
             // 
@@ -342,7 +341,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(25, 159);
+            this.label3.Location = new System.Drawing.Point(38, 154);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 23);
             this.label3.TabIndex = 16;
