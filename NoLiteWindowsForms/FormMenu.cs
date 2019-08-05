@@ -1,6 +1,7 @@
 ﻿using NooLiteServiceSoft.XML;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace NooLiteServiceSoft
@@ -13,10 +14,16 @@ namespace NooLiteServiceSoft
         XmlTypeDevice typeDevice = new XmlTypeDevice();
         XmlGroup xmlGroup = new XmlGroup();
         ValidatorForm2 validator = new ValidatorForm2();
-        private bool isDragging = false;
-        private Point lastCursor;
-        private Point lastForm;
         FormMain formMain;
+        private const int CS_DROPSHADOW = 0x20000;
+        protected override CreateParams CreateParams {
+            get {
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
+
 
 
         public FormMenu(FormMain form)
@@ -60,22 +67,34 @@ namespace NooLiteServiceSoft
 
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
-          
-            if (comboBox_mode.Text.Equals("NooLite TX"))
-            {         
-                    dvcForm1TX.NameDevice = textBox_name.Text;
-                    int channel = int.Parse(comboBoxSelectChannel.Text) - 1;
-                    dvcForm1TX.Channel = byte.Parse(channel.ToString());
-                    dvcForm1TX.Mode = comboBox_mode.Text;
-                    dvcForm1TX.TypeName = comboBox_typeDeviceTx.Text;
-                    dvcForm1TX.RoomName = validator.ComboBoxValidation(comboBoxGroup.Text);
 
+            if (comboBox_mode.Text.Equals("NooLite TX"))
+            {
+                dvcForm1TX.NameDevice = textBox_name.Text;
+                int channel = int.Parse(comboBoxSelectChannel.Text) - 1;
+                dvcForm1TX.Channel = byte.Parse(channel.ToString());
+                dvcForm1TX.Mode = comboBox_mode.Text;
+                dvcForm1TX.TypeName = comboBox_typeDeviceTx.Text;
+                dvcForm1TX.RoomName = validator.ComboBoxValidation(comboBoxGroup.Text);
+
+                DialogResult dialogResult = MessageBox.Show("Вы подтвердили привязку, нажав дважды сервисную кнопку на устройстве?", "Окно подтверждения", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    try
+                    {
+                        xmlDevice.LoadXMLFileTX(dvcForm1TX);
+                    }
+                    catch (IOException)
+                    {
+                        xmlDevice.CreateXmlFileTX(dvcForm1TX);
+                    }
                     using (FormMain fm = new FormMain(dvcForm1TX))
                     {
                         formMain.Hide();
                         Hide();
                         fm.ShowDialog();
-                    }               
+                    }
+                }
             }
             else
             {
@@ -128,8 +147,6 @@ namespace NooLiteServiceSoft
                 label_typeDeviceTX.Top = 290;
                 comboBox_typeDeviceTx.Top = 315;
                 comboBox_typeDeviceTx.Left = 44;
-                buttonAdd.Left = 125;
-                buttonAdd.Top = 428;
                 comboBoxGroup.Top = 390;
                 labelname_group.Top = 365;
             }
@@ -140,7 +157,6 @@ namespace NooLiteServiceSoft
                 label_typeDeviceTX.Visible = false;
                 comboBoxGroup.Top = 320;
                 labelname_group.Top = 290;
-                buttonAdd.Top = 390;
             };
         }
 
@@ -149,40 +165,9 @@ namespace NooLiteServiceSoft
             validator.Form2ValidationSecond(textBox_name, comboBoxSelectChannel, buttonAdd, comboBox_mode, comboBox_typeDeviceTx);
         }
 
-        private void PictureClose_Click(object sender, EventArgs e)
+        private void button_Close_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void Panel2_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (isDragging)
-            {
-                this.Location =
-                    Point.Add(lastForm, new Size(Point.Subtract(Cursor.Position, new Size(lastCursor))));
-            }
-        }
-
-        private void Panel2_MouseUp(object sender, MouseEventArgs e)
-        {
-            isDragging = false;
-        }
-
-        private void Panel2_MouseDown(object sender, MouseEventArgs e)
-        {
-            isDragging = true;
-            lastCursor = Cursor.Position;
-            lastForm = this.Location;
-        }
-
-        private void PictureClose_MouseEnter(object sender, EventArgs e)
-        {
-            pictureClose.Image = NooLiteServiceSoft.Properties.Resources.close2;
-        }
-
-        private void PictureClose_MouseLeave(object sender, EventArgs e)
-        {
-            pictureClose.Image = NooLiteServiceSoft.Properties.Resources.close1;
         }
     }
 }

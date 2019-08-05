@@ -28,6 +28,15 @@ namespace NooLiteServiceSoft.Settings
         TabPage _page;
         PictureSocket pictureSocket = new PictureSocket();
         int _i;
+        private const int CS_DROPSHADOW = 0x20000;
+        protected override CreateParams CreateParams {
+            get {
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
+
 
         public SettingSRF13000T(Device device,PictureBox pct, PictureDeviceOn deviceOn, PictureDeviceOff deviceOff, PictureDeviceNoConnection deviceNoConnection,Label srf13000T,int i,string deviceNames,TabPage tabPage,Label tempT,Label tempMaxT)
         {
@@ -141,6 +150,11 @@ namespace NooLiteServiceSoft.Settings
         }
 
         private void PictureBox8_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
         {
             Close();
         }

@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_18463371E7DB6BB66725FABE543D9B27"
+        "OwnerKey" = "8:_973E3623363249729FA2D247458D1635"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_973E3623363249729FA2D247458D1635"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -35,6 +41,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_973E3623363249729FA2D247458D1635"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_18463371E7DB6BB66725FABE543D9B27"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -138,6 +150,37 @@
         }
         "File"
         {
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_18463371E7DB6BB66725FABE543D9B27"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_18463371E7DB6BB66725FABE543D9B27"
+                    {
+                    "Name" = "8:MetroFramework.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:MetroFramework.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_C88F637D2AC04024BCABA083D50032F8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D5E834DA38A840F0A8E754D34629C49B"
             {
             "SourcePath" = "8:D:\\globe.ico"
@@ -257,7 +300,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SetupNoo"
         "ProductCode" = "8:{9194DEE1-D36E-47ED-B1D3-70B28A68384F}"
-        "PackageCode" = "8:{AA804CDA-83E4-40E8-8785-4DC2980564D1}"
+        "PackageCode" = "8:{C8B681F9-170E-4E1C-9CB3-30BE5986EA11}"
         "UpgradeCode" = "8:{6EA65B20-8203-441E-8FED-A8437CC5AEB2}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -379,7 +422,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_5D57AFC510E1432E8512A2B176722FAF"
             {
-            "Name" = "8:Noolite"
+            "Name" = "8:nooLite"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -393,7 +436,7 @@
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_CB0DA0857F264BF5AFA26791B9A93CF4"
             {
-            "Name" = "8:Noolite"
+            "Name" = "8:nooLite"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"

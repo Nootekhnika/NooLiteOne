@@ -102,6 +102,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAboutProgram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAboutProgram.Designer.cs">
+      <DependentUpon>FormAboutProgram.cs</DependentUpon>
+    </Compile>
     <Compile Include="Design\MenuStripDesign.cs" />
     <Compile Include="Device.cs" />
     <Compile Include="DeviceProperties\DeviceProperty.cs">
@@ -122,6 +128,12 @@
     </Compile>
     <Compile Include="DisconnectMTRF.Designer.cs">
       <DependentUpon>DisconnectMTRF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateRoom.Designer.cs">
+      <DependentUpon>FormUpdateRoom.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAddRoom.cs">
       <SubType>Form</SubType>
@@ -215,6 +227,9 @@
     <Compile Include="XML\XmlGroup.cs" />
     <Compile Include="XML\XmlPort.cs" />
     <Compile Include="XML\XmlTypeDevice.cs" />
+    <EmbeddedResource Include="FormAboutProgram.resx">
+      <DependentUpon>FormAboutProgram.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeviceProperties\DeviceProperty.resx">
       <DependentUpon>DeviceProperty.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DisconnectMTRF.resx">
       <DependentUpon>DisconnectMTRF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateRoom.resx">
+      <DependentUpon>FormUpdateRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddRoom.resx">
       <DependentUpon>FormAddRoom.cs</DependentUpon>
@@ -284,6 +302,13 @@
     <None Include="Icons\baseline_menu_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\offline.png" />
+    <None Include="Resources\green.png" />
+    <None Include="Resources\ic_state_off.png" />
+    <None Include="Resources\rgb.png" />
+    <None Include="Resources\rgb_2.png" />
+    <None Include="Resources\red_square_cornered.png" />
+    <None Include="Resources\Borders.png" />
     <None Include="Resources\100.png" />
     <None Include="Resources\100_na_100.png" />
     <None Include="Resources\Rounded_corner.png" />
@@ -292,7 +317,6 @@
     <None Include="Resources\Vector_Smart_Object.png" />
     <None Include="Resources\mainPicture.png" />
     <None Include="Resources\photoeditorsdk-export %281%29.png" />
-    <None Include="Resources\photoeditorsdk-export.png" />
     <None Include="Resources\MainPictureIcon.png" />
     <None Include="Resources\BlackFon.png" />
     <None Include="Resources\circle.png" />

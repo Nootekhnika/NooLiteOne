@@ -15,7 +15,16 @@ namespace NooLiteServiceSoft.Terminal
     public partial class Terminal : Form
     {
         Port portEx = new Port();
-        Device device = new Device();   
+        Device device = new Device();
+        private const int CS_DROPSHADOW = 0x20000;
+        protected override CreateParams CreateParams {
+            get {
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
+
 
         public enum OperationMode
         {
@@ -239,6 +248,11 @@ namespace NooLiteServiceSoft.Terminal
                 listView_Read.EnsureVisible(selectionindex);
             }
 
+        }
+
+        private void button_closeTerminal_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

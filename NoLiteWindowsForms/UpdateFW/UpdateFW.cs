@@ -20,6 +20,15 @@ namespace NooLiteServiceSoft.UpdateFW
         byte[] tx_bufferBootOff;
         byte[] tx_bufferEraseBoot;
         byte[] tx_bufferResetOk;
+        private const int CS_DROPSHADOW = 0x20000;
+        string FilePath { get; set; }
+        protected override CreateParams CreateParams {
+            get {
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
 
         public UpdateFW(Device device,byte[] _bufferBootOff,byte[] _bufferEraseBoot,byte[] _bufferResetOk)
         {
@@ -55,20 +64,37 @@ namespace NooLiteServiceSoft.UpdateFW
                     //var fileStream = openFileDialog.OpenFile();
                 }
             }
-            Label_PathFileUpdateDirectory.Text = filePath;
+            FilePath = filePath;
+            if (filePath.Length > 22)
+            {
+                Label_PathFileUpdateDirectory.Text = filePath.Substring(0, filePath.Length - 10) + "...";
+            }
+            else
+            {
+                Label_PathFileUpdateDirectory.Text = filePath;
+
+            }
             ValidatePathDirectory(Label_PathFileUpdateDirectory);
         }
 
         private void Button_Update_Click(object sender, EventArgs e)
         {
-            string pathDirectory = Label_PathFileUpdateDirectory.Text;
+            string pathDirectory = FilePath;
             int packageCount = updateFile.PackageLengthMethod(pathDirectory);
             if (updateFile.UpdateFWValidationMethod(pathDirectory, TypeDevice))
             {
                 using (SerialPort port = Port.TakeDataPort())
                 {
-                    updateFile.UpdateFW(port,tx_bufferEraseBoot,IdDevice,packageCount,pathDirectory,progressBar1,TypeDevice);
-                    Close();
+                    try
+                    {
+                        updateFile.UpdateFW(port, tx_bufferEraseBoot, IdDevice, packageCount, pathDirectory, progressBar1, TypeDevice);
+                        Close();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Произошла ошибка во время обновления. Повторите ещё раз.");
+                        Close();
+                    }
                 }
             }
             else
@@ -77,45 +103,7 @@ namespace NooLiteServiceSoft.UpdateFW
             }
         }
 
-        private void ClosePicture_Click(object sender, EventArgs e)
-        {
-            using (SerialPort port = Port.TakeDataPort())
-            {
-             
-                //byte[] rx_bufferBoot = new byte[17];
-                if (port.IsOpen == false) port.Open();
-                port.Write(tx_bufferResetOk, 0, tx_bufferResetOk.Length);
-                Thread.Sleep(500); // TO DO
-                port.Write(tx_bufferBootOff,0, tx_bufferBootOff.Length);
-            }
-            Close();
-        }
-
-        private void HidePicture_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void ClosePicture_MouseEnter(object sender, EventArgs e)
-        {
-            closePicture.Image = NooLiteServiceSoft.Properties.Resources.close2;
-        }
-
-        private void ClosePicture_MouseLeave(object sender, EventArgs e)
-        {
-            closePicture.Image = NooLiteServiceSoft.Properties.Resources.close1;
-        }
-
-        private void HidePicture_MouseEnter(object sender, EventArgs e)
-        {
-            hidePicture.Image = NooLiteServiceSoft.Properties.Resources.mini2;
-        }
-
-        private void HidePicture_MouseLeave(object sender, EventArgs e)
-        {
-            hidePicture.Image = NooLiteServiceSoft.Properties.Resources.mini1;
-        }
-
+      
         private void Panel2_MouseDown(object sender, MouseEventArgs e)
         {
             isDragging = true;
@@ -148,5 +136,21 @@ namespace NooLiteServiceSoft.UpdateFW
                 button_Update.Enabled = false;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (SerialPort port = Port.TakeDataPort())
+            {
+
+                //byte[] rx_bufferBoot = new byte[17];
+                if (port.IsOpen == false) port.Open();
+                port.Write(tx_bufferResetOk, 0, tx_bufferResetOk.Length);
+                Thread.Sleep(500); // TO DO
+                port.Write(tx_bufferBootOff, 0, tx_bufferBootOff.Length);
+            }
+            Close();
+        }
+
+       
     }
 }

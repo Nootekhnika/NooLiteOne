@@ -16,8 +16,8 @@ namespace NooLiteServiceSoft.IconClass
             {
                 PictureBox pct_socet = new PictureBox
                 {
-                    Height = 40,
-                    Width = 40,
+                    Height = 32,
+                    Width = 32,
                     Name = "pct_rgb" + i.ToString(),
                     Left = 6,
                     Top = 6,

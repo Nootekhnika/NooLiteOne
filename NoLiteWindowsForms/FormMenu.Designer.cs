@@ -39,12 +39,7 @@
             this.label_typeDeviceTX = new System.Windows.Forms.Label();
             this.labelname_group = new System.Windows.Forms.Label();
             this.comboBoxGroup = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureClose = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.closePicture = new System.Windows.Forms.PictureBox();
-            this.hidePicture = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -63,10 +58,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closePicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hidePicture)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.button_Close = new System.Windows.Forms.Button();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -82,6 +80,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // label_name
@@ -97,7 +100,7 @@
             // 
             // textBox_name
             // 
-            this.textBox_name.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox_name.Location = new System.Drawing.Point(44, 93);
             this.textBox_name.Name = "textBox_name";
             this.textBox_name.Size = new System.Drawing.Size(285, 27);
@@ -119,32 +122,32 @@
             // comboBoxSelectChannel
             // 
             this.comboBoxSelectChannel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSelectChannel.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.comboBoxSelectChannel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSelectChannel.FormattingEnabled = true;
             this.comboBoxSelectChannel.Location = new System.Drawing.Point(44, 244);
             this.comboBoxSelectChannel.Name = "comboBoxSelectChannel";
-            this.comboBoxSelectChannel.Size = new System.Drawing.Size(285, 27);
+            this.comboBoxSelectChannel.Size = new System.Drawing.Size(285, 28);
             this.comboBoxSelectChannel.TabIndex = 3;
             this.comboBoxSelectChannel.SelectedIndexChanged += new System.EventHandler(this.ComboBoxSelectChannel_SelectedIndexChanged);
             // 
             // buttonAdd
             // 
             this.buttonAdd.BackColor = System.Drawing.Color.White;
-            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.Location = new System.Drawing.Point(128, 422);
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAdd.Location = new System.Drawing.Point(377, 414);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(117, 35);
+            this.buttonAdd.Size = new System.Drawing.Size(115, 35);
             this.buttonAdd.TabIndex = 31;
             this.buttonAdd.Text = "Привязать";
             this.buttonAdd.UseVisualStyleBackColor = false;
-            this.buttonAdd.Visible = false;
             this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // comboBox_mode
             // 
             this.comboBox_mode.BackColor = System.Drawing.Color.White;
             this.comboBox_mode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_mode.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox_mode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox_mode.Location = new System.Drawing.Point(45, 165);
             this.comboBox_mode.Name = "comboBox_mode";
             this.comboBox_mode.Size = new System.Drawing.Size(285, 28);
@@ -165,10 +168,10 @@
             // comboBox_typeDeviceTx
             // 
             this.comboBox_typeDeviceTx.BackColor = System.Drawing.Color.White;
-            this.comboBox_typeDeviceTx.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox_typeDeviceTx.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox_typeDeviceTx.Location = new System.Drawing.Point(43, 327);
             this.comboBox_typeDeviceTx.Name = "comboBox_typeDeviceTx";
-            this.comboBox_typeDeviceTx.Size = new System.Drawing.Size(285, 28);
+            this.comboBox_typeDeviceTx.Size = new System.Drawing.Size(285, 27);
             this.comboBox_typeDeviceTx.TabIndex = 11;
             this.comboBox_typeDeviceTx.Visible = false;
             this.comboBox_typeDeviceTx.SelectedIndexChanged += new System.EventHandler(this.ComboBox_typeDeviceTx_SelectedIndexChanged);
@@ -200,75 +203,22 @@
             // 
             this.comboBoxGroup.BackColor = System.Drawing.Color.White;
             this.comboBoxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxGroup.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBoxGroup.Location = new System.Drawing.Point(44, 327);
+            this.comboBoxGroup.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.comboBoxGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxGroup.Location = new System.Drawing.Point(43, 327);
             this.comboBoxGroup.Name = "comboBoxGroup";
             this.comboBoxGroup.Size = new System.Drawing.Size(285, 28);
             this.comboBoxGroup.TabIndex = 30;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.panel2.Controls.Add(this.pictureClose);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.closePicture);
-            this.panel2.Controls.Add(this.hidePicture);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(367, 26);
-            this.panel2.TabIndex = 16;
-            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseDown);
-            this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseMove);
-            this.panel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseUp);
-            // 
-            // pictureClose
-            // 
-            this.pictureClose.Image = global::NooLiteServiceSoft.Properties.Resources.close1;
-            this.pictureClose.Location = new System.Drawing.Point(333, 0);
-            this.pictureClose.Name = "pictureClose";
-            this.pictureClose.Size = new System.Drawing.Size(34, 26);
-            this.pictureClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureClose.TabIndex = 29;
-            this.pictureClose.TabStop = false;
-            this.pictureClose.Click += new System.EventHandler(this.PictureClose_Click);
-            this.pictureClose.MouseEnter += new System.EventHandler(this.PictureClose_MouseEnter);
-            this.pictureClose.MouseLeave += new System.EventHandler(this.PictureClose_MouseLeave);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(3, 3);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(38, 22);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 19);
+            this.label3.Size = new System.Drawing.Size(229, 24);
             this.label3.TabIndex = 29;
             this.label3.Text = "Добавление устройства";
-            // 
-            // closePicture
-            // 
-            this.closePicture.Image = global::NooLiteServiceSoft.Properties.Resources.close1;
-            this.closePicture.Location = new System.Drawing.Point(795, 0);
-            this.closePicture.Name = "closePicture";
-            this.closePicture.Size = new System.Drawing.Size(31, 34);
-            this.closePicture.TabIndex = 1;
-            this.closePicture.TabStop = false;
-            // 
-            // hidePicture
-            // 
-            this.hidePicture.Image = global::NooLiteServiceSoft.Properties.Resources.mini1;
-            this.hidePicture.Location = new System.Drawing.Point(761, 0);
-            this.hidePicture.Name = "hidePicture";
-            this.hidePicture.Size = new System.Drawing.Size(37, 34);
-            this.hidePicture.TabIndex = 2;
-            this.hidePicture.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(0, 23);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(370, 30);
-            this.panel1.TabIndex = 15;
             // 
             // panel6
             // 
@@ -276,9 +226,9 @@
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.pictureBox6);
             this.panel6.Controls.Add(this.pictureBox7);
-            this.panel6.Location = new System.Drawing.Point(364, 33);
+            this.panel6.Location = new System.Drawing.Point(658, -7);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(3, 446);
+            this.panel6.Size = new System.Drawing.Size(2, 487);
             this.panel6.TabIndex = 26;
             // 
             // panel7
@@ -337,9 +287,9 @@
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Location = new System.Drawing.Point(0, 29);
+            this.panel3.Location = new System.Drawing.Point(0, -6);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(3, 450);
+            this.panel3.Size = new System.Drawing.Size(2, 490);
             this.panel3.TabIndex = 27;
             // 
             // panel4
@@ -398,9 +348,9 @@
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.pictureBox8);
             this.panel5.Controls.Add(this.pictureBox9);
-            this.panel5.Location = new System.Drawing.Point(-3, 477);
+            this.panel5.Location = new System.Drawing.Point(0, 478);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(371, 3);
+            this.panel5.Size = new System.Drawing.Size(660, 2);
             this.panel5.TabIndex = 28;
             // 
             // panel8
@@ -453,18 +403,93 @@
             this.pictureBox9.TabIndex = 2;
             this.pictureBox9.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.pictureBox11);
+            this.panel1.Controls.Add(this.pictureBox12);
+            this.panel1.Location = new System.Drawing.Point(-2, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(660, 2);
+            this.panel1.TabIndex = 32;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Controls.Add(this.pictureBox10);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Location = new System.Drawing.Point(343, 60);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(34, 55);
+            this.panel2.TabIndex = 11;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = global::NooLiteServiceSoft.Properties.Resources.logo;
+            this.pictureBox10.Location = new System.Drawing.Point(12, 4);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 0;
+            this.pictureBox10.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Black;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(686, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 18);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Status";
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::NooLiteServiceSoft.Properties.Resources.close1;
+            this.pictureBox11.Location = new System.Drawing.Point(869, 0);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(31, 34);
+            this.pictureBox11.TabIndex = 1;
+            this.pictureBox11.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = global::NooLiteServiceSoft.Properties.Resources.mini1;
+            this.pictureBox12.Location = new System.Drawing.Point(836, 0);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(37, 34);
+            this.pictureBox12.TabIndex = 2;
+            this.pictureBox12.TabStop = false;
+            // 
+            // button_Close
+            // 
+            this.button_Close.BackColor = System.Drawing.Color.White;
+            this.button_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Close.Location = new System.Drawing.Point(507, 414);
+            this.button_Close.Name = "button_Close";
+            this.button_Close.Size = new System.Drawing.Size(115, 35);
+            this.button_Close.TabIndex = 33;
+            this.button_Close.Text = "Отмена";
+            this.button_Close.UseVisualStyleBackColor = false;
+            this.button_Close.Click += new System.EventHandler(this.button_Close_Click);
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(367, 480);
+            this.ClientSize = new System.Drawing.Size(660, 480);
+            this.Controls.Add(this.button_Close);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.comboBoxSelectChannel);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelname_group);
             this.Controls.Add(this.comboBoxGroup);
             this.Controls.Add(this.label_typeDeviceTX);
@@ -477,17 +502,12 @@
             this.Controls.Add(this.label_name);
             this.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximumSize = new System.Drawing.Size(367, 480);
-            this.MinimumSize = new System.Drawing.Size(367, 480);
+            this.MaximumSize = new System.Drawing.Size(660, 480);
+            this.MinimumSize = new System.Drawing.Size(660, 480);
             this.Name = "FormMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NooLiteOne";
             this.Load += new System.EventHandler(this.FormMenu_Load);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closePicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hidePicture)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -506,6 +526,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -523,10 +549,6 @@
         private System.Windows.Forms.Label label_typeDeviceTX;
         private System.Windows.Forms.Label labelname_group;
         private System.Windows.Forms.ComboBox comboBoxGroup;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox closePicture;
-        private System.Windows.Forms.PictureBox hidePicture;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.PictureBox pictureBox5;
@@ -546,6 +568,12 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureClose;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.Button button_Close;
     }
 }

@@ -51,7 +51,7 @@
             this.labelDeviceSetting.AutoSize = true;
             this.labelDeviceSetting.Cursor = System.Windows.Forms.Cursors.Default;
             this.labelDeviceSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelDeviceSetting.Location = new System.Drawing.Point(224, 9);
+            this.labelDeviceSetting.Location = new System.Drawing.Point(25, 12);
             this.labelDeviceSetting.Name = "labelDeviceSetting";
             this.labelDeviceSetting.Size = new System.Drawing.Size(0, 25);
             this.labelDeviceSetting.TabIndex = 0;
@@ -165,7 +165,9 @@
             // 
             // save_btn
             // 
-            this.save_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.save_btn.BackColor = System.Drawing.Color.White;
+            this.save_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.save_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.save_btn.Location = new System.Drawing.Point(276, 173);
             this.save_btn.Name = "save_btn";
             this.save_btn.Size = new System.Drawing.Size(107, 39);
@@ -175,7 +177,9 @@
             // 
             // cancel_btn
             // 
-            this.cancel_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.cancel_btn.BackColor = System.Drawing.Color.White;
+            this.cancel_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancel_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cancel_btn.Location = new System.Drawing.Point(430, 175);
             this.cancel_btn.Name = "cancel_btn";
             this.cancel_btn.Size = new System.Drawing.Size(106, 39);

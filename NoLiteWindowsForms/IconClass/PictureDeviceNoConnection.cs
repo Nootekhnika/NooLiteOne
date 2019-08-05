@@ -16,11 +16,11 @@ namespace NooLiteServiceSoft.IconClass
 
         public void CreateDeviceNoConnection(int i, PictureBox pictureBox, SerialPort port, string devicesChannel, PictureDeviceOn _deviceOn, PictureDeviceOff _deviceoff, PictureDeviceNoConnection deviceNoConnection, string idDevices, string devicesName, string deviceType, TabPage tabPage, int positionPictureTop, int positionPictureLeft, Label srf13000T, Label tempT, Label tempMaxT)
         {           
-            pct_noConnection.Height = 23;
-            pct_noConnection.Width = 23;
+            pct_noConnection.Height = 26;
+            pct_noConnection.Width = 26;
             pct_noConnection.Name = "pct_noConnection" + i.ToString();
-            pct_noConnection.Left = 72;
-            pct_noConnection.Top = 5;
+            pct_noConnection.Left = 75;
+            pct_noConnection.Top = 1;
             pct_noConnection.Image = Properties.Resources.ic_state_no_connection;
             pct_noConnection.BackColor = Color.White;
             pct_noConnection.SizeMode = PictureBoxSizeMode.StretchImage;

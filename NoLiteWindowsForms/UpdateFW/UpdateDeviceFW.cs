@@ -149,18 +149,7 @@ namespace NooLiteServiceSoft.UpdateFW
                             flag = true;
                             count++;
                         }
-                    }
-                    //while (rx_bufferWriteUpfateFW[2] != 0)
-                    //{
-                    //    count++;
-                    //    port.Write(tx_bufferWriteUpdateFW, 0, tx_bufferWriteUpdateFW.Length);
-                    //    WaitData(port, rx_bufferWriteUpfateFW);
-                    //    Thread.Sleep(100);
-                    //    if (count == 10)
-                    //    {
-                    //        break;
-                    //    }
-                    //}      
+                    }                  
                     if (count == 10) break;
                     
                     bar.PerformStep();
@@ -180,7 +169,7 @@ namespace NooLiteServiceSoft.UpdateFW
                     port.Write(BufferBootOff(), 0, BufferBootOff().Length);
                 }
                 if (port.IsOpen) port.Close();
-                MessageBox.Show("Обновление прошло успешно!");
+                MessageBox.Show("Обновление завершено");
             }
         }
 

@@ -111,6 +111,7 @@
             this.AddToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.AddToolStripMenuItem.Name = "AddToolStripMenuItem";
             this.AddToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0);
+            this.AddToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.AddToolStripMenuItem.Size = new System.Drawing.Size(232, 25);
             this.AddToolStripMenuItem.Text = "Добавить устройство";
             this.AddToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;

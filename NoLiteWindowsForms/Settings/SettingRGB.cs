@@ -16,6 +16,15 @@ namespace NooLiteServiceSoft.Settings
         byte deviceChannel;
         DeviceTX device = new DeviceTX();
         readonly SerialPort port = Port.TakeDataPort();
+        private const int CS_DROPSHADOW = 0x20000;
+        protected override CreateParams CreateParams {
+            get {
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
+
 
         public SettingRGB(DeviceTX device)
         {
@@ -152,6 +161,11 @@ namespace NooLiteServiceSoft.Settings
             {
                 port.Close();
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

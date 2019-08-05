@@ -15,6 +15,15 @@ namespace NooLiteServiceSoft.Settings
     {
         Device deviceR = new Device();
         readonly SerialPort port = Port.TakeDataPort();
+        private const int CS_DROPSHADOW = 0x20000;
+        protected override CreateParams CreateParams {
+            get {
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
+
 
         public SettingSRF11000R(Device device)
         {
@@ -56,7 +65,7 @@ namespace NooLiteServiceSoft.Settings
             if (port.IsOpen) port.Close();
         }
 
-        private void PictureBox8_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
             Close();
         }

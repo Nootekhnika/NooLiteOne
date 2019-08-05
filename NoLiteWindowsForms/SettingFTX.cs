@@ -16,6 +16,15 @@ namespace NooLiteServiceSoft
     {
         XmlTypeDevice xmlTypeDevice = new XmlTypeDevice();
         Port portEx = new Port();
+        private const int CS_DROPSHADOW = 0x20000;
+        protected override CreateParams CreateParams {
+            get {
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
+
 
         public SettingFTX(Device device)
         {

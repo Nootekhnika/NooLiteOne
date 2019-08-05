@@ -139,15 +139,15 @@ namespace NooLiteServiceSoft.IconClass
             int positionLeft = 0;
 
             SerialPort port = Port.TakeDataPort();
-            string[] devicesName = xmlDevice.DeviceNameXmlInRoom(tabPage1.Text.Remove(0, 1), DEVICEPATH);//Оптимизировать всё брать одним запросом  к файлу //TODO
+            string[] devicesName = xmlDevice.DeviceNameXmlInRoom(tabPage1.Text.Remove(0, 2), DEVICEPATH);//Оптимизировать всё брать одним запросом  к файлу //TODO
             string[] devicesChannel = new string[devicesName.Length];
             string[] devicesType = new string[devicesName.Length];
             string[] idDevices = new string[devicesName.Length];
-            xmlDevice.DeviceElementsXml(devicesChannel, devicesType, idDevices,tabPage1.Text.Remove(0, 1));//каналы устройств
-            string[] devicesNameTX = xmlDevice.DeviceNameXmlInRoom(tabPage1.Text.Remove(0, 1), DEVICEPATHTX);
+            xmlDevice.DeviceElementsXml(devicesChannel, devicesType, idDevices,tabPage1.Text.Remove(0, 2));//каналы устройств
+            string[] devicesNameTX = xmlDevice.DeviceNameXmlInRoom(tabPage1.Text.Remove(0, 2), DEVICEPATHTX);
             string[] devicesChannelTX = new string[devicesNameTX.Length];
             string[] devicesTypeTX = new string[devicesNameTX.Length];
-            xmlDevice.DeviceElementsXmlRoomTX(devicesChannelTX, devicesTypeTX,tabPage1.Text.Remove(0, 1));
+            xmlDevice.DeviceElementsXmlRoomTX(devicesChannelTX, devicesTypeTX,tabPage1.Text.Remove(0, 2));
 
             for (int i = 0; i < devicesName.Count(); i++)
             {
@@ -355,7 +355,7 @@ namespace NooLiteServiceSoft.IconClass
             {
                 for (int i = 0; i < RoomName.Length; i++)
                 {
-                    TabPage page = new TabPage(" " + RoomName[i])
+                    TabPage page = new TabPage("  " + RoomName[i])
                     {
                         BackColor = Color.White
                     };
@@ -393,18 +393,27 @@ namespace NooLiteServiceSoft.IconClass
                 menuItem2.Text = "Редактировать группу";
                 menuItem3.Text = "Удалить группу";
                 //menuItem1.Click += delegate (object _sender, EventArgs _e) { MenuItem1_ClickRemove(_sender, _e); };
-                //menuItem2.Click += delegate (object _sender, EventArgs _e) { MenuItem2_ClickProperty(_sender, _e, port, devicesChannel, idDevices, pct, devicesName, deviceType); };
+                menuItem2.Click += delegate (object _sender, EventArgs _e) { MenuItem2_ClickUpdate(_sender, _e, page, mainTabPage); };
                 menuItem3.Click += delegate (object _sender, EventArgs _e) { MenuItem3_ClickRemove(_sender, _e, roomName, tabControl, page, mainTabPage); };
                 context.Show(Cursor.Position);
             }
         }
 
         private void MenuItem3_ClickRemove(object _sender, EventArgs _e,string roomName, TabControl tabControl, TabPage page,TabPage mainTabPage)
-        {                     
-            tabControl.TabPages.Remove(page);
-            xmlGroup.RemoveRoom(roomName);
+        {
+            string roomNameSub = roomName.Substring(1);
+            tabControl.TabPages.Remove(page);           
+            xmlGroup.RemoveRoom(roomNameSub);
             UpdateTabPage(mainTabPage,page);
 
+        }
+        
+        private void MenuItem2_ClickUpdate(object _sender, EventArgs _e, TabPage page, TabPage mainTabPage)
+        {
+            using (FormUpdateRoom formUpdateRoom = new FormUpdateRoom(page, mainTabPage))
+            {
+                formUpdateRoom.ShowDialog();
+            }
         }
 
         public void UpdateTabPage(TabPage mainPage,TabPage removePage)
@@ -421,7 +430,7 @@ namespace NooLiteServiceSoft.IconClass
                     if (g is Label label)
                     {
                         string name = label.Name.Substring(0, 4);
-                        string _nameRoom = removePage.Text.Substring(1);
+                        string _nameRoom = removePage.Text.Substring(2);
                         if (name.Equals("room"))
                         {
                             if (label.Text.Equals(_nameRoom))

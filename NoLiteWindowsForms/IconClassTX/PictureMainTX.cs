@@ -19,8 +19,8 @@ namespace NooLiteServiceSoft
         {
             PictureBox pct = new PictureBox
             {
-                Height = 100,
-                Width = 100,
+                Height = 102,
+                Width = 102,
                 Name = "pctTx" + i.ToString(),
                 Left = 5 + positionPictureLeft * 120,
                 Top = 60 + positionPictureTop * 120,

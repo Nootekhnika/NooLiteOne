@@ -20,9 +20,9 @@ namespace NooLiteServiceSoft.IconClass
             pct_on.Height = 26;
             pct_on.Width = 26;
             pct_on.Name = "pct_on" + i.ToString();
-            pct_on.Left = 69;
-            pct_on.Top = 5;
-            pct_on.Image = Properties.Resources.ic_state_on;
+            pct_on.Left = 75;
+            pct_on.Top = 1;
+            pct_on.Image = Properties.Resources.green;
             pct_on.BackColor = Color.White;
             pct_on.SizeMode = PictureBoxSizeMode.StretchImage;
             pct_on.Visible = false;

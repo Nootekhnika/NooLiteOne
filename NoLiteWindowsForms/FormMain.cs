@@ -27,6 +27,15 @@ namespace NooLiteServiceSoft
         private bool isDragging = false;
         private Point lastCursor;
         private Point lastForm;
+        private const int CS_DROPSHADOW = 0x20000;
+        protected override CreateParams CreateParams {
+            get {
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
+
 
         public FormMain()
         {
@@ -216,7 +225,10 @@ namespace NooLiteServiceSoft
 
         private void AboutProgrammToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //infoToolStripMenuItem.ForeColor = Color.Black;
+            using (FormAboutProgram form = new FormAboutProgram())
+            {
+                form.ShowDialog();
+            }
         }
 
         private void ShowTerminal(object sender, EventArgs e)

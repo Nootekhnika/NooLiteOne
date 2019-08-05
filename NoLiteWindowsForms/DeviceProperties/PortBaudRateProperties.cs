@@ -13,13 +13,22 @@ namespace NooLiteServiceSoft.DeviceProperties
 {
     public partial class PortBaudRateProperties : Form
     {
+        private const int CS_DROPSHADOW = 0x20000;
         XmlPort xmlPort = new XmlPort();
-        string[] baudRate = new string[7] {"9600","14400","19200","28800","38400","56600","57600"};
+        string[] baudRate = new string[7] { "9600", "14400", "19200", "28800", "38400", "56600", "57600" };
         public PortBaudRateProperties()
         {
             InitializeComponent();
             comboBox_BaudRate.Items.AddRange(baudRate);
             comboBox_BaudRate.SelectedIndex = 0;
+        }
+
+        protected override CreateParams CreateParams {
+            get {
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -29,22 +38,7 @@ namespace NooLiteServiceSoft.DeviceProperties
             Close();
         }
 
-        private void ClosePicture_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void ClosePicture_MouseEnter(object sender, EventArgs e)
-        {
-            closePicture.Image = NooLiteServiceSoft.Properties.Resources.close2;
-        }
-
-        private void ClosePicture_MouseLeave(object sender, EventArgs e)
-        {
-            closePicture.Image = NooLiteServiceSoft.Properties.Resources.close1;
-        }
-
-        private void PictureBox8_Click(object sender, EventArgs e)
+        private void button_close_Click(object sender, EventArgs e)
         {
             Close();
         }

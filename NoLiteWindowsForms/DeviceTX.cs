@@ -75,20 +75,18 @@ namespace NooLiteServiceSoft
                     }
                     port.Write(tx_buffer, 0, tx_buffer.Length);
 
-                    DialogResult dialogResult = MessageBox.Show("Вы подтвердили привязку, нажав дважды сервисную кнопку на устройстве?", "Окно подтверждения", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            xmlDevice.LoadXMLFileTX(device);
-                            MessageBox.Show("Cохранения");
-                        }
-                        catch (IOException)
-                        {
-                            xmlDevice.CreateXmlFileTX(device);
-                            MessageBox.Show("Cоздание");
-                        }
-                    }
+                    //DialogResult dialogResult = MessageBox.Show("Вы подтвердили привязку, нажав дважды сервисную кнопку на устройстве?", "Окно подтверждения", MessageBoxButtons.YesNo);
+                    //if (dialogResult == DialogResult.Yes)
+                    //{
+                    //    try
+                    //    {
+                    //        xmlDevice.LoadXMLFileTX(device);
+                    //    }
+                    //    catch (IOException)
+                    //    {
+                    //        xmlDevice.CreateXmlFileTX(device);
+                    //    }
+                    //}
 
                 }
                 catch (Exception)

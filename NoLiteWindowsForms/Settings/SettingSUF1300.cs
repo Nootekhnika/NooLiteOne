@@ -366,24 +366,25 @@ namespace NooLiteServiceSoft.Settings
             {
                 minLvlValue = byte.Parse(Math.Ceiling((ValueFromTextBox(MinLvlValue) * 255 / 100)).ToString());//немного не правильно округляет
             }
-            byte[] bufferMainPropertiesFirstWrite = new byte[17] { 171, 2, 8, 0, byte.Parse(devicesChannel), 129, 16, d0, 0, 127, 0, idArray[0], idArray[1], idArray[2], idArray[3], 0, 172 };
+            byte[] bufferMainPropertiesFirstWrite = new byte[17] { 171, 2, 8, 0, byte.Parse(devicesChannel), 129, 16, d0, 0, 255, 0, idArray[0], idArray[1], idArray[2], idArray[3], 0, 172 };
             byte[] tx_bufferSettingWrite = CRC(bufferMainPropertiesFirstWrite);
             byte[] bufferValueProperties = new byte[17] { 171, 2, 8, 0, byte.Parse(devicesChannel), 129, 17, maxValueDim, minValueDim, 255, 255, idArray[0], idArray[1], idArray[2], idArray[3], 0, 172 };
             byte[] tx_bufferValueProperties = CRC(bufferValueProperties);
             //TODO коррекция min max диммирование
-            byte[] bufferLvlValueProperties = new byte[17] { 171, 2, 8, 0, byte.Parse(devicesChannel), 129, 18, minLvlValue, 0, 255, 255, idArray[0], idArray[1], idArray[2], idArray[3], 0, 172 };
+            byte[] bufferLvlValueProperties = new byte[17] { 171, 2, 8, 0, byte.Parse(devicesChannel), 129, 18, minLvlValue, 0, 0, 0, idArray[0], idArray[1], idArray[2], idArray[3], 0, 172 };
             byte[] tx_bufferLvlValueProperties = CRC(bufferLvlValueProperties);
             if (port.IsOpen == false) port.Open();
             port.Write(tx_bufferSettingWrite, 0, tx_bufferSettingWrite.Length);
-            port.DiscardInBuffer();
+            //port.DiscardInBuffer();
+            Thread.Sleep(200);
             if (DimerRB.Checked == true)
             {
                 //await Task.Delay(TimeSpan.FromMilliseconds(1000));
                 port.Write(tx_bufferValueProperties, 0, tx_bufferValueProperties.Length);
-                port.DiscardInBuffer();
-                Thread.Sleep(300);
+               // port.DiscardInBuffer();
+                Thread.Sleep(500);
                 port.Write(tx_bufferLvlValueProperties, 0, tx_bufferLvlValueProperties.Length);
-                port.DiscardInBuffer();
+               // port.DiscardInBuffer();
             }
             if (port.IsOpen) port.Close();
             settingFTX.Close();

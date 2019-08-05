@@ -21,6 +21,15 @@ namespace NooLiteServiceSoft
         private bool isDragging = false;
         private Point lastCursor;
         private Point lastForm;
+        private const int CS_DROPSHADOW = 0x20000;
+        protected override CreateParams CreateParams {
+            get {
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
+
 
         public FormAddRoom(TabControl tab,TabPage mainTabPage)
         {
@@ -37,26 +46,35 @@ namespace NooLiteServiceSoft
         private void Button1_Click(object sender, EventArgs e)
         {
             var Xmlroom = new XmlGroup();
-            var room = new Room
-            {   Id = Guid.NewGuid().ToString(),
-                RoomName = room_textBox.Text
-            };
-            if (room_textBox.Text.Length > 0 && room_textBox.Text.Equals("Все") == false && room_textBox.Text.Length < 24)
+            bool uniqueRoomFlag = Xmlroom.CheckUniqueRoom(room_textBox.Text);
+            if (uniqueRoomFlag == false)
             {
-                if (File.Exists("rooms.xml") == false)
+                var room = new Room
                 {
-                    Xmlroom.CreateXmlFile(room);
+                    Id = Guid.NewGuid().ToString(),
+                    RoomName = room_textBox.Text
+                };
+                if (room_textBox.Text.Length > 0 && room_textBox.Text.Equals("Все") == false && room_textBox.Text.Length < 24)
+                {
+                    if (File.Exists("rooms.xml") == false)
+                    {
+                        Xmlroom.CreateXmlFile(room);
+                    }
+                    else
+                    {
+                        Xmlroom.LoadXMLFile(room);
+                    }
+
+                    CloseFormAddRoom();
                 }
                 else
                 {
-                    Xmlroom.LoadXMLFile(room);
+                    room_textBox.BackColor = Color.LightCoral;
                 }
-
-                CloseFormAddRoom();
             }
             else
             {
-                room_textBox.BackColor = Color.LightCoral;
+                MessageBox.Show("Группа: " + '\u0022'+ $"{room_textBox.Text}" + '\u0022' + " уже создана, выберите другое имя");
             }
         }
 
@@ -86,38 +104,8 @@ namespace NooLiteServiceSoft
                 this.Location =
                     Point.Add(lastForm, new Size(Point.Subtract(Cursor.Position, new Size(lastCursor))));
             }
-        }
-
-        private void HidePicture_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void ClosePicture_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void HidePicture_MouseEnter(object sender, EventArgs e)
-        {
-            hidePicture.Image = NooLiteServiceSoft.Properties.Resources.mini2;
-        }
-
-        private void HidePicture_MouseLeave(object sender, EventArgs e)
-        {
-            hidePicture.Image = NooLiteServiceSoft.Properties.Resources.mini1;
-        }
-
-        private void ClosePicture_MouseEnter(object sender, EventArgs e)
-        {
-            closePicture.Image = NooLiteServiceSoft.Properties.Resources.close2;
-        }
-
-        private void ClosePicture_MouseLeave(object sender, EventArgs e)
-        {
-            closePicture.Image = NooLiteServiceSoft.Properties.Resources.close1;
-        }
-
+        }  
+    
         private void Validation(object sender, EventArgs e)
         {
             if (room_textBox.Text.Length > 0)
@@ -128,6 +116,11 @@ namespace NooLiteServiceSoft
             {
                 room_textBox.BackColor = Color.LightCoral;
             }
+        }
+
+        private void button_closeWindow_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

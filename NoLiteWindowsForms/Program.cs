@@ -41,7 +41,6 @@ namespace NooLiteServiceSoft
             catch
             {
                 Application.Run(new DisconnectMTRF());
-
             }
         }
     }

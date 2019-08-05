@@ -34,11 +34,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.closePicture = new System.Windows.Forms.PictureBox();
-            this.hidePicture = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -60,14 +56,18 @@
             this.label_DeviceIdValue = new System.Windows.Forms.Label();
             this.label_DeviceId = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.closePicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hidePicture)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,6 +78,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // panel6
@@ -86,9 +91,9 @@
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.pictureBox6);
             this.panel6.Controls.Add(this.pictureBox7);
-            this.panel6.Location = new System.Drawing.Point(805, 91);
+            this.panel6.Location = new System.Drawing.Point(638, -2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(3, 407);
+            this.panel6.Size = new System.Drawing.Size(3, 391);
             this.panel6.TabIndex = 28;
             // 
             // panel7
@@ -141,63 +146,15 @@
             this.pictureBox7.TabIndex = 2;
             this.pictureBox7.TabStop = false;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.closePicture);
-            this.panel2.Controls.Add(this.hidePicture);
-            this.panel2.Location = new System.Drawing.Point(-9, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(818, 30);
-            this.panel2.TabIndex = 27;
-            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseDown);
-            this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseMove);
-            this.panel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseUp);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(12, 4);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(49, 43);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(203, 20);
+            this.label3.Size = new System.Drawing.Size(219, 24);
             this.label3.TabIndex = 40;
             this.label3.Text = "Обновление Прошивки";
-            // 
-            // closePicture
-            // 
-            this.closePicture.Image = global::NooLiteServiceSoft.Properties.Resources.close1;
-            this.closePicture.Location = new System.Drawing.Point(784, 0);
-            this.closePicture.Name = "closePicture";
-            this.closePicture.Size = new System.Drawing.Size(34, 30);
-            this.closePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.closePicture.TabIndex = 1;
-            this.closePicture.TabStop = false;
-            this.closePicture.Click += new System.EventHandler(this.ClosePicture_Click);
-            this.closePicture.MouseEnter += new System.EventHandler(this.ClosePicture_MouseEnter);
-            this.closePicture.MouseLeave += new System.EventHandler(this.ClosePicture_MouseLeave);
-            // 
-            // hidePicture
-            // 
-            this.hidePicture.Image = global::NooLiteServiceSoft.Properties.Resources.mini1;
-            this.hidePicture.Location = new System.Drawing.Point(750, 0);
-            this.hidePicture.Name = "hidePicture";
-            this.hidePicture.Size = new System.Drawing.Size(34, 30);
-            this.hidePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.hidePicture.TabIndex = 2;
-            this.hidePicture.TabStop = false;
-            this.hidePicture.Click += new System.EventHandler(this.HidePicture_Click);
-            this.hidePicture.MouseEnter += new System.EventHandler(this.HidePicture_MouseEnter);
-            this.hidePicture.MouseLeave += new System.EventHandler(this.HidePicture_MouseLeave);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(-9, 29);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(818, 70);
-            this.panel1.TabIndex = 26;
             // 
             // panel3
             // 
@@ -205,9 +162,9 @@
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Location = new System.Drawing.Point(0, 31);
+            this.panel3.Location = new System.Drawing.Point(0, -4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(3, 407);
+            this.panel3.Size = new System.Drawing.Size(3, 440);
             this.panel3.TabIndex = 29;
             // 
             // panel4
@@ -266,7 +223,7 @@
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.pictureBox8);
             this.panel5.Controls.Add(this.pictureBox9);
-            this.panel5.Location = new System.Drawing.Point(1, 434);
+            this.panel5.Location = new System.Drawing.Point(1, 381);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(810, 3);
             this.panel5.TabIndex = 30;
@@ -324,38 +281,41 @@
             // OpenFileUpdate_Button
             // 
             this.OpenFileUpdate_Button.BackColor = System.Drawing.Color.White;
-            this.OpenFileUpdate_Button.Location = new System.Drawing.Point(273, 262);
+            this.OpenFileUpdate_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.OpenFileUpdate_Button.Location = new System.Drawing.Point(53, 189);
             this.OpenFileUpdate_Button.Name = "OpenFileUpdate_Button";
-            this.OpenFileUpdate_Button.Size = new System.Drawing.Size(96, 41);
+            this.OpenFileUpdate_Button.Size = new System.Drawing.Size(115, 35);
             this.OpenFileUpdate_Button.TabIndex = 32;
-            this.OpenFileUpdate_Button.Text = "Открыть";
+            this.OpenFileUpdate_Button.Text = "Выбрать";
             this.OpenFileUpdate_Button.UseVisualStyleBackColor = false;
             this.OpenFileUpdate_Button.Click += new System.EventHandler(this.OpenFileUpdate_Button_Click);
             // 
             // button_Update
             // 
             this.button_Update.BackColor = System.Drawing.Color.White;
-            this.button_Update.Location = new System.Drawing.Point(405, 262);
+            this.button_Update.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Update.Location = new System.Drawing.Point(363, 322);
             this.button_Update.Name = "button_Update";
-            this.button_Update.Size = new System.Drawing.Size(139, 41);
+            this.button_Update.Size = new System.Drawing.Size(115, 35);
             this.button_Update.TabIndex = 33;
-            this.button_Update.Text = "Обновление ПО";
+            this.button_Update.Text = "Обновить";
             this.button_Update.UseVisualStyleBackColor = false;
             this.button_Update.Click += new System.EventHandler(this.Button_Update_Click);
             // 
             // label_FileUpdateDirectory
             // 
             this.label_FileUpdateDirectory.AutoSize = true;
-            this.label_FileUpdateDirectory.Location = new System.Drawing.Point(147, 228);
+            this.label_FileUpdateDirectory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_FileUpdateDirectory.Location = new System.Drawing.Point(50, 148);
             this.label_FileUpdateDirectory.Name = "label_FileUpdateDirectory";
-            this.label_FileUpdateDirectory.Size = new System.Drawing.Size(118, 17);
+            this.label_FileUpdateDirectory.Size = new System.Drawing.Size(122, 18);
             this.label_FileUpdateDirectory.TabIndex = 34;
             this.label_FileUpdateDirectory.Text = "Файл прошивки:";
             // 
             // Label_PathFileUpdateDirectory
             // 
             this.Label_PathFileUpdateDirectory.AutoSize = true;
-            this.Label_PathFileUpdateDirectory.Location = new System.Drawing.Point(286, 228);
+            this.Label_PathFileUpdateDirectory.Location = new System.Drawing.Point(180, 150);
             this.Label_PathFileUpdateDirectory.Name = "Label_PathFileUpdateDirectory";
             this.Label_PathFileUpdateDirectory.Size = new System.Drawing.Size(0, 17);
             this.Label_PathFileUpdateDirectory.TabIndex = 35;
@@ -363,16 +323,17 @@
             // label_TypeDevice
             // 
             this.label_TypeDevice.AutoSize = true;
-            this.label_TypeDevice.Location = new System.Drawing.Point(202, 155);
+            this.label_TypeDevice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_TypeDevice.Location = new System.Drawing.Point(50, 96);
             this.label_TypeDevice.Name = "label_TypeDevice";
-            this.label_TypeDevice.Size = new System.Drawing.Size(115, 17);
+            this.label_TypeDevice.Size = new System.Drawing.Size(119, 18);
             this.label_TypeDevice.TabIndex = 36;
             this.label_TypeDevice.Text = "Тип устройства:";
             // 
             // label_TypeDeviceName
             // 
             this.label_TypeDeviceName.AutoSize = true;
-            this.label_TypeDeviceName.Location = new System.Drawing.Point(323, 155);
+            this.label_TypeDeviceName.Location = new System.Drawing.Point(177, 98);
             this.label_TypeDeviceName.Name = "label_TypeDeviceName";
             this.label_TypeDeviceName.Size = new System.Drawing.Size(0, 17);
             this.label_TypeDeviceName.TabIndex = 37;
@@ -380,7 +341,7 @@
             // label_DeviceIdValue
             // 
             this.label_DeviceIdValue.AutoSize = true;
-            this.label_DeviceIdValue.Location = new System.Drawing.Point(465, 155);
+            this.label_DeviceIdValue.Location = new System.Drawing.Point(313, 98);
             this.label_DeviceIdValue.Name = "label_DeviceIdValue";
             this.label_DeviceIdValue.Size = new System.Drawing.Size(0, 17);
             this.label_DeviceIdValue.TabIndex = 38;
@@ -388,25 +349,102 @@
             // label_DeviceId
             // 
             this.label_DeviceId.AutoSize = true;
-            this.label_DeviceId.Location = new System.Drawing.Point(436, 155);
+            this.label_DeviceId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_DeviceId.Location = new System.Drawing.Point(286, 96);
             this.label_DeviceId.Name = "label_DeviceId";
-            this.label_DeviceId.Size = new System.Drawing.Size(23, 17);
+            this.label_DeviceId.Size = new System.Drawing.Size(23, 18);
             this.label_DeviceId.TabIndex = 39;
             this.label_DeviceId.Text = "Id:";
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(154, 364);
+            this.progressBar1.Location = new System.Drawing.Point(53, 247);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(500, 23);
+            this.progressBar1.Size = new System.Drawing.Size(560, 23);
             this.progressBar1.TabIndex = 40;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(498, 322);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(115, 35);
+            this.button1.TabIndex = 41;
+            this.button1.Text = "Отмена";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.pictureBox11);
+            this.panel1.Controls.Add(this.pictureBox12);
+            this.panel1.Location = new System.Drawing.Point(-1, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(810, 3);
+            this.panel1.TabIndex = 42;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Controls.Add(this.pictureBox10);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Location = new System.Drawing.Point(343, 60);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(34, 55);
+            this.panel2.TabIndex = 11;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = global::NooLiteServiceSoft.Properties.Resources.logo;
+            this.pictureBox10.Location = new System.Drawing.Point(12, 4);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 0;
+            this.pictureBox10.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Black;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(686, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 18);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Status";
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::NooLiteServiceSoft.Properties.Resources.close1;
+            this.pictureBox11.Location = new System.Drawing.Point(869, 0);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(31, 34);
+            this.pictureBox11.TabIndex = 1;
+            this.pictureBox11.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = global::NooLiteServiceSoft.Properties.Resources.mini1;
+            this.pictureBox12.Location = new System.Drawing.Point(836, 0);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(37, 34);
+            this.pictureBox12.TabIndex = 2;
+            this.pictureBox12.TabStop = false;
             // 
             // UpdateFW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(808, 437);
+            this.ClientSize = new System.Drawing.Size(640, 384);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label_DeviceId);
             this.Controls.Add(this.label_DeviceIdValue);
@@ -419,9 +457,9 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximumSize = new System.Drawing.Size(640, 384);
+            this.MinimumSize = new System.Drawing.Size(640, 384);
             this.Name = "UpdateFW";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateFW";
@@ -431,10 +469,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.closePicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hidePicture)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -447,6 +481,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,10 +500,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox closePicture;
-        private System.Windows.Forms.PictureBox hidePicture;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -486,5 +522,12 @@
         private System.Windows.Forms.Label label_DeviceId;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox pictureBox12;
     }
 }

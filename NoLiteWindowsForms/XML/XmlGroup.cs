@@ -78,6 +78,86 @@ namespace NooLiteServiceSoft.XML
             return null;
         }
 
+        public bool CheckUniqueRoom(string roomName)
+        {
+            XDocument xdoc = XDocument.Load("rooms.xml");
+            var roomElements = xdoc.Root.Elements("room").Where(s => s.Attribute("name").Value.Equals(roomName));
+            if(roomElements.Count() != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void UpdateRoom(string roomName,string newRoomName,TabPage page,TabPage mainPage)
+        {
+            XDocument xdoc = XDocument.Load("rooms.xml");
+            XDocument xdocdevice = XDocument.Load("devices.xml");
+            XDocument xdocdeviceTX = XDocument.Load("devicesTX.xml");
+            var query = from c in xdoc.Root.Elements("room")
+                        select c;
+            var queryDevice = from c in xdocdevice.Root.Elements("device")
+                        select c;
+            var queryDeviceTX = from c in xdocdeviceTX.Root.Elements("device")
+                              select c;
+            foreach (XElement p in query)
+            {
+                if (p.Attribute("name").Value.Equals(roomName))
+                {
+                    p.Attribute("name").Value = newRoomName;
+
+                    xdoc.Save("rooms.xml");
+                    page.Text = $"{"  "}{newRoomName}";
+                }
+            }
+
+            foreach (XElement p in queryDevice)
+            {
+                if (p.Element("RoomName").Value.Equals(roomName))
+                {
+                    p.Element("RoomName").Value = newRoomName;
+
+                    xdocdevice.Save("devices.xml");
+                }
+            }
+
+            foreach (XElement p in queryDeviceTX)
+            {
+                if (p.Element("RoomName").Value.Equals(roomName))
+                {
+                    p.Element("RoomName").Value = newRoomName;
+
+                    xdocdeviceTX.Save("devicesTX.xml");
+                }
+            }
+            foreach (PictureBox p in mainPage.Controls)
+            {
+                UpdatePictureBox(p);
+            };
+
+            void UpdatePictureBox(PictureBox p)
+            {
+                foreach (var g in p.Controls)
+                {
+                    if (g is Label label)
+                    {
+                        string name = label.Name.Substring(0, 4);
+                        if (name.Equals("room"))
+                        {
+                            if (label.Text.Equals(roomName))
+                            {
+                                label.Text = newRoomName;
+                            }
+                        }
+                    }
+                }
+              }
+            }
+
+
         public void RemoveRoom(string roomName)
         {
             XDocument xdoc = XDocument.Load("rooms.xml");
