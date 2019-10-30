@@ -389,7 +389,7 @@ namespace NooLiteServiceSoft.Terminal
 
         private void TextBox_ID3_TextChanged(object sender, EventArgs e)
         {
-            if (textBox_ID3.Text.Length < 2)
+            if (textBox_ID3.Text.Length < 3)
             {
                 textBox_ID3.BackColor = Color.White;
             }
