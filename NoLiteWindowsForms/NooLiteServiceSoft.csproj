@@ -73,22 +73,10 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>A8773DEB2F8904E64D4166CEED18DC4CB7B8D9A0</ManifestCertificateThumbprint>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestKeyFile>NoLiteWindowsForms_TemporaryKey.pfx</ManifestKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignManifests>true</SignManifests>
-  </PropertyGroup>
-  <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>80.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\80.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
@@ -107,14 +95,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormAboutProgram.cs">
+    <Compile Include="MainForms\FormAboutProgram.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAboutProgram.Designer.cs">
+    <Compile Include="MainForms\FormAboutProgram.Designer.cs">
       <DependentUpon>FormAboutProgram.cs</DependentUpon>
     </Compile>
     <Compile Include="Design\MenuStripDesign.cs" />
-    <Compile Include="Device.cs" />
+    <Compile Include="MainClasses\Device.cs" />
     <Compile Include="DeviceProperties\DeviceProperty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,41 +115,41 @@
     <Compile Include="DeviceProperties\PortBaudRateProperties.Designer.cs">
       <DependentUpon>PortBaudRateProperties.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeviceTX.cs" />
-    <Compile Include="DisconnectMTRF.cs">
+    <Compile Include="MainClasses\DeviceTX.cs" />
+    <Compile Include="MainForms\DisconnectMTRF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DisconnectMTRF.Designer.cs">
+    <Compile Include="MainForms\DisconnectMTRF.Designer.cs">
       <DependentUpon>DisconnectMTRF.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUpdateRoom.cs">
+    <Compile Include="MainForms\FormUpdateRoom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUpdateRoom.Designer.cs">
+    <Compile Include="MainForms\FormUpdateRoom.Designer.cs">
       <DependentUpon>FormUpdateRoom.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAddRoom.cs">
+    <Compile Include="MainForms\FormAddRoom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAddRoom.Designer.cs">
+    <Compile Include="MainForms\FormAddRoom.Designer.cs">
       <DependentUpon>FormAddRoom.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMain.cs">
+    <Compile Include="MainForms\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMain.Designer.cs">
+    <Compile Include="MainForms\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMenu.cs">
+    <Compile Include="MainForms\FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMenu.Designer.cs">
+    <Compile Include="MainForms\FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSplashScreen.cs">
+    <Compile Include="MainForms\FormSplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSplashScreen.Designer.cs">
+    <Compile Include="MainForms\FormSplashScreen.Designer.cs">
       <DependentUpon>FormSplashScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="IconClassTX\EventMethodTX.cs" />
@@ -180,26 +168,26 @@
     <Compile Include="IconClass\PictureMain.cs" />
     <Compile Include="IconClass\PictureSocket.cs" />
     <Compile Include="IconClassTX\PictureMainTX.cs" />
-    <Compile Include="OperationWithMainForm.cs" />
+    <Compile Include="MainForms\OperationWithMainForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Port.cs" />
+    <Compile Include="MainClasses\Port.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Room.cs" />
-    <Compile Include="Route.cs">
+    <Compile Include="MainClasses\Room.cs" />
+    <Compile Include="MainForms\Route.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Route.Designer.cs">
+    <Compile Include="MainForms\Route.Designer.cs">
       <DependentUpon>Route.cs</DependentUpon>
     </Compile>
-    <Compile Include="SettingFTX.cs">
+    <Compile Include="MainForms\SettingFTX.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SettingFTX.Designer.cs">
+    <Compile Include="MainForms\SettingFTX.Designer.cs">
       <DependentUpon>SettingFTX.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings\SettingRGB.cs">
@@ -239,12 +227,12 @@
     <Compile Include="UpdateFW\UpdateFW.Designer.cs">
       <DependentUpon>UpdateFW.cs</DependentUpon>
     </Compile>
-    <Compile Include="ValidatorForm2.cs" />
+    <Compile Include="MainForms\ValidatorForm2.cs" />
     <Compile Include="XML\XmlDevice.cs" />
     <Compile Include="XML\XmlGroup.cs" />
     <Compile Include="XML\XmlPort.cs" />
     <Compile Include="XML\XmlTypeDevice.cs" />
-    <EmbeddedResource Include="FormAboutProgram.resx">
+    <EmbeddedResource Include="MainForms\FormAboutProgram.resx">
       <DependentUpon>FormAboutProgram.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeviceProperties\DeviceProperty.resx">
@@ -253,22 +241,22 @@
     <EmbeddedResource Include="DeviceProperties\PortBaudRateProperties.resx">
       <DependentUpon>PortBaudRateProperties.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DisconnectMTRF.resx">
+    <EmbeddedResource Include="MainForms\DisconnectMTRF.resx">
       <DependentUpon>DisconnectMTRF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUpdateRoom.resx">
+    <EmbeddedResource Include="MainForms\FormUpdateRoom.resx">
       <DependentUpon>FormUpdateRoom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAddRoom.resx">
+    <EmbeddedResource Include="MainForms\FormAddRoom.resx">
       <DependentUpon>FormAddRoom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.resx">
+    <EmbeddedResource Include="MainForms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMenu.resx">
+    <EmbeddedResource Include="MainForms\FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSplashScreen.resx">
+    <EmbeddedResource Include="MainForms\FormSplashScreen.resx">
       <DependentUpon>FormSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -276,10 +264,10 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Route.resx">
+    <EmbeddedResource Include="MainForms\Route.resx">
       <DependentUpon>Route.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingFTX.resx">
+    <EmbeddedResource Include="MainForms\SettingFTX.resx">
       <DependentUpon>SettingFTX.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\SettingRGB.resx">
@@ -297,7 +285,9 @@
     <EmbeddedResource Include="UpdateFW\UpdateFW.resx">
       <DependentUpon>UpdateFW.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -379,7 +369,7 @@
     <None Include="Resources\40.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="80.ico" />
+    <Content Include="Resources\80.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
