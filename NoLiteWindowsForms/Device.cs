@@ -1,15 +1,7 @@
-﻿using NooLiteServiceSoft.IconClass;
-using NooLiteServiceSoft.XML;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace NooLiteServiceSoft
 {
@@ -21,12 +13,9 @@ namespace NooLiteServiceSoft
         public int TypeCode { get; set; }
         public string Mode { get; set; }
         public string RoomName { get; set; }
-
         XmlDevice xmlDevice = new XmlDevice();
         readonly XmlTypeDevice xmlTypeDevice = new XmlTypeDevice();
         Port portEx = new Port();
-
-        //int debugId=0;
 
         public string[] ChannelCount()
         {
@@ -59,18 +48,15 @@ namespace NooLiteServiceSoft
                 sum += tx_buffer[i];
             }
             Array.Copy(tx_buffer, txcrc_buffer, tx_buffer.Length);
-
-            txcrc_buffer[tx_buffer.Length-2] = (byte)sum;
+            txcrc_buffer[tx_buffer.Length - 2] = (byte)sum;
             return txcrc_buffer;
         }
-       
+
 
         public void BindCommandFTX(Device device)
         {
-            //BIND COMMAND           
             using (SerialPort port = portEx.TakeDataAboutPort())
             {
-
                 port.ReadTimeout = 3000;
                 port.WriteTimeout = 500;
                 try
@@ -107,14 +93,13 @@ namespace NooLiteServiceSoft
                         {
                             try
                             {
-                                xmlDevice.LoadXMLFile(device);                               
+                                xmlDevice.LoadXMLFile(device);
                             }
                             catch (IOException)
                             {
-                                xmlDevice.CreateXmlFile(device);                               
+                                xmlDevice.CreateXmlFile(device);
                             }
                         }
-
                     }
                 }
                 catch (Exception)
@@ -133,14 +118,11 @@ namespace NooLiteServiceSoft
             {
                 while (count < read.Length)
                 {
-
                     count += port.Read(read, count, read.Length - count);
-
                 }
             }
             catch (TimeoutException)
             {
-               // MessageBox.Show("Ответ не пришёл");
             }
         }
 
@@ -174,7 +156,7 @@ namespace NooLiteServiceSoft
             return a;
         }
 
-         public byte[] DeviceSettings(SerialPort port, string devicesChannel, byte typeCode, byte[] idArray)
+        public byte[] DeviceSettings(SerialPort port, string devicesChannel, byte typeCode, byte[] idArray)
         {
             byte[] bufferMainPropertiesFirstWrite = new byte[17] { 171, 2, 8, 0, byte.Parse(devicesChannel), 128, 16, 0, 0, 0, 0, idArray[0], idArray[1], idArray[2], idArray[3], 0, 172 };
             byte[] tx_bufferSettingWrite = CRC(bufferMainPropertiesFirstWrite);

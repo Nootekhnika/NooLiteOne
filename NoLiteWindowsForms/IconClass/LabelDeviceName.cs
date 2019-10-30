@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace NooLiteServiceSoft.IconClass
@@ -7,20 +6,40 @@ namespace NooLiteServiceSoft.IconClass
     public class LabelDeviceName
     {
         // Отображение имени устройства на основной иконке
-        public void CreateLabelDeviceName(int i ,PictureBox pct, string[] devicesName)
+        public void CreateLabelDeviceName(int i ,PictureBox pct, string[] devicesName,string typeDevice)
         {
-            Label deviceName = new Label
+            Label deviceName ;
+            if (typeDevice.Equals("6"))
             {
-                Height = 19,
-                Width = 94,
-                Name = "deviceName" + i.ToString(),
-                Top = 72,
-                Left = 3,
-                BackColor = Color.White,
-                Text = devicesName[i],
-                TextAlign = ContentAlignment.MiddleCenter
+                deviceName = new Label
+                {
+                    Height = 19,
+                    Width = 94,
+                    Name = "deviceName" + i.ToString(),
+                    Top = 80,
+                    Left = 3,
+                    BackColor = Color.White,
+                    Text = devicesName[i],
+                    TextAlign = ContentAlignment.MiddleCenter
 
-            };         
+                };
+            }
+            else
+            {
+                deviceName = new Label
+                {
+                    Height = 19,
+                    Width = 94,
+                    Name = "deviceName" + i.ToString(),
+                    Top = 72,
+                    Left = 3,
+                    BackColor = Color.White,
+                    Text = devicesName[i],
+                    TextAlign = ContentAlignment.MiddleCenter
+
+                };
+            }
+
             if (deviceName.Text.Length >= 13)
             {
                 deviceName.Width = 94;

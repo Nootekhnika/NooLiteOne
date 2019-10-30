@@ -7,7 +7,6 @@ namespace NooLiteServiceSoft.IconClass
     {
         public void CreateLabelDeviceChannel(int i ,PictureBox pct, string[] devicesChannel)
         {
-
             Label deviceChannel = new Label
             {
                 Height = 20,

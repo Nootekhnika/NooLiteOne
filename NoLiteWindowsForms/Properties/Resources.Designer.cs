@@ -61,22 +61,22 @@ namespace NooLiteServiceSoft.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Bitmap baseline_add_white_18dp {
+        internal static System.Drawing.Icon _1024 {
             get {
-                object obj = ResourceManager.GetObject("baseline_add_white_18dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("_1024", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Bitmap baseline_menu_white_18dp {
+        internal static System.Drawing.Icon _40 {
             get {
-                object obj = ResourceManager.GetObject("baseline_menu_white_18dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("_40", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -153,26 +153,6 @@ namespace NooLiteServiceSoft.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ic_state_off_3x {
-            get {
-                object obj = ResourceManager.GetObject("ic_state_off_3x", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ic_state_on {
-            get {
-                object obj = ResourceManager.GetObject("ic_state_on", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap icon_13 {
             get {
                 object obj = ResourceManager.GetObject("icon_13", resourceCulture);
@@ -226,16 +206,6 @@ namespace NooLiteServiceSoft.Properties {
         internal static System.Drawing.Bitmap icon_tempreture {
             get {
                 object obj = ResourceManager.GetObject("icon_tempreture", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_pu_2_25 {
-            get {
-                object obj = ResourceManager.GetObject("icons8_pu_2_25", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -333,19 +303,9 @@ namespace NooLiteServiceSoft.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SplashScreen {
+        internal static System.Drawing.Bitmap temp2 {
             get {
-                object obj = ResourceManager.GetObject("SplashScreen", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap wpb57ee339_06 {
-            get {
-                object obj = ResourceManager.GetObject("wpb57ee339_06", resourceCulture);
+                object obj = ResourceManager.GetObject("temp2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

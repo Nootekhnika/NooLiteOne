@@ -1,27 +1,23 @@
 ﻿using NooLiteServiceSoft.XML;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.IO.Ports;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace NooLiteServiceSoft
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            FormSplashScreen screen = new FormSplashScreen();
+            screen.Show();
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 Port port = new Port();
                 XmlPort xmlPort = new XmlPort();
                 if (File.Exists("port.xml") != true)
@@ -36,6 +32,7 @@ namespace NooLiteServiceSoft
                     port.CreatePort(true);
                     port.ValidationPortId(port, portOldId);
                 }
+                screen.Hide();
                 Application.Run(new FormMain());
             }
             catch

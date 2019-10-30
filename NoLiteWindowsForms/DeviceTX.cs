@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NooLiteServiceSoft
@@ -20,7 +15,6 @@ namespace NooLiteServiceSoft
         XmlDevice xmlDevice = new XmlDevice();
         readonly XmlTypeDevice xmlTypeDevice = new XmlTypeDevice();
         Port portEx = new Port();
-
 
         public string[] ChannelCount()
         {
@@ -46,13 +40,10 @@ namespace NooLiteServiceSoft
             return txcrc_buffer;
         }
 
-      
+
 
         public void BindCommandTX(DeviceTX device)
         {
-            //BIND COMMAND
-            //string[] ports = SerialPort.GetPortNames();
-            //string firstPort = ports.FirstOrDefault();
             using (SerialPort port = portEx.TakeDataAboutPort())
             {
                 port.WriteTimeout = 500;
@@ -74,20 +65,6 @@ namespace NooLiteServiceSoft
                         MessageBox.Show("Проблемы с открытием порта");
                     }
                     port.Write(tx_buffer, 0, tx_buffer.Length);
-
-                    //DialogResult dialogResult = MessageBox.Show("Вы подтвердили привязку, нажав дважды сервисную кнопку на устройстве?", "Окно подтверждения", MessageBoxButtons.YesNo);
-                    //if (dialogResult == DialogResult.Yes)
-                    //{
-                    //    try
-                    //    {
-                    //        xmlDevice.LoadXMLFileTX(device);
-                    //    }
-                    //    catch (IOException)
-                    //    {
-                    //        xmlDevice.CreateXmlFileTX(device);
-                    //    }
-                    //}
-
                 }
                 catch (Exception)
                 {

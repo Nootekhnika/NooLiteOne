@@ -86,7 +86,7 @@
             resources.ApplyResources(this.button_closeWindow, "button_closeWindow");
             this.button_closeWindow.Name = "button_closeWindow";
             this.button_closeWindow.UseVisualStyleBackColor = false;
-            this.button_closeWindow.Click += new System.EventHandler(this.button_closeWindow_Click);
+            this.button_closeWindow.Click += new System.EventHandler(this.Button_closeWindow_Click);
             // 
             // label4
             // 

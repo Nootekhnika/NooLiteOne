@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingSRF13000T));
             this.trackBarTemp = new System.Windows.Forms.TrackBar();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -229,9 +230,9 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(25, 23);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(221, 24);
+            this.label6.Size = new System.Drawing.Size(241, 24);
             this.label6.TabIndex = 26;
-            this.label6.Text = "Настройка SRF-1-3000T";
+            this.label6.Text = "Управление SRF-1-3000-T";
             // 
             // panel4
             // 
@@ -426,7 +427,7 @@
             this.button3.TabIndex = 30;
             this.button3.Text = "Отмена";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // SettingSRF13000T
             // 
@@ -448,9 +449,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.trackBarTemp);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SettingSRF13000T";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SettingSRF13000T";
+            this.Text = "nooLiteDesktopControl";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SettingSRF13000T_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTemp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

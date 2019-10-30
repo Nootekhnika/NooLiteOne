@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenu));
             this.label_name = new System.Windows.Forms.Label();
             this.textBox_name = new System.Windows.Forms.TextBox();
             this.labelChannel = new System.Windows.Forms.Label();
@@ -168,10 +169,10 @@
             // comboBox_typeDeviceTx
             // 
             this.comboBox_typeDeviceTx.BackColor = System.Drawing.Color.White;
-            this.comboBox_typeDeviceTx.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox_typeDeviceTx.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox_typeDeviceTx.Location = new System.Drawing.Point(43, 327);
             this.comboBox_typeDeviceTx.Name = "comboBox_typeDeviceTx";
-            this.comboBox_typeDeviceTx.Size = new System.Drawing.Size(285, 27);
+            this.comboBox_typeDeviceTx.Size = new System.Drawing.Size(285, 28);
             this.comboBox_typeDeviceTx.TabIndex = 11;
             this.comboBox_typeDeviceTx.Visible = false;
             this.comboBox_typeDeviceTx.SelectedIndexChanged += new System.EventHandler(this.ComboBox_typeDeviceTx_SelectedIndexChanged);
@@ -475,7 +476,7 @@
             this.button_Close.TabIndex = 33;
             this.button_Close.Text = "Отмена";
             this.button_Close.UseVisualStyleBackColor = false;
-            this.button_Close.Click += new System.EventHandler(this.button_Close_Click);
+            this.button_Close.Click += new System.EventHandler(this.Button_Close_Click);
             // 
             // FormMenu
             // 
@@ -502,11 +503,12 @@
             this.Controls.Add(this.label_name);
             this.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(660, 480);
             this.MinimumSize = new System.Drawing.Size(660, 480);
             this.Name = "FormMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NooLiteOne";
+            this.Text = "nooLiteDesktopControl";
             this.Load += new System.EventHandler(this.FormMenu_Load);
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);

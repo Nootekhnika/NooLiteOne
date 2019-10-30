@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Terminal));
             this.operationModeLabel = new System.Windows.Forms.Label();
             this.operationModecomboBox = new System.Windows.Forms.ComboBox();
             this.comandNooLite_comboBox = new System.Windows.Forms.ComboBox();
@@ -112,6 +113,8 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panelForWindowDrop = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Chaneel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ResTogl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_FMT)).BeginInit();
@@ -393,6 +396,8 @@
             this.textBox_ID0.Name = "textBox_ID0";
             this.textBox_ID0.Size = new System.Drawing.Size(51, 22);
             this.textBox_ID0.TabIndex = 11;
+            this.textBox_ID0.TextChanged += new System.EventHandler(this.TextBox_ID0_TextChanged);
+            this.textBox_ID0.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_ID0_KeyPress);
             // 
             // label_ID0
             // 
@@ -420,6 +425,8 @@
             this.textBox_ID1.Name = "textBox_ID1";
             this.textBox_ID1.Size = new System.Drawing.Size(51, 22);
             this.textBox_ID1.TabIndex = 12;
+            this.textBox_ID1.TextChanged += new System.EventHandler(this.TextBox_ID1_TextChanged);
+            this.textBox_ID1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_ID1_KeyPress);
             // 
             // label_ID2
             // 
@@ -437,6 +444,8 @@
             this.textBox_ID2.Name = "textBox_ID2";
             this.textBox_ID2.Size = new System.Drawing.Size(51, 22);
             this.textBox_ID2.TabIndex = 13;
+            this.textBox_ID2.TextChanged += new System.EventHandler(this.TextBox_ID2_TextChanged);
+            this.textBox_ID2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_ID2_KeyPress);
             // 
             // label_ID3
             // 
@@ -454,6 +463,8 @@
             this.textBox_ID3.Name = "textBox_ID3";
             this.textBox_ID3.Size = new System.Drawing.Size(51, 22);
             this.textBox_ID3.TabIndex = 14;
+            this.textBox_ID3.TextChanged += new System.EventHandler(this.TextBox_ID3_TextChanged);
+            this.textBox_ID3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_ID3_KeyPress);
             // 
             // listView_Write
             // 
@@ -474,10 +485,10 @@
             this.ID});
             this.listView_Write.ForeColor = System.Drawing.Color.Green;
             this.listView_Write.FullRowSelect = true;
-            listViewGroup11.Header = "ListViewGroup";
-            listViewGroup11.Name = "Mode";
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "Mode";
             this.listView_Write.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup11});
+            listViewGroup1});
             this.listView_Write.HideSelection = false;
             this.listView_Write.Location = new System.Drawing.Point(259, 86);
             this.listView_Write.MultiSelect = false;
@@ -571,10 +582,10 @@
             this.ID_R});
             this.listView_Read.ForeColor = System.Drawing.Color.Red;
             this.listView_Read.FullRowSelect = true;
-            listViewGroup12.Header = "ListViewGroup";
-            listViewGroup12.Name = "Mode";
+            listViewGroup2.Header = "ListViewGroup";
+            listViewGroup2.Name = "Mode";
             this.listView_Read.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup12});
+            listViewGroup2});
             this.listView_Read.HideSelection = false;
             this.listView_Read.Location = new System.Drawing.Point(859, 86);
             this.listView_Read.MultiSelect = false;
@@ -668,9 +679,9 @@
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.pictureBox6);
             this.panel6.Controls.Add(this.pictureBox7);
-            this.panel6.Location = new System.Drawing.Point(1484, -6);
+            this.panel6.Location = new System.Drawing.Point(1483, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(2, 509);
+            this.panel6.Size = new System.Drawing.Size(3, 509);
             this.panel6.TabIndex = 33;
             // 
             // panel7
@@ -795,7 +806,7 @@
             this.button_closeTerminal.TabIndex = 35;
             this.button_closeTerminal.Text = "Отмена";
             this.button_closeTerminal.UseVisualStyleBackColor = false;
-            this.button_closeTerminal.Click += new System.EventHandler(this.button_closeTerminal_Click);
+            this.button_closeTerminal.Click += new System.EventHandler(this.Button_closeTerminal_Click);
             // 
             // panel3
             // 
@@ -929,12 +940,34 @@
             this.label8.TabIndex = 45;
             this.label8.Text = "Терминал";
             // 
+            // panel9
+            // 
+            this.panel9.Location = new System.Drawing.Point(2, 2);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1480, 19);
+            this.panel9.TabIndex = 46;
+            this.panel9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel9_MouseDown);
+            this.panel9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel9_MouseMove);
+            this.panel9.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Panel9_MouseUp);
+            // 
+            // panelForWindowDrop
+            // 
+            this.panelForWindowDrop.Location = new System.Drawing.Point(131, 19);
+            this.panelForWindowDrop.Name = "panelForWindowDrop";
+            this.panelForWindowDrop.Size = new System.Drawing.Size(1351, 43);
+            this.panelForWindowDrop.TabIndex = 47;
+            this.panelForWindowDrop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelForWindowDrop_MouseDown);
+            this.panelForWindowDrop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanelForWindowDrop_MouseMove);
+            this.panelForWindowDrop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PanelForWindowDrop_MouseUp);
+            // 
             // Terminal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1486, 501);
+            this.Controls.Add(this.panelForWindowDrop);
+            this.Controls.Add(this.panel9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
@@ -977,9 +1010,10 @@
             this.Controls.Add(this.operationModeLabel);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Terminal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Terminal";
+            this.Text = "nooLiteDesktopControl";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Chaneel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ResTogl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_FMT)).EndInit();
@@ -1100,5 +1134,7 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panelForWindowDrop;
     }
 }

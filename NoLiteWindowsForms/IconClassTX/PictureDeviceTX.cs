@@ -10,7 +10,7 @@ namespace NooLiteServiceSoft.IconClass
 
         EventMethodTX eventMethod = new EventMethodTX();
 
-        public void CreatePictureTX(int i, SerialPort port, PictureBox pictureBox,string devicesChannel, string devicesName,TabPage tabPage, string deviceTypeTx)
+        public void CreatePictureTX(int i, SerialPort port, PictureBox pictureBox,string devicesChannel, string devicesName,TabPage tabPage, string deviceTypeTx,TabControl tabControl)
         {
             if (deviceTypeTx.Equals("Светодиодный контроллер"))
             {
@@ -26,7 +26,7 @@ namespace NooLiteServiceSoft.IconClass
                     SizeMode = PictureBoxSizeMode.StretchImage
                 };
                 pct_socet.MouseClick += delegate (object sender, MouseEventArgs e) { eventMethod.MenuItemRGB_Setting(sender, e, port, devicesChannel, devicesName); };
-                pct_socet.MouseUp += delegate (object sender, MouseEventArgs e) { eventMethod.Btn_MouseUp(sender, e, port, devicesChannel, pictureBox, devicesName, tabPage); };
+                pct_socet.MouseUp += delegate (object sender, MouseEventArgs e) { eventMethod.Btn_MouseUp(sender, e, port, devicesChannel, pictureBox, devicesName, tabPage, tabControl); };
                 pictureBox.Controls.Add(pct_socet);
             }
             else
@@ -43,7 +43,7 @@ namespace NooLiteServiceSoft.IconClass
                     SizeMode = PictureBoxSizeMode.Normal
                 };
                 pct_socet.MouseClick += delegate (object sender, MouseEventArgs e) { eventMethod.DbClick_Connection(sender, e, port, devicesChannel); };
-                pct_socet.MouseUp += delegate (object sender, MouseEventArgs e) { eventMethod.Btn_MouseUp(sender, e, port, devicesChannel, pictureBox, devicesName, tabPage); };
+                pct_socet.MouseUp += delegate (object sender, MouseEventArgs e) { eventMethod.Btn_MouseUp(sender, e, port, devicesChannel, pictureBox, devicesName, tabPage, tabControl); };
                 pictureBox.Controls.Add(pct_socet);
             }
         }

@@ -1,12 +1,6 @@
 ﻿using NooLiteServiceSoft.XML;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NooLiteServiceSoft
@@ -15,6 +9,7 @@ namespace NooLiteServiceSoft
     {
         TabPage tabPage;
         TabPage tabMainPage;
+        XmlGroup xmlGroup = new XmlGroup();
         private const int CS_DROPSHADOW = 0x20000;
         protected override CreateParams CreateParams {
             get {
@@ -28,18 +23,17 @@ namespace NooLiteServiceSoft
         public FormUpdateRoom(TabPage page, TabPage mainPage)
         {
             InitializeComponent();
-            room_UpdateTextBox.Text = page.Text.Remove(0, 2);
+            room_UpdateTextBox.Text = page.Text;
             tabPage = page;
             tabMainPage = mainPage;
         }
 
         private void SaveUpdateRoom_button_Click(object sender, EventArgs e)
         {
-            if (room_UpdateTextBox.Text.Length > 0 && room_UpdateTextBox.Text.Equals("Все") == false && room_UpdateTextBox.Text.Length < 24)
+            if (room_UpdateTextBox.Text.Length > 0 && room_UpdateTextBox.Text.Equals("Все") == false && room_UpdateTextBox.Text.Length < 24 && xmlGroup.CheckUniqueRoom(room_UpdateTextBox.Text) == false)
             {
-                XmlGroup xmlGroup = new XmlGroup();
-                string roomName = tabPage.Text.Remove(0, 2);
-                xmlGroup.UpdateRoom(roomName, room_UpdateTextBox.Text,tabPage,tabMainPage);
+                string roomName = tabPage.Text;
+                xmlGroup.UpdateRoom(roomName, room_UpdateTextBox.Text, tabPage, tabMainPage);
                 Close();
             }
             else
@@ -48,7 +42,7 @@ namespace NooLiteServiceSoft
             }
         }
 
-        private void button_closeWindow_Click(object sender, EventArgs e)
+        private void Button_closeWindow_Click(object sender, EventArgs e)
         {
             Close();
         }

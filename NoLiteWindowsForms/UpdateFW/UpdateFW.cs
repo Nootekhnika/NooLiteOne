@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.IO;
 using System.IO.Ports;
 using System.Threading;
 using System.Windows.Forms;
@@ -19,17 +18,9 @@ namespace NooLiteServiceSoft.UpdateFW
         private Point lastForm;
         byte[] tx_bufferBootOff;
         byte[] tx_bufferEraseBoot;
-        byte[] tx_bufferResetOk;
-        private const int CS_DROPSHADOW = 0x20000;
+        byte[] tx_bufferResetOk;    
         string FilePath { get; set; }
-        protected override CreateParams CreateParams {
-            get {
-                CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
-                return cp;
-            }
-        }
-
+     
         public UpdateFW(Device device,byte[] _bufferBootOff,byte[] _bufferEraseBoot,byte[] _bufferResetOk)
         {
             InitializeComponent();
@@ -57,17 +48,13 @@ namespace NooLiteServiceSoft.UpdateFW
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //Get the path of specified file
                     filePath = openFileDialog.FileName;
-
-                    ////Read the contents of the file into a stream
-                    //var fileStream = openFileDialog.OpenFile();
                 }
             }
             FilePath = filePath;
-            if (filePath.Length > 22)
+            if (filePath.Length > 15)
             {
-                Label_PathFileUpdateDirectory.Text = filePath.Substring(0, filePath.Length - 10) + "...";
+                Label_PathFileUpdateDirectory.Text = filePath.Substring(0, 15) + "...";
             }
             else
             {
@@ -137,20 +124,27 @@ namespace NooLiteServiceSoft.UpdateFW
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-            using (SerialPort port = Port.TakeDataPort())
+            try
             {
-
-                //byte[] rx_bufferBoot = new byte[17];
-                if (port.IsOpen == false) port.Open();
-                port.Write(tx_bufferResetOk, 0, tx_bufferResetOk.Length);
-                Thread.Sleep(500); // TO DO
-                port.Write(tx_bufferBootOff, 0, tx_bufferBootOff.Length);
+                using (SerialPort port = Port.TakeDataPort())
+                {
+                    if (port.IsOpen == false) port.Open();
+                    port.Write(tx_bufferResetOk, 0, tx_bufferResetOk.Length);
+                    Thread.Sleep(500); // TO DO
+                    port.Write(tx_bufferBootOff, 0, tx_bufferBootOff.Length);
+                }
+                Close();
             }
-            Close();
-        }
-
-       
+            catch
+            {
+                using (DisconnectMTRF disconnectMTRF = new DisconnectMTRF())
+                {
+                    disconnectMTRF.ShowDialog();
+                }
+                Application.Exit();
+            }
+        }   
     }
 }

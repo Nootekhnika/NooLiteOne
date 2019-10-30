@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NooLiteServiceSoft.Settings
@@ -30,10 +26,11 @@ namespace NooLiteServiceSoft.Settings
             form.Controls.Remove(stateMemorization);
         }
 
-        public void FormDesign(SettingFTX settingFTX, Button buttonSave, Button buttonCancel)
+        public void FormDesign(SettingFTX settingFTX, Button buttonSave, Button buttonCancel,Panel panelBottom)
         {
-            settingFTX.Width = 625;
-            settingFTX.Height = 350;
+            settingFTX.Width = 609;
+            settingFTX.Height = 300;
+            panelBottom.Top = 298;
             buttonSave.Top = 255;
             buttonCancel.Top = 255;
             GroupBox SelectModeGroupBox = new GroupBox()
@@ -74,7 +71,7 @@ namespace NooLiteServiceSoft.Settings
                 Top = 40,
                 Width = 195,
                 Height = 100,
-                Text = "Приём NooLite",
+                Text = "Приём nooLite",
                 BackColor = Color.FromArgb(239, 239, 239)
             };
             RadioButton nlCommandOn = new RadioButton
@@ -183,7 +180,7 @@ namespace NooLiteServiceSoft.Settings
                 Top = 145,
                 Width = 195,
                 Height = 100,
-                Text = "Статус состояния",
+                Text = "Состояние после включения",
                 BackColor = Color.FromArgb(239, 239, 239)
             };
             RadioButton stateOn = new RadioButton
@@ -229,27 +226,6 @@ namespace NooLiteServiceSoft.Settings
                 off_StateAfterOn.Enabled = true;
             }
         }
-
-
-        //public byte[] SUF130000T(SerialPort port, string devicesChannel, byte typeCode, byte[] idArray)
-        //{
-        //    byte[] bufferMainPropertiesFirstWrite = new byte[17] { 171, 2, 8, 0, byte.Parse(devicesChannel), 128, 16, 0, 0, 0, 0, idArray[0], idArray[1], idArray[2], idArray[3], 0, 172 };
-        //    byte[] tx_bufferSettingWrite = CRC(bufferMainPropertiesFirstWrite);
-        //    byte[] rx_bufferSettingRequest = new byte[17];
-        //    if (port.IsOpen == false) port.Open();
-        //    port.Write(tx_bufferSettingWrite, 0, tx_bufferSettingWrite.Length);
-        //    WaitData(port, rx_bufferSettingRequest);
-        //    if (port.IsOpen) port.Close();
-        //    string stringByte = Convert.ToString(rx_bufferSettingRequest[7], 2);
-        //    byte[] arrayByte = new byte[7] { 0, 0, 0, 0, 0, 0, 0 };
-        //    int count = stringByte.Length - 1;
-        //    foreach (var b in stringByte)
-        //    {
-        //        arrayByte[count] = byte.Parse(b.ToString());
-        //        count--;
-        //    }
-        //    return arrayByte;
-        //}
 
         public void SUF13000TStatus(byte[] resultByte)
         {
@@ -323,11 +299,8 @@ namespace NooLiteServiceSoft.Settings
                 StateOn.Checked = false;
                 StateOff.Checked = true;
             }
-
         }
-
-
-
+        
         public void WriteSettingSRF13000T(SettingFTX settingFTX, SerialPort port, string devicesChannel, byte typeCode, byte[] idArray)
         {
             byte d0 = SaveSUF13000TSetting(HandsModeRB, NLCommandOn, SensorFloor, SensorRF, SaveStateOn, StateOn);
@@ -404,7 +377,6 @@ namespace NooLiteServiceSoft.Settings
             }
 
             return Convert.ToByte(stringByte, 2);
-
         }
     }
 }

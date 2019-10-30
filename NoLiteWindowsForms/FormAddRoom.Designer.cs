@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddRoom));
             this.room_textBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -106,9 +107,9 @@
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.pictureBox6);
             this.panel6.Controls.Add(this.pictureBox7);
-            this.panel6.Location = new System.Drawing.Point(658, -1);
+            this.panel6.Location = new System.Drawing.Point(657, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(2, 400);
+            this.panel6.Size = new System.Drawing.Size(3, 400);
             this.panel6.TabIndex = 25;
             // 
             // panel7
@@ -375,7 +376,7 @@
             this.button_closeWindow.TabIndex = 31;
             this.button_closeWindow.Text = "Отмена";
             this.button_closeWindow.UseVisualStyleBackColor = false;
-            this.button_closeWindow.Click += new System.EventHandler(this.button_closeWindow_Click);
+            this.button_closeWindow.Click += new System.EventHandler(this.Button_closeWindow_Click);
             // 
             // FormAddRoom
             // 
@@ -393,12 +394,13 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.room_textBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(807, 497);
             this.MinimumSize = new System.Drawing.Size(600, 400);
             this.Name = "FormAddRoom";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Добавить комнату";
+            this.Text = "nooLiteDesktopControl";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormAddRoom_FormClosed);
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);

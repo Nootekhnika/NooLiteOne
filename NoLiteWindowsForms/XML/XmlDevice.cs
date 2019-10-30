@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace NooLiteServiceSoft
@@ -14,7 +10,6 @@ namespace NooLiteServiceSoft
         public void LoadXMLFile(Device dvc)
         {
             XDocument xdoc = XDocument.Load("devices.xml");
-
             var deviceElements = from el in xdoc.Descendants().Elements("device") select el;
             XElement device = new XElement("device");
             XElement devices = new XElement("devices");
@@ -23,7 +18,7 @@ namespace NooLiteServiceSoft
             {
                 devices.Add(xe);
             }
-            // создаем атрибут
+
             XAttribute DeviceNameAttr = new XAttribute("name", dvc.NameDevice);
             XElement TypeDeviceId = new XElement("typeDeviceId", dvc.TypeCode);
             XElement ChannelElem = new XElement("channel", dvc.Channel);
@@ -46,7 +41,6 @@ namespace NooLiteServiceSoft
             device.Add(RoomName);
             devices.Add(device);
             xdoc.Root.Add(device);
-            //сохраняем документ
             xdoc.Save("devices.xml");
         }
 
@@ -60,7 +54,6 @@ namespace NooLiteServiceSoft
             XDocument xdocs = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
 
             XElement device = new XElement("device");
-            // create attr
             XAttribute DeviceNameAttr = new XAttribute("name", dvc.NameDevice);
             XElement ChannelElem = new XElement("channel", dvc.Channel);
             XElement TypeDeviceId = new XElement("typeDeviceId", dvc.TypeCode);
@@ -76,7 +69,6 @@ namespace NooLiteServiceSoft
             DeviceId.Add(D1);
             DeviceId.Add(D2);
             DeviceId.Add(D3);
-            // add attr and elem in first elem
             device.Add(DeviceId);
             device.Add(DeviceNameAttr);
             device.Add(Mode);
@@ -84,21 +76,26 @@ namespace NooLiteServiceSoft
             device.Add(ChannelElem);
             device.Add(RoomName);
             XElement devices = new XElement("devices");
-
             devices.Add(device);
-
             xdocs.Add(devices);
-            //save document
             xdocs.Save("devices.xml");
         }
 
         public void CreateXmlFile()
         {
-            XDocument xdocs = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));            
-            XElement devices = new XElement("devices");           
+            XDocument xdocs = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
+            XElement devices = new XElement("devices");
             xdocs.Add(devices);
-            //save document
             xdocs.Save("devices.xml");
+        }
+
+
+        public void CreateXmlFileTX()
+        {
+            XDocument xdocs = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
+            XElement devices = new XElement("devices");
+            xdocs.Add(devices);
+            xdocs.Save("devicesTX.xml");
         }
 
         public void LoadXMLFileTX(DeviceTX dvc)
@@ -113,13 +110,11 @@ namespace NooLiteServiceSoft
             {
                 devices.Add(xe);
             }
-            // create attr
             XAttribute DeviceNameAttr = new XAttribute("name", dvc.NameDevice);
             XElement TypeDeviceId = new XElement("typeDevice", dvc.TypeName);
             XElement ChannelElem = new XElement("channel", dvc.Channel);
             XElement Mode = new XElement("mode", dvc.Mode);
             XElement RoomName = new XElement("RoomName", dvc.RoomName);
-            // add attr and elem in first elem
             device.Add(DeviceNameAttr);
             device.Add(Mode);
             device.Add(TypeDeviceId);
@@ -127,7 +122,6 @@ namespace NooLiteServiceSoft
             device.Add(RoomName);
             devices.Add(device);
             xdoc.Root.Add(device);
-            //save document
             xdoc.Save("devicesTX.xml");
         }
 
@@ -135,13 +129,11 @@ namespace NooLiteServiceSoft
         {
             XDocument xdocs = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
             XElement device = new XElement("device");
-            // создаем атрибут
             XAttribute DeviceNameAttr = new XAttribute("name", dvc.NameDevice);
             XElement ChannelElem = new XElement("channel", dvc.Channel);
             XElement TypeDeviceId = new XElement("typeDevice", dvc.TypeName);
             XElement Mode = new XElement("mode", dvc.Mode);
             XElement RoomName = new XElement("RoomName", dvc.RoomName);
-            // добавляем атрибут и элементы в первый элемент    
             device.Add(DeviceNameAttr);
             device.Add(Mode);
             device.Add(TypeDeviceId);
@@ -150,7 +142,6 @@ namespace NooLiteServiceSoft
             XElement devices = new XElement("devices");
             devices.Add(device);
             xdocs.Add(devices);
-            //сохраняем документ
             xdocs.Save("devicesTX.xml");
         }
 
@@ -214,7 +205,6 @@ namespace NooLiteServiceSoft
             }
             catch (IOException)
             {
-                //MessageBox.Show("Ни одного устройства не добавлено");
             }
             string[] deviceNameReturn = new string[0];
             return deviceNameReturn;
@@ -241,7 +231,6 @@ namespace NooLiteServiceSoft
             }
             catch (IOException)
             {
-                //MessageBox.Show("Ни одного устройства не добавлено");
                 string[] deviceInRoom = new string[0];
                 return deviceInRoom;
             }
@@ -331,7 +320,7 @@ namespace NooLiteServiceSoft
             }
         }
 
-        public void DeviceElementsXmlTX(string[] deviceName, string[] deviceType,string[] roomName)
+        public void DeviceElementsXmlTX(string[] deviceName, string[] deviceType, string[] roomName)
         {
             try
             {
@@ -393,7 +382,6 @@ namespace NooLiteServiceSoft
                                     p.Element("IdDevice").Element("D2").Value == idArray[2] &&
                                     p.Element("IdDevice").Element("D3").Value == idArray[3] &&
                                     p.Element("channel").Value == devicesChannel).FirstOrDefault();
-                //Attributes("name").Where(p => p.Value == deviceName).FirstOrDefault() ;//TODO
                 if (removeElement != null)
                 {
                     removeElement.Remove();
@@ -411,7 +399,6 @@ namespace NooLiteServiceSoft
             {
                 XDocument xdoc = XDocument.Load("devices.xml");
                 var removeElement = xdoc.Descendants().Elements("device");
-                //Attributes("name").Where(p => p.Value == deviceName).FirstOrDefault() ;//TODO
                 if (removeElement != null)
                 {
                     removeElement.Remove();
@@ -431,7 +418,6 @@ namespace NooLiteServiceSoft
                 XDocument xdoc = XDocument.Load("devicesTX.xml");
                 var removeElement = xdoc.Descendants().Elements("device").Where(p =>
                                    p.Element("channel").Value == devicesChannel);
-                //Attributes("name").Where(p => p.Value == deviceName).FirstOrDefault() ;//TODO
                 if (removeElement != null)
                 {
                     removeElement.Remove();
@@ -514,7 +500,6 @@ namespace NooLiteServiceSoft
                 default:
                     break;
             }
-            // создаем атрибут
             XAttribute DeviceNameAttr = new XAttribute("name", name);
             XElement TypeDeviceId = new XElement("typeDeviceId", typeCode);
             XElement ChannelElem = new XElement("channel", channel);
@@ -537,7 +522,6 @@ namespace NooLiteServiceSoft
             device.Add(RoomName);
             devices.Add(device);
             xdoc.Root.Add(device);
-            //сохраняем документ
             xdoc.Save("devices.xml");
         }
     }

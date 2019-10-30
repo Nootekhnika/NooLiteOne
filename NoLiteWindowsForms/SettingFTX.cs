@@ -1,13 +1,6 @@
 ﻿using NooLiteServiceSoft.Settings;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NooLiteServiceSoft
@@ -16,15 +9,6 @@ namespace NooLiteServiceSoft
     {
         XmlTypeDevice xmlTypeDevice = new XmlTypeDevice();
         Port portEx = new Port();
-        private const int CS_DROPSHADOW = 0x20000;
-        protected override CreateParams CreateParams {
-            get {
-                CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
-                return cp;
-            }
-        }
-
 
         public SettingFTX(Device device)
         {
@@ -39,20 +23,18 @@ namespace NooLiteServiceSoft
                 {
                     SettingSRF101000 settingSRF101000 = new SettingSRF101000(on_StateAfterOn, off_StateAfterOn, stateAfterOn, allowReceivingCommandFromNL, banReceivingCommandFromNL, TakeNooLiteCommand, on_State, off_State, stateMemorization);
                     settingSRF101000.OperationWithElements();
-                    labelDeviceSetting.Text = $"Настройка устройства: {xmlTypeDevice.TypeDeviceNameXml(byte.Parse(device.TypeCode.ToString()))}";                  
+                    labelDeviceSetting.Text = $"Настройка устройства: {xmlTypeDevice.TypeDeviceNameXml(byte.Parse(device.TypeCode.ToString()))}";
                     byte[] resultRequest = settingSRF101000.DeviceSettings(port, device.Channel.ToString(), 2, idArray);
                     byte[] resultByte = new byte[resultRequest.Length];
                     Array.Copy(resultRequest, resultByte, resultRequest.Length);
                     settingSRF101000.SRF101000Status(resultByte, on_State, off_State, allowReceivingCommandFromNL, banReceivingCommandFromNL);
                     save_btn.Click += delegate (object _sender, EventArgs _e) { settingSRF101000.WriteSettingSRF101000(this, port, device.Channel.ToString(), 3, idArray, on_State, off_State, allowReceivingCommandFromNL, banReceivingCommandFromNL); };
-
-
                 }
 
                 if (device.TypeCode == 3 || device.TypeCode == 4)
                 {
                     SettingSRF13000 settingsSRF13000 = new SettingSRF13000();
-                    labelDeviceSetting.Text = $"Настройка устройства: {xmlTypeDevice.TypeDeviceNameXml(byte.Parse(device.TypeCode.ToString()))}";                  
+                    labelDeviceSetting.Text = $"Настройка устройства: {xmlTypeDevice.TypeDeviceNameXml(byte.Parse(device.TypeCode.ToString()))}";
                     byte[] resultRequest = settingsSRF13000.DeviceSettings(port, device.Channel.ToString(), 3, idArray);
                     byte[] resultByte = new byte[resultRequest.Length];
                     Array.Copy(resultRequest, resultByte, resultRequest.Length);
@@ -66,7 +48,7 @@ namespace NooLiteServiceSoft
                 {
                     SettingSUF1300 settingSUF1300 = new SettingSUF1300();
                     labelDeviceSetting.Text = $"Настройка устройства: {xmlTypeDevice.TypeDeviceNameXml(byte.Parse(device.TypeCode.ToString()))}";
-                    settingSUF1300.FormDesign(this, save_btn, cancel_btn);
+                    settingSUF1300.FormDesign(this, save_btn, cancel_btn, panel3, panel4, panel1);
                     byte[] resultRequest = settingSUF1300.SUF1300(port, device.Channel.ToString(), 5, idArray);
                     byte[] resultByte = new byte[resultRequest.Length];
                     Array.Copy(resultRequest, resultByte, resultRequest.Length);
@@ -80,7 +62,7 @@ namespace NooLiteServiceSoft
                 {
                     SettingSRF103000T settingSRF103000T = new SettingSRF103000T(this, stateAfterOn, TakeNooLiteCommand, stateMemorization);
                     labelDeviceSetting.Text = $"Настройка устройства: {xmlTypeDevice.TypeDeviceNameXml(byte.Parse(device.TypeCode.ToString()))}";
-                    settingSRF103000T.FormDesign(this, save_btn, cancel_btn);
+                    settingSRF103000T.FormDesign(this, save_btn, cancel_btn, panel4);
                     byte[] resultRequest = settingSRF103000T.DeviceSettings(port, device.Channel.ToString(), 6, idArray);
                     byte[] resultByte = new byte[resultRequest.Length];
                     Array.Copy(resultRequest, resultByte, resultRequest.Length);
@@ -90,7 +72,7 @@ namespace NooLiteServiceSoft
 
                 if (device.TypeCode == 7)
                 {
-                    SettingSRF1000R settingSRF1000R = new SettingSRF1000R(this,stateAfterOn,on_State,off_State,allowReceivingCommandFromNL,banReceivingCommandFromNL);
+                    SettingSRF1000R settingSRF1000R = new SettingSRF1000R(this, stateAfterOn, on_State, off_State, allowReceivingCommandFromNL, banReceivingCommandFromNL);
                     labelDeviceSetting.Text = $"Настройка устройства: {xmlTypeDevice.TypeDeviceNameXml(byte.Parse(device.TypeCode.ToString()))}";
                     settingSRF1000R.FormDesign(this);
                     byte[] resultRequest = settingSRF1000R.DeviceSettings(port, device.Channel.ToString(), 7, idArray);
@@ -105,6 +87,6 @@ namespace NooLiteServiceSoft
         private void Remove_btn_Click(object sender, EventArgs e)
         {
             Close();
-        }      
+        }
     }
 }

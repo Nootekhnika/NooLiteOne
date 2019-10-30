@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NooLiteServiceSoft.Settings
@@ -25,12 +21,15 @@ namespace NooLiteServiceSoft.Settings
         private TextBox MinLvlValue;
 
 
-        public void FormDesign(SettingFTX settingFTX, Button buttonSave, Button buttonCancel)
+        public void FormDesign(SettingFTX settingFTX, Button buttonSave, Button buttonCancel,Panel panelLeft,Panel panelDown,Panel panelRight)
         {
-            settingFTX.Width = 625;
-            settingFTX.Height = 440;
-            settingFTX.MaximumSize = new Size(625,440);
-            settingFTX.MinimumSize = new Size(625, 440);
+            settingFTX.Width = 609;
+            settingFTX.Height = 410;
+            panelLeft.Height = 700;
+            panelDown.Top = 408;
+            panelRight.Height = 700;
+            settingFTX.MaximumSize = new Size(609, 410);
+            settingFTX.MinimumSize = new Size(609, 410);
             buttonSave.Top = 360;
             buttonCancel.Top = 360;
             GroupBox exitType = new GroupBox
@@ -71,7 +70,7 @@ namespace NooLiteServiceSoft.Settings
                 Top = 140,
                 Width = 195,
                 Height = 100,
-                Text = "Функция Ретрансляции NooLite",
+                Text = "Функция Ретрансляции nooLite",
                 BackColor = Color.FromArgb(239, 239, 239),
                 TabIndex = 5
             };
@@ -262,7 +261,7 @@ namespace NooLiteServiceSoft.Settings
             minValue.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { ValidatiionKeyPressForTextBox(_sender, _e); };
             maxValue.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { ValidatiionKeyPressForTextBox(_sender, _e); };
             minLvlValue.KeyPress += delegate (object _sender, KeyPressEventArgs _e) { ValidatiionKeyPressForTextBox(_sender, _e); };
-            minLvlValue.KeyUp += delegate { ValidateTextBox(minLvlValue); };
+          
 
         }
 
@@ -291,6 +290,7 @@ namespace NooLiteServiceSoft.Settings
                 RetranslOff.Enabled = true;
                 MinLvlValue.Enabled = false;
             }
+          
         }
 
         public void BlockedRadioButtonOnState(RadioButton radioButton, RadioButton on_StateAfterOn, RadioButton off_StateAfterOn)
@@ -306,7 +306,7 @@ namespace NooLiteServiceSoft.Settings
             if (radioButton.Checked == true)
             {
                 on_StateAfterOn.Enabled = true;
-                off_StateAfterOn.Enabled = true;              
+                off_StateAfterOn.Enabled = true;
             }
         }
 
@@ -322,7 +322,6 @@ namespace NooLiteServiceSoft.Settings
             byte[] bufferLvlValueProperties = new byte[17] { 171, 2, 8, 0, byte.Parse(devicesChannel), 128, 18, 0, 0, 0, 0, idArray[0], idArray[1], idArray[2], idArray[3], 0, 172 };
             byte[] tx_bufferLvlValueProperties = CRC(bufferLvlValueProperties);
             byte[] rx_bufferLvlValueProperties = new byte[17];
-
             if (port.IsOpen == false) port.Open();
             port.Write(tx_bufferSettingWrite, 0, tx_bufferSettingWrite.Length);
             WaitData(port, rx_bufferSettingRequest);
@@ -334,8 +333,8 @@ namespace NooLiteServiceSoft.Settings
             WaitData(port, rx_bufferLvlValueProperties);
             if (port.IsOpen) port.Close();
             string stringByte = Convert.ToString(rx_bufferSettingRequest[7], 2);
-            byte[] arrayByte = new byte[8] {0,0,0,0,0,0,0,0};
-            int count = stringByte.Length-1;
+            byte[] arrayByte = new byte[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
+            int count = stringByte.Length - 1;
             foreach (var b in stringByte)
             {
                 arrayByte[count] = byte.Parse(b.ToString());
@@ -345,49 +344,164 @@ namespace NooLiteServiceSoft.Settings
             MaxValue.Text = (int.Parse(rx_bufferValueProperties[7].ToString()) * 100 / 255).ToString();
             MinValue.Text = (int.Parse(rx_bufferValueProperties[8].ToString()) * 100 / 255).ToString();
             //минимальный уровень включения
-            MinLvlValue.Text = (int.Parse(rx_bufferLvlValueProperties[7].ToString()) * 100 / 255).ToString();
-
+            MinLvlValue.Text = (int.Parse((rx_bufferLvlValueProperties[7] + 1).ToString()) * 100 / 255).ToString();
             return arrayByte;
         }
 
         public void WriteSettingSUF1300(SettingFTX settingFTX, SerialPort port, string devicesChannel, byte typeCode, byte[] idArray, RadioButton on_State, RadioButton off_State, RadioButton on_StateAfterOn, RadioButton off_StateAfterOn, RadioButton allowReceivingCommandFromNL, RadioButton banReceivingCommandFromNL)
         {
-            byte d0 = SaveSUF13000Setting(on_State, off_State, on_StateAfterOn, off_StateAfterOn, allowReceivingCommandFromNL, banReceivingCommandFromNL);
-            byte minLvlValue;
-            byte minValueDim;
-            byte maxValueDim;
-            minValueDim = byte.Parse(Math.Ceiling((ValueFromTextBox(MinValue) * 255 / 100)).ToString());
-            maxValueDim = byte.Parse(Math.Ceiling((ValueFromTextBox(MaxValue) * 255 / 100)).ToString());
-            if (int.Parse(MinLvlValue.Text) == 50)//минимальный уровень включения.
+            bool flagMin = true;
+            bool flagMax = true;
+            bool flagMinLvl = true;
+
+            if (MinValue.Text.Length == 0)
             {
-                minLvlValue = 128;
+                MinValue.BackColor = Color.LightCoral;
+                flagMin = false;
             }
             else
             {
-                minLvlValue = byte.Parse(Math.Ceiling((ValueFromTextBox(MinLvlValue) * 255 / 100)).ToString());//немного не правильно округляет
+                if (int.Parse(MinValue.Text) > int.Parse(MaxValue.Text) || int.Parse(MinValue.Text) > 80)
+                {
+                    MinValue.BackColor = Color.LightCoral;
+                    flagMin = false;
+                }
+                else
+                {
+                    MinValue.BackColor = Color.White;
+                    flagMin = true;
+                }
             }
-            byte[] bufferMainPropertiesFirstWrite = new byte[17] { 171, 2, 8, 0, byte.Parse(devicesChannel), 129, 16, d0, 0, 255, 0, idArray[0], idArray[1], idArray[2], idArray[3], 0, 172 };
-            byte[] tx_bufferSettingWrite = CRC(bufferMainPropertiesFirstWrite);
-            byte[] bufferValueProperties = new byte[17] { 171, 2, 8, 0, byte.Parse(devicesChannel), 129, 17, maxValueDim, minValueDim, 255, 255, idArray[0], idArray[1], idArray[2], idArray[3], 0, 172 };
-            byte[] tx_bufferValueProperties = CRC(bufferValueProperties);
-            //TODO коррекция min max диммирование
-            byte[] bufferLvlValueProperties = new byte[17] { 171, 2, 8, 0, byte.Parse(devicesChannel), 129, 18, minLvlValue, 0, 0, 0, idArray[0], idArray[1], idArray[2], idArray[3], 0, 172 };
-            byte[] tx_bufferLvlValueProperties = CRC(bufferLvlValueProperties);
-            if (port.IsOpen == false) port.Open();
-            port.Write(tx_bufferSettingWrite, 0, tx_bufferSettingWrite.Length);
-            //port.DiscardInBuffer();
-            Thread.Sleep(200);
-            if (DimerRB.Checked == true)
+
+            if (MaxValue.Text.Length == 0)
             {
-                //await Task.Delay(TimeSpan.FromMilliseconds(1000));
-                port.Write(tx_bufferValueProperties, 0, tx_bufferValueProperties.Length);
-               // port.DiscardInBuffer();
-                Thread.Sleep(500);
-                port.Write(tx_bufferLvlValueProperties, 0, tx_bufferLvlValueProperties.Length);
-               // port.DiscardInBuffer();
+                MaxValue.BackColor = Color.LightCoral;
+                flagMax = false;
             }
-            if (port.IsOpen) port.Close();
-            settingFTX.Close();
+            else
+            {
+                if (int.Parse(MaxValue.Text) > 100)
+                {
+                    MaxValue.BackColor = Color.LightCoral;
+                    flagMax = false;
+                }
+                else
+                {
+                    MaxValue.BackColor = Color.White;
+                    flagMax = true;
+                }
+            }
+
+            if (MinLvlValue.Text.Length == 0)
+            {
+                MinLvlValue.BackColor = Color.LightCoral;
+                flagMinLvl = false;
+            }
+            else
+            {
+                if (int.Parse(MinLvlValue.Text) > 50)
+                {
+                    MinLvlValue.BackColor = Color.LightCoral;
+                    flagMinLvl = false;
+                }
+                else
+                {
+
+                    MinLvlValue.BackColor = Color.White;
+                    flagMinLvl = true;
+                }
+            }
+
+            if (MinValue.Text.Length != 0 && MaxValue.Text.Length != 0)
+            {
+                if (int.Parse(MinValue.Text) == int.Parse(MaxValue.Text))
+                {
+                    MinValue.BackColor = Color.LightCoral;
+                    MaxValue.BackColor = Color.LightCoral;
+                    flagMin = false;
+                    flagMax = false;
+
+                }
+                else
+                {
+                    if (int.Parse(MaxValue.Text) - int.Parse(MinValue.Text) >= 20 && flagMin == true && flagMax == true)
+                    {
+                        MinValue.BackColor = Color.White;
+                        MaxValue.BackColor = Color.White;
+                        flagMin = true;
+                        flagMax = true;
+                    }
+                    else
+                    {
+                        if (flagMin == false)
+                        {
+                            MinValue.BackColor = Color.LightCoral;
+                        }
+                        else
+                        {
+                            MinValue.BackColor = Color.White;
+                        }
+                        if (flagMax == false)
+                        {
+                            MaxValue.BackColor = Color.LightCoral;
+                        }
+                        else
+                        {
+                            MaxValue.BackColor = Color.White;
+                        }
+
+                    }
+                }
+            }
+
+            if (flagMax == true && flagMin == true && flagMinLvl == true)
+            {
+                try
+                {
+                    MinValue.BackColor = Color.White;
+                    MinValue.BackColor = Color.White;
+                    MinValue.BackColor = Color.White;
+                    byte d0 = SaveSUF13000Setting(on_State, off_State, on_StateAfterOn, off_StateAfterOn, allowReceivingCommandFromNL, banReceivingCommandFromNL);
+                    byte minLvlValue;
+                    byte minValueDim;
+                    byte maxValueDim;
+                    minValueDim = byte.Parse(Math.Ceiling((ValueFromTextBox(MinValue) * 255 / 100)).ToString());
+                    maxValueDim = byte.Parse(Math.Ceiling((ValueFromTextBox(MaxValue) * 255 / 100)).ToString());
+                    if (int.Parse(MinLvlValue.Text) == 50)//минимальный уровень включения.
+                    {
+                        minLvlValue = 127;
+                    }
+                    else
+                    {
+                        minLvlValue = byte.Parse(Math.Ceiling(ValueFromTextBox(MinLvlValue) * 255 / 100).ToString());
+                    }
+                    byte[] bufferMainPropertiesFirstWrite = new byte[17] { 171, 2, 8, 0, byte.Parse(devicesChannel), 129, 16, d0, 0, 255, 0, idArray[0], idArray[1], idArray[2], idArray[3], 0, 172 };
+                    byte[] tx_bufferSettingWrite = CRC(bufferMainPropertiesFirstWrite);
+                    byte[] bufferValueProperties = new byte[17] { 171, 2, 8, 0, byte.Parse(devicesChannel), 129, 17, maxValueDim, minValueDim, 255, 255, idArray[0], idArray[1], idArray[2], idArray[3], 0, 172 };
+                    byte[] tx_bufferValueProperties = CRC(bufferValueProperties);
+                    byte[] bufferLvlValueProperties = new byte[17] { 171, 2, 8, 0, byte.Parse(devicesChannel), 129, 18, minLvlValue, 0, 0, 0, idArray[0], idArray[1], idArray[2], idArray[3], 0, 172 };
+                    byte[] tx_bufferLvlValueProperties = CRC(bufferLvlValueProperties);
+                    if (port.IsOpen == false) port.Open();
+                    port.Write(tx_bufferSettingWrite, 0, tx_bufferSettingWrite.Length);
+                    Thread.Sleep(200);
+                    if (DimerRB.Checked == true)
+                    {
+                        port.Write(tx_bufferValueProperties, 0, tx_bufferValueProperties.Length);
+                        Thread.Sleep(500);
+                        port.Write(tx_bufferLvlValueProperties, 0, tx_bufferLvlValueProperties.Length);
+                    }
+                    if (port.IsOpen) port.Close();
+                    settingFTX.Close();
+                }
+                catch
+                {
+                    using (DisconnectMTRF disconnectMTRF = new DisconnectMTRF())
+                    {
+                        disconnectMTRF.ShowDialog();
+                    }
+                    Application.Exit();
+                }
+            }
         }
 
         private byte SaveSUF13000Setting(RadioButton on_State, RadioButton off_State, RadioButton on_StateAfterOn, RadioButton off_StateAfterOn, RadioButton allowReceivingCommandFromNL, RadioButton banReceivingCommandFromNL)
@@ -446,7 +560,7 @@ namespace NooLiteServiceSoft.Settings
                 resultByte[3] = 0;
                 resultByte[2] = 0;
             }
-            ///
+
             if (on_StateAfterOn.Checked == true)
             {
                 resultByte[1] = 1;
@@ -477,7 +591,7 @@ namespace NooLiteServiceSoft.Settings
         {
             return double.Parse(minLvlValue.Text);
         }
-//Статус сделал
+
         public void SUF1300Status(byte[] resultByte, RadioButton on_State, RadioButton off_State, RadioButton on_StateAfterOn, RadioButton off_StateAfterOn, RadioButton allowReceivingCommandFromNL, RadioButton banReceivingCommandFromNL)
         {
             if (resultByte[0] == 1)
@@ -520,7 +634,7 @@ namespace NooLiteServiceSoft.Settings
                 banReceivingCommandFromNL.Checked = false;
             }
 
-            if(resultByte[3] ==1 && resultByte[4] != 1)
+            if (resultByte[3] == 1 && resultByte[4] != 1)
             {
                 Button.Checked = true;
                 SwitchOff.Checked = false;
@@ -528,7 +642,8 @@ namespace NooLiteServiceSoft.Settings
                 NotUsing.Checked = false;
             }
             else
-            {if(resultByte[3] != 1 && resultByte[4] == 1)
+            {
+                if (resultByte[3] != 1 && resultByte[4] == 1)
                 {
                     Button.Checked = false;
                     SwitchOff.Checked = false;
@@ -575,6 +690,14 @@ namespace NooLiteServiceSoft.Settings
                 RetranslOn.Checked = false;
                 RetranslOff.Checked = true;
             }
+            if (RelayRB.Checked)
+            {
+                MinLvlValue.Enabled = false;
+            }
+            else
+            {
+                MinLvlValue.Enabled = true;
+            }
         }
 
         public void ValidatiionKeyPressForTextBox(object sender, KeyPressEventArgs e)
@@ -586,16 +709,15 @@ namespace NooLiteServiceSoft.Settings
             }
         }
 
-        public void ValidateTextBox(TextBox text)
+        public void ValidateTextBox(TextBox text,int maxValue,string maxValueS, string DefaultValue)
         {
             if (text.Text.Equals("") != true)
             {
-                if (int.Parse(text.Text) > 50) text.Text = "50";
-                if (int.Parse(text.Text) < 5) text.Text = "5";
+                if (int.Parse(text.Text) > maxValue) text.Text = maxValueS;
             }
             else
             {
-                text.Text = "5";
+                text.Text = DefaultValue;
             }
         }
 

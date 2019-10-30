@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingSRF11000R));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -121,9 +122,9 @@
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.pictureBox4);
             this.panel4.Controls.Add(this.pictureBox5);
-            this.panel4.Location = new System.Drawing.Point(484, -15);
+            this.panel4.Location = new System.Drawing.Point(483, -15);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(2, 313);
+            this.panel4.Size = new System.Drawing.Size(3, 313);
             this.panel4.TabIndex = 30;
             // 
             // panel5
@@ -183,9 +184,9 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(29, 31);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(222, 24);
+            this.label6.Size = new System.Drawing.Size(247, 24);
             this.label6.TabIndex = 26;
-            this.label6.Text = "Настройка SRF-1-1000R";
+            this.label6.Text = " Управление SRF-1-1000-R";
             // 
             // panel6
             // 
@@ -380,7 +381,7 @@
             this.button4.TabIndex = 34;
             this.button4.Text = "Отмена";
             this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.Button4_Click);
             // 
             // SettingSRF11000R
             // 
@@ -398,11 +399,12 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(486, 300);
             this.MinimumSize = new System.Drawing.Size(486, 300);
             this.Name = "SettingSRF11000R";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SettingSRF11000R";
+            this.Text = "nooLiteDesktopControl";
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();

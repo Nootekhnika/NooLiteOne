@@ -1,15 +1,10 @@
 ﻿using NooLiteServiceSoft.IconClassTX;
 using NooLiteServiceSoft.XML;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO.Ports;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace NooLiteServiceSoft.IconClass
 {
@@ -17,23 +12,22 @@ namespace NooLiteServiceSoft.IconClass
     {
         const string DEVICEPATH = "devices.xml";
         const string DEVICEPATHTX= "devicesTX.xml";
-        //SerialPort port = Port.TakeDataPort();
         XmlDevice xmlDevice = new XmlDevice();
         XmlTypeDevice xmlTypeDevice = new XmlTypeDevice();
         XmlGroup xmlGroup = new XmlGroup();
         Device device = new Device();
-       
+        OperationWithMainForm operationWithMainForm = new OperationWithMainForm();
 
 
-        public void IconAddallDevices(TabPage tabPage1)
+
+        public void IconAddallDevices(TabControl tabControl, TabPage tabPage1)
         {
+            SerialPort port = Port.TakeDataPort();
+            Cursor.Current = Cursors.WaitCursor;
             tabPage1.Controls.Clear();
             int countDevices = 0;
             int positionTop = 0;
             int positionLeft = 0;
-
-            SerialPort port = Port.TakeDataPort();
-
             string[] devicesName = xmlDevice.DeviceNameXml(DEVICEPATH);//Оптимизировать всё брать одним запросом  к файлу //TODO//Имена устройств
             string[] devicesChannel = new string[devicesName.Length];
             string[] devicesType = new string[devicesName.Length];
@@ -44,10 +38,11 @@ namespace NooLiteServiceSoft.IconClass
             string[] devicesChannelTX = new string[devicesNameTX.Length];
             string[] devicesTypeTX = new string[devicesNameTX.Length];
             string[] roomNameTX = new string[devicesNameTX.Length];
-            xmlDevice.DeviceElementsXmlTX(devicesChannelTX, devicesTypeTX,roomNameTX);// не забыть сделать
+            xmlDevice.DeviceElementsXmlTX(devicesChannelTX, devicesTypeTX, roomNameTX);// не забыть сделать
 
             for (int i = 0; i < devicesName.Count(); i++)
             {
+                Cursor.Current = Cursors.WaitCursor;
                 if (i != 0 && i % 7 == 0)
                 {
                     positionTop++;
@@ -55,7 +50,7 @@ namespace NooLiteServiceSoft.IconClass
                 }
                 if (i <= devicesName.Count())
                 {
-                    PictureBox pct = new PictureBox();                 
+                    PictureBox pct = new PictureBox();
                     PictureSocket pictureSocket = new PictureSocket();
                     PictureDeviceOn _deviceOn = new PictureDeviceOn();
                     PictureDeviceNoConnection deviceNoConnection = new PictureDeviceNoConnection();
@@ -66,39 +61,44 @@ namespace NooLiteServiceSoft.IconClass
                     PictureMain _pct = new PictureMain();
                     Label labelTemp = new Label
                     {
+                        Name = "labelTempName",
                         Height = 20,
                         Width = 35,
                         Top = 5,
-                        Left = 31
+                        Left = 32
                     };
                     Label labelTempMax = new Label
                     {
+                        Name = "labelTempMaxName",
                         Height = 17,
                         Width = 34,
                         Top = 25,
-                        Left = 31,
+                        Left = 32,
                         BackColor = Color.FromArgb(0, 192, 0),
                         ForeColor = Color.White,
                         TextAlign = ContentAlignment.MiddleCenter,
                         AutoSize = false,
-                        Padding = new Padding(0,0, 0, 1)
+                        Padding = new Padding(0, 0, 0, 1)
                     };
 
-                    Label labelHeatingSRF13000T = new Label();
+                    Label labelHeatingSRF13000T = new Label()
+                    {
+                        Name = "labelHeating"
+                    };
 
-                    pct = _pct.CreatePictureMain(i, port,pct, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i],devicesType[i],tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp,labelTempMax);                  
-                    _deviceOn.CreatePictureDeviceOn(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
-                    pictureSocket.CreatePictureSocket(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, labelHeatingSRF13000T, labelTemp, labelTempMax);
-                    deviceOff.CreateDeviceOff(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
-                    deviceNoConnection.CreateDeviceNoConnection(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
-                    labelRoomName.CreateLabelRoomName(i,pct,roomName);
-                    deviceName.CreateLabelDeviceName(i, pct, devicesName);
+                    pct = _pct.CreatePictureMain(i, port, pct, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl);
+                    _deviceOn.CreatePictureDeviceOn(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl);
+                    pictureSocket.CreatePictureSocket(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl);
+                    deviceOff.CreateDeviceOff(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl);
+                    deviceNoConnection.CreateDeviceNoConnection(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl);
+                    labelRoomName.CreateLabelRoomName(i, pct, roomName, devicesType[i]);
+                    deviceName.CreateLabelDeviceName(i, pct, devicesName, devicesType[i]);
                     deviceChannel.CreateLabelDeviceChannel(i, pct, devicesChannel);
                     if (devicesType[i].Equals("6"))
                     {
-                        CreateLabelForSRF13000T(i,devicesType[i],pct,labelHeatingSRF13000T);
+                        CreateLabelForSRF13000T(i, devicesType[i], pct, labelHeatingSRF13000T);
                     }
-                    StatusAllIcons(pct, deviceOff, _deviceOn, deviceNoConnection, idDevices[i],labelHeatingSRF13000T);
+                    StatusAllIcons(pct, deviceOff, _deviceOn, deviceNoConnection, idDevices[i], labelHeatingSRF13000T);
 
                     positionLeft++;
                     countDevices++;
@@ -106,6 +106,7 @@ namespace NooLiteServiceSoft.IconClass
             }
             for (int i = 0; i < xmlDevice.DeviceCountXmlTX(); i++)
             {
+                Cursor.Current = Cursors.WaitCursor;
                 if (countDevices != 0 && countDevices % 7 == 0)
                 {
                     positionTop++;
@@ -118,36 +119,36 @@ namespace NooLiteServiceSoft.IconClass
                 LabelRoomNameTX labelRoomNameTX = new LabelRoomNameTX();
                 PictureDeviceTX pictureDeviceTX = new PictureDeviceTX();
 
-                pct = _pct.CreatePictureMain(i, port, devicesChannelTX[i], devicesNameTX[i], tabPage1, positionTop, positionLeft, devicesTypeTX[i]);
-                pictureDeviceTX.CreatePictureTX(i,port,pct, devicesChannelTX[i], devicesNameTX[i], tabPage1, devicesTypeTX[i]);
+                pct = _pct.CreatePictureMain(i, port, devicesChannelTX[i], devicesNameTX[i], tabPage1, positionTop, positionLeft, devicesTypeTX[i], tabControl);
+                pictureDeviceTX.CreatePictureTX(i, port, pct, devicesChannelTX[i], devicesNameTX[i], tabPage1, devicesTypeTX[i], tabControl);
                 deviceNameTX.CreateLabelDeviceName(i, pct, devicesNameTX);
-                labelRoomNameTX.CreateLabelRoomNameTX(i,pct,roomNameTX);
+                labelRoomNameTX.CreateLabelRoomNameTX(i, pct, roomNameTX);
                 deviceChannelTX.CreateLabelDeviceChannel(i, pct, devicesChannelTX);
 
                 positionLeft++;
                 countDevices++;
             }
+            operationWithMainForm.CheckScroll(tabControl, tabPage1);
         }
 
 
-        public void IconsAddRoom(TabPage tabPage1)
+        public void IconsAddRoom(TabPage tabPage1,TabControl tabControl)
         {
-
             tabPage1.Controls.Clear();
+            SerialPort port = Port.TakeDataPort();
+            Cursor.Current = Cursors.WaitCursor;
             int countDevices = 0;
             int positionTop = 0;
             int positionLeft = 0;
-
-            SerialPort port = Port.TakeDataPort();
-            string[] devicesName = xmlDevice.DeviceNameXmlInRoom(tabPage1.Text.Remove(0, 2), DEVICEPATH);//Оптимизировать всё брать одним запросом  к файлу //TODO
+            string[] devicesName = xmlDevice.DeviceNameXmlInRoom(tabPage1.Text, DEVICEPATH);
             string[] devicesChannel = new string[devicesName.Length];
             string[] devicesType = new string[devicesName.Length];
             string[] idDevices = new string[devicesName.Length];
-            xmlDevice.DeviceElementsXml(devicesChannel, devicesType, idDevices,tabPage1.Text.Remove(0, 2));//каналы устройств
-            string[] devicesNameTX = xmlDevice.DeviceNameXmlInRoom(tabPage1.Text.Remove(0, 2), DEVICEPATHTX);
+            xmlDevice.DeviceElementsXml(devicesChannel, devicesType, idDevices,tabPage1.Text);
+            string[] devicesNameTX = xmlDevice.DeviceNameXmlInRoom(tabPage1.Text, DEVICEPATHTX);
             string[] devicesChannelTX = new string[devicesNameTX.Length];
             string[] devicesTypeTX = new string[devicesNameTX.Length];
-            xmlDevice.DeviceElementsXmlRoomTX(devicesChannelTX, devicesTypeTX,tabPage1.Text.Remove(0, 2));
+            xmlDevice.DeviceElementsXmlRoomTX(devicesChannelTX, devicesTypeTX,tabPage1.Text);
 
             for (int i = 0; i < devicesName.Count(); i++)
             {
@@ -158,7 +159,7 @@ namespace NooLiteServiceSoft.IconClass
                 }
                 if (i <= devicesName.Count())
                 {
-                   
+
                     PictureBox pct = new PictureBox();
                     PictureSocket pictureSocket = new PictureSocket();
                     PictureDeviceOn _deviceOn = new PictureDeviceOn();
@@ -167,27 +168,43 @@ namespace NooLiteServiceSoft.IconClass
                     LabelDeviceName deviceName = new LabelDeviceName();
                     LabelDeviceChannel deviceChannel = new LabelDeviceChannel();
                     PictureMain _pct = new PictureMain();
-                    Label labelTemp = new Label();
-                    Label labelTempMax = new Label();
-                    Label labelHeatingSRF13000T = new Label();
-                    CreateMainPropsTempForSRF13000T(labelTemp,labelTempMax);
-                    pct = _pct.CreatePictureMain(i, port, pct,devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
-                    _deviceOn.CreatePictureDeviceOn(i, pct,port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
-                    pictureSocket.CreatePictureSocket(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, labelHeatingSRF13000T, labelTemp, labelTempMax);
-                    deviceOff.CreateDeviceOff(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
-                    deviceNoConnection.CreateDeviceNoConnection(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax);
-                    deviceName.CreateLabelDeviceName(i, pct, devicesName);
+                    Label labelTemp = new Label()
+                    {
+                        Name = "labelTemp",
+                        Height = 20,
+                        Width = 35,
+                    };
+                    Label labelTempMax = new Label()
+                    {
+                        Name = "labelTempMax",
+                        Height = 17,
+                        Width = 34,
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        AutoSize = false,
+                    };
+                    Label labelHeatingSRF13000T = new Label()
+                    {
+                        Name = "labelHeating"
+                    };
+                    CreateMainPropsTempForSRF13000T(labelTemp, labelTempMax);
+                    pct = _pct.CreatePictureMain(i, port, pct, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl);
+                    _deviceOn.CreatePictureDeviceOn(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl);
+                    pictureSocket.CreatePictureSocket(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl);
+                    deviceOff.CreateDeviceOff(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl);
+                    deviceNoConnection.CreateDeviceNoConnection(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl);
+                    deviceName.CreateLabelDeviceName(i, pct, devicesName, devicesType[i]);
                     deviceChannel.CreateLabelDeviceChannel(i, pct, devicesChannel);
                     if (devicesType[i].Equals("6"))
                     {
-                        CreateLabelForSRF13000T(i, devicesType[i], pct,labelHeatingSRF13000T);
+                        CreateLabelForSRF13000T(i, devicesType[i], pct, labelHeatingSRF13000T);
                     }
-                    StatusAllIcons(pct, deviceOff, _deviceOn, deviceNoConnection, idDevices[i],labelHeatingSRF13000T);
+                    StatusAllIcons(pct, deviceOff, _deviceOn, deviceNoConnection, idDevices[i], labelHeatingSRF13000T);
 
                     positionLeft++;
                     countDevices++;
                 }
             }
+
             for (int i = 0; i < devicesNameTX.Count(); i++)
             {
                 if (countDevices != 0 && countDevices % 7 == 0)
@@ -202,57 +219,41 @@ namespace NooLiteServiceSoft.IconClass
                 LabelDeviceNameTX deviceNameTX = new LabelDeviceNameTX();
                 PictureDeviceTX pictureDeviceTX = new PictureDeviceTX();
 
-                pct = _pct.CreatePictureMain(i, port, devicesChannelTX[i], devicesNameTX[i], tabPage1, positionTop, positionLeft,devicesTypeTX[i]);
+                pct = _pct.CreatePictureMain(i, port, devicesChannelTX[i], devicesNameTX[i], tabPage1, positionTop, positionLeft, devicesTypeTX[i], tabControl);
                 deviceNameTX.CreateLabelDeviceName(i, pct, devicesNameTX);
                 deviceChannelTX.CreateLabelDeviceChannel(i, pct, devicesChannelTX);
-                pictureDeviceTX.CreatePictureTX(i, port, pct, devicesChannelTX[i], devicesNameTX[i], tabPage1, devicesTypeTX[i]);
+                pictureDeviceTX.CreatePictureTX(i, port, pct, devicesChannelTX[i], devicesNameTX[i], tabPage1, devicesTypeTX[i], tabControl);
 
                 positionLeft++;
                 countDevices++;
             }
         }
-            public void StatusMtrf(Label label)
+
+        public void StatusMtrf(Label label)
         {
             using (SerialPort port = Port.TakeDataPort())
             {
-
-                
-                    port.ReadTimeout = 3000;
-                    port.WriteTimeout = 500;
-
-
-
-                    byte[] buffer = new byte[17] { 171, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 175, 172 };
-                    byte[] rx_buffer = new byte[17];
-                    //if (port.IsOpen == false)
-                    //{
-                    //    port.Open();
-                    //}
-                    device.WriteData(port,buffer);
-                    device.WaitData(port, rx_buffer);
-                    if (rx_buffer != null)
-                    {
-                        label.Text = xmlTypeDevice.TypeDeviceNameXml(rx_buffer[7]) + $" (V{rx_buffer[8]}): Подключено";
-                    }
-                
-              
+                port.ReadTimeout = 3000;
+                port.WriteTimeout = 500;
+                byte[] buffer = new byte[17] { 171, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 175, 172 };
+                byte[] rx_buffer = new byte[17];
+                device.WriteData(port, buffer);
+                device.WaitData(port, rx_buffer);
+                if (rx_buffer != null)
+                {
+                    label.Text = xmlTypeDevice.TypeDeviceNameXml(rx_buffer[7]) + $" (V{rx_buffer[8]}): Подключено";
+                }
             }
         }
 
-        public void StatusAllIcons(PictureBox pictureBox,PictureDeviceOff off, PictureDeviceOn on, PictureDeviceNoConnection noConnection, string idDevices,Label heatingSRF13000T)
+        public void StatusAllIcons(PictureBox pictureBox, PictureDeviceOff off, PictureDeviceOn on, PictureDeviceNoConnection noConnection, string idDevices, Label heatingSRF13000T)
         {
-
             using (SerialPort port = Port.TakeDataPort())
             {
-                
                 string[] idArray = idDevices.Split('&');
-
                 byte[] bufferMainPropertiesFirstWrite = new byte[17] { 171, 2, 9, 0, 0, 128, 0, 170, 0, 0, 0, byte.Parse(idArray[0]), byte.Parse(idArray[1]), byte.Parse(idArray[2]), byte.Parse(idArray[3]), 0, 172 };
-                byte[] tx_bufferMainPropertiesFirstWrite = device.CRC(bufferMainPropertiesFirstWrite);             
+                byte[] tx_bufferMainPropertiesFirstWrite = device.CRC(bufferMainPropertiesFirstWrite);
                 byte[] rx_bufferMainPropertiesFirstRequest = new byte[17];
-
-                // if (port.IsOpen == false) port.Open();
-                //port.Write(tx_bufferMainPropertiesFirstWrite, 0, tx_bufferMainPropertiesFirstWrite.Length);//БАГ   
                 device.WriteData(port, tx_bufferMainPropertiesFirstWrite);
                 device.WaitData(port, rx_bufferMainPropertiesFirstRequest);
 
@@ -291,8 +292,8 @@ namespace NooLiteServiceSoft.IconClass
                             resultchar[i] = 0;
                         }
 
-                        
-                        
+
+
                         if (int.Parse(resultchar[0].ToString()) == 1)
                         {
                             on.VisibleTrue();
@@ -313,7 +314,7 @@ namespace NooLiteServiceSoft.IconClass
                             on.VisibleFalse();
                             off.VisibleTrue();
                             noConnection.VisibleFalse();
-                            heatingSRF13000T.Text = "Нагрев выкл";                         
+                            heatingSRF13000T.Text = "Нагрев выкл";
                         }
 
                     }
@@ -324,7 +325,7 @@ namespace NooLiteServiceSoft.IconClass
         private void CreateLabelForSRF13000T(int i, string devicesType, PictureBox pct, Label labelHeatingSRF13000T)
         {
             labelHeatingSRF13000T.Height = 20;
-            labelHeatingSRF13000T.Width = 120;
+            labelHeatingSRF13000T.Width = 90;
             labelHeatingSRF13000T.Top = 45;
             labelHeatingSRF13000T.Left = 10;
             pct.Controls.Add(labelHeatingSRF13000T);
@@ -332,14 +333,14 @@ namespace NooLiteServiceSoft.IconClass
 
         private void CreateMainPropsTempForSRF13000T(Label Temp, Label TempMax)
         {
-            Temp.Height = 30;
+            Temp.Height = 20;
             Temp.Width = 35;
             Temp.Top = 5;
-            Temp.Left = 31;
+            Temp.Left = 32;
             TempMax.Height = 20;
             TempMax.Width = 35;
-            TempMax.Top = 30;
-            TempMax.Left = 30;
+            TempMax.Top = 25;
+            TempMax.Left = 32;
             TempMax.BackColor = Color.FromArgb(0, 192, 0);
             TempMax.ForeColor = Color.White;
             TempMax.TextAlign = ContentAlignment.MiddleCenter;
@@ -347,67 +348,63 @@ namespace NooLiteServiceSoft.IconClass
             TempMax.Padding = new Padding(1, 3, 0, 0);
         }
 
-        
-        public void AddRooms( TabControl tabControl, TabPage mainTabPage)
+
+        public void AddRooms(TabControl tabControl, TabPage mainTabPage)
         {
             string[] RoomName = xmlGroup.RoomNameXml();
             if (RoomName != null)
             {
                 for (int i = 0; i < RoomName.Length; i++)
                 {
-                    TabPage page = new TabPage("  " + RoomName[i])
+                    TabPage page = new TabPage(RoomName[i])
                     {
                         BackColor = Color.White
                     };
-                    page.Enter += delegate (object sender, EventArgs e) { IconsAddRoom(page); };
-                    page.MouseUp += delegate (object sender, MouseEventArgs e) { Btn_RightClickRoom(sender, e, page.Text.Remove(0,1), tabControl,page, mainTabPage); };
+                    page.Enter += delegate (object sender, EventArgs e) { IconsAddRoom(page, tabControl); };
+                    page.MouseUp += delegate (object sender, MouseEventArgs e) { Btn_RightClickRoom(sender, e, page.Text, tabControl, page, mainTabPage); };
                     tabControl.Controls.Add(page);
                 }
             }
         }
         
-        public void UpdateRooms(TabControl tab,TextBox textBox, TabPage mainTabPage)
+        public void UpdateRooms(TabControl tab,TextBox textBox, TabPage mainTabPage,TabControl tabControl)
         {
             if (textBox.Text.Length>0)
             {
-                TabPage page = new TabPage("  " + textBox.Text)
+                TabPage page = new TabPage(textBox.Text)
                 {
                     BackColor = Color.White
                 };
-                page.Enter += delegate (object sender, EventArgs e) { IconsAddRoom(page); };
-                page.MouseUp += delegate (object sender, MouseEventArgs e) { Btn_RightClickRoom(sender, e, page.Text.Remove(0,2), tab, page, mainTabPage); };
+                page.Enter += delegate (object sender, EventArgs e) { IconsAddRoom(page, tabControl); };
+                page.MouseUp += delegate (object sender, MouseEventArgs e) { Btn_RightClickRoom(sender, e, page.Text, tab, page, mainTabPage); };
                 tab.Controls.Add(page);
             }
-        }      
+        }
 
-        private void Btn_RightClickRoom(object sender, MouseEventArgs e,string roomName, TabControl tabControl,TabPage page, TabPage mainTabPage)
+        private void Btn_RightClickRoom(object sender, MouseEventArgs e, string roomName, TabControl tabControl, TabPage page, TabPage mainTabPage)
         {
             if (e.Button == MouseButtons.Right)
             {
                 ContextMenuStrip context = new ContextMenuStrip();
-                ToolStripMenuItem menuItem1 = new ToolStripMenuItem();
                 ToolStripMenuItem menuItem2 = new ToolStripMenuItem();
                 ToolStripMenuItem menuItem3 = new ToolStripMenuItem();
-                context.Items.AddRange(new ToolStripMenuItem[] { menuItem1, menuItem2, menuItem3 });
-                menuItem1.Text = "Обновить устройства";
+                context.Items.AddRange(new ToolStripMenuItem[] { menuItem2, menuItem3 });
                 menuItem2.Text = "Редактировать группу";
                 menuItem3.Text = "Удалить группу";
-                //menuItem1.Click += delegate (object _sender, EventArgs _e) { MenuItem1_ClickRemove(_sender, _e); };
                 menuItem2.Click += delegate (object _sender, EventArgs _e) { MenuItem2_ClickUpdate(_sender, _e, page, mainTabPage); };
                 menuItem3.Click += delegate (object _sender, EventArgs _e) { MenuItem3_ClickRemove(_sender, _e, roomName, tabControl, page, mainTabPage); };
                 context.Show(Cursor.Position);
             }
         }
 
-        private void MenuItem3_ClickRemove(object _sender, EventArgs _e,string roomName, TabControl tabControl, TabPage page,TabPage mainTabPage)
+        private void MenuItem3_ClickRemove(object _sender, EventArgs _e, string roomName, TabControl tabControl, TabPage page, TabPage mainTabPage)
         {
-            string roomNameSub = roomName.Substring(1);
-            tabControl.TabPages.Remove(page);           
+            string roomNameSub = roomName;
+            tabControl.TabPages.Remove(page);
             xmlGroup.RemoveRoom(roomNameSub);
-            UpdateTabPage(mainTabPage,page);
-
+            UpdateTabPage(mainTabPage, page);
         }
-        
+
         private void MenuItem2_ClickUpdate(object _sender, EventArgs _e, TabPage page, TabPage mainTabPage)
         {
             using (FormUpdateRoom formUpdateRoom = new FormUpdateRoom(page, mainTabPage))
@@ -416,7 +413,7 @@ namespace NooLiteServiceSoft.IconClass
             }
         }
 
-        public void UpdateTabPage(TabPage mainPage,TabPage removePage)
+        public void UpdateTabPage(TabPage mainPage, TabPage removePage)
         {
             foreach (PictureBox p in mainPage.Controls)
             {
@@ -429,8 +426,12 @@ namespace NooLiteServiceSoft.IconClass
                 {
                     if (g is Label label)
                     {
-                        string name = label.Name.Substring(0, 4);
-                        string _nameRoom = removePage.Text.Substring(2);
+                        string name = "";
+                        if (label.Name.Length > 4)
+                        {
+                            name = label.Name.Substring(0, 4);
+                        }
+                        string _nameRoom = removePage.Text;
                         if (name.Equals("room"))
                         {
                             if (label.Text.Equals(_nameRoom))

@@ -41,6 +41,10 @@
             this.allowReceivingCommandFromNL = new System.Windows.Forms.RadioButton();
             this.save_btn = new System.Windows.Forms.Button();
             this.cancel_btn = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.stateMemorization.SuspendLayout();
             this.stateAfterOn.SuspendLayout();
             this.TakeNooLiteCommand.SuspendLayout();
@@ -188,23 +192,60 @@
             this.cancel_btn.UseVisualStyleBackColor = false;
             this.cancel_btn.Click += new System.EventHandler(this.Remove_btn_Click);
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Location = new System.Drawing.Point(0, -12);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(2, 450);
+            this.panel3.TabIndex = 36;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Location = new System.Drawing.Point(809, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(3, 450);
+            this.panel1.TabIndex = 37;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Location = new System.Drawing.Point(-1, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(850, 2);
+            this.panel2.TabIndex = 38;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Black;
+            this.panel4.Location = new System.Drawing.Point(-19, 224);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(850, 2);
+            this.panel4.TabIndex = 39;
+            // 
             // SettingFTX
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(812, 226);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.cancel_btn);
             this.Controls.Add(this.save_btn);
             this.Controls.Add(this.TakeNooLiteCommand);
             this.Controls.Add(this.stateAfterOn);
             this.Controls.Add(this.stateMemorization);
             this.Controls.Add(this.labelDeviceSetting);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SettingFTX";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NooLiteOne";
+            this.Text = "nooLiteDesktopControl";
             this.stateMemorization.ResumeLayout(false);
             this.stateMemorization.PerformLayout();
             this.stateAfterOn.ResumeLayout(false);
@@ -230,5 +271,9 @@
         private System.Windows.Forms.RadioButton allowReceivingCommandFromNL;
         private System.Windows.Forms.Button save_btn;
         private System.Windows.Forms.Button cancel_btn;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel4;
     }
 }

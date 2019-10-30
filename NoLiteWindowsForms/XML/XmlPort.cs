@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.IO.Ports;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace NooLiteServiceSoft.XML
@@ -15,9 +11,7 @@ namespace NooLiteServiceSoft.XML
         {
             string _idPort = idPort[0].ToString() + "/" + idPort[1].ToString() + "/" + idPort[2].ToString() + "/" + idPort[3].ToString();
             XDocument xdocs = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
-
             XElement ports = new XElement("port");
-            // create attr
             XAttribute GroupNameAttr = new XAttribute("name", port.PortName);
             XElement mports = new XElement("ports");
             XElement idPortsEl = new XElement("IdPort", _idPort);
@@ -27,7 +21,6 @@ namespace NooLiteServiceSoft.XML
             ports.Add(idPortsEl);
             mports.Add(ports);
             xdocs.Add(mports);
-            //save document
             xdocs.Save("port.xml");
         }
 
@@ -82,7 +75,6 @@ namespace NooLiteServiceSoft.XML
         {
             try
             {
-
                 XDocument xdoc = XDocument.Load("port.xml");
                 var roomElements = from el in xdoc.Root.Elements("port")
                                    select new
@@ -96,7 +88,6 @@ namespace NooLiteServiceSoft.XML
             }
             catch (IOException)
             {
-                //MessageBox.Show("Ни одной комнаты не добавлено");
             }
             return null;
         }

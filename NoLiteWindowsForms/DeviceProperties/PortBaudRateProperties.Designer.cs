@@ -377,7 +377,7 @@
             this.button_close.TabIndex = 28;
             this.button_close.Text = "Отмена";
             this.button_close.UseVisualStyleBackColor = false;
-            this.button_close.Click += new System.EventHandler(this.button_close_Click);
+            this.button_close.Click += new System.EventHandler(this.Button_close_Click);
             // 
             // PortBaudRateProperties
             // 

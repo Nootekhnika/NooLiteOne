@@ -78,7 +78,7 @@
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(916, 133);
+            this.menuStrip1.Size = new System.Drawing.Size(917, 133);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -154,7 +154,7 @@
             this.сOMпортToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.сOMпортToolStripMenuItem.Name = "сOMпортToolStripMenuItem";
             this.сOMпортToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
-            this.сOMпортToolStripMenuItem.Text = "СOM-порт";
+            this.сOMпортToolStripMenuItem.Text = "Маршрутизация";
             this.сOMпортToolStripMenuItem.Click += new System.EventHandler(this.ComPortToolStripMenuItem_Click);
             // 
             // serviceToolStripMenuItem
@@ -227,21 +227,21 @@
             this.tabControl.Name = "tabControl";
             this.tabControl.Padding = new System.Drawing.Point(0, 0);
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(847, 445);
+            this.tabControl.Size = new System.Drawing.Size(845, 445);
             this.tabControl.TabIndex = 8;
-            this.tabControl.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl_DrawItem);
+            this.tabControl.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.TabControl_DrawItem);
             // 
             // tabPage1
             // 
             this.tabPage1.AutoScroll = true;
-            this.tabPage1.AutoScrollMinSize = new System.Drawing.Size(3, 15);
+            this.tabPage1.AutoScrollMinSize = new System.Drawing.Size(1, 15);
             this.tabPage1.BackColor = System.Drawing.SystemColors.Window;
             this.tabPage1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(839, 417);
+            this.tabPage1.Size = new System.Drawing.Size(837, 417);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Все";
             this.tabPage1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TabPage1_MouseUp);
@@ -252,7 +252,7 @@
             this.label_Mtrf.BackColor = System.Drawing.Color.Black;
             this.label_Mtrf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_Mtrf.ForeColor = System.Drawing.Color.White;
-            this.label_Mtrf.Location = new System.Drawing.Point(686, 26);
+            this.label_Mtrf.Location = new System.Drawing.Point(694, 26);
             this.label_Mtrf.Name = "label_Mtrf";
             this.label_Mtrf.Size = new System.Drawing.Size(50, 18);
             this.label_Mtrf.TabIndex = 9;
@@ -272,13 +272,13 @@
             this.panel1.Controls.Add(this.label_Mtrf);
             this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(916, 70);
+            this.panel1.Size = new System.Drawing.Size(917, 70);
             this.panel1.TabIndex = 10;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::NooLiteServiceSoft.Properties.Resources.circle;
-            this.pictureBox2.Location = new System.Drawing.Point(849, 25);
+            this.pictureBox2.Location = new System.Drawing.Point(857, 25);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(17, 19);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -302,7 +302,7 @@
             this.panel2.Controls.Add(this.hidePicture);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(916, 24);
+            this.panel2.Size = new System.Drawing.Size(917, 24);
             this.panel2.TabIndex = 11;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseDown);
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseMove);
@@ -335,7 +335,7 @@
             this.panel3.BackColor = System.Drawing.Color.Black;
             this.panel3.Location = new System.Drawing.Point(0, 136);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(915, 2);
+            this.panel3.Size = new System.Drawing.Size(916, 2);
             this.panel3.TabIndex = 12;
             // 
             // label3
@@ -353,7 +353,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(916, 664);
+            this.ClientSize = new System.Drawing.Size(917, 664);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -369,7 +369,7 @@
             this.MinimumSize = new System.Drawing.Size(600, 650);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "NooLiteOne";
+            this.Text = "nooLiteDesktopControl";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_Closed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

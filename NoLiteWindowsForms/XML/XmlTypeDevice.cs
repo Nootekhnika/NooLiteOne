@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace NooLiteServiceSoft
@@ -15,12 +11,10 @@ namespace NooLiteServiceSoft
 
             XDocument xdocs = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
             XElement types = new XElement("types");
-
-            string[] typeNames = new string[] { "MTRF-64", "SLF-1-300", "SRF-10-1000", "SRF-1-3000", "SRF-1-3000M", "SUF-1-300", "SRF-1-3000-T","SRF-1-1000-R" };
-            string[] codeElements = new string[] { "0", "1", "2", "3", "4", "5", "6","7"};
-            string[] prmtrs = new string[] { "", "Яркость", "Яркость", "Яркость", "Яркость", "Яркость", "Температура","Состояние"};
-            string[] prmtrsMeasurements = new string[] { "", "%", "%", "%", "%", "%", "C","%"};
-
+            string[] typeNames = new string[] { "MTRF-64", "SLF-1-300", "SRF-10-1000", "SRF-1-3000", "SRF-1-3000M", "SUF-1-300", "SRF-1-3000-T", "SRF-1-1000-R" };
+            string[] codeElements = new string[] { "0", "1", "2", "3", "4", "5", "6", "7" };
+            string[] prmtrs = new string[] { "", "Яркость", "Яркость", "Яркость", "Яркость", "Яркость", "Температура", "Состояние" };
+            string[] prmtrsMeasurements = new string[] { "", "%", "%", "%", "%", "%", "C", "%" };
 
             for (int i = 0; i < typeNames.Length; i++)
             {
@@ -37,7 +31,6 @@ namespace NooLiteServiceSoft
                 types.Add(typeName);
             }
             xdocs.Add(types);
-            //сохраняем документ
             xdocs.Save("deviceTypes.xml");
         }
 
@@ -98,7 +91,6 @@ namespace NooLiteServiceSoft
             }
             return null;
         }
-
     }
 }
 

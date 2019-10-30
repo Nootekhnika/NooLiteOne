@@ -28,6 +28,8 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -84,6 +86,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>80.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
@@ -175,10 +180,22 @@
     <Compile Include="IconClass\PictureMain.cs" />
     <Compile Include="IconClass\PictureSocket.cs" />
     <Compile Include="IconClassTX\PictureMainTX.cs" />
+    <Compile Include="OperationWithMainForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Port.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Room.cs" />
+    <Compile Include="Route.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Route.Designer.cs">
+      <DependentUpon>Route.cs</DependentUpon>
+    </Compile>
     <Compile Include="SettingFTX.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +276,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Route.resx">
+      <DependentUpon>Route.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SettingFTX.resx">
       <DependentUpon>SettingFTX.cs</DependentUpon>
     </EmbeddedResource>
@@ -282,11 +302,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -297,9 +312,6 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\baseline_menu_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\offline.png" />
@@ -341,16 +353,6 @@
     <None Include="Resources\mini2.png" />
     <None Include="Resources\mini1.png" />
     <None Include="Resources\close2.png" />
-    <SplashScreen Include="Icons\c фото фоном-91.jpg" />
-    <Content Include="Icons\baseline_add_white_18dp.png" />
-    <Content Include="Icons\icons8-pu_2-25.png" />
-    <None Include="Icons\ic_power_socket%403x.png" />
-    <Content Include="Icons\srf101000.png" />
-    <Content Include="Icons\ic_state_no_connection.png" />
-    <Content Include="Icons\ic_state_off%403x.png" />
-    <Content Include="Icons\ic_state_on.png" />
-    <Content Include="Icons\SplashScreen.png" />
-    <Content Include="Icons\wpb57ee339_06.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -363,6 +365,21 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\temp2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\temp2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1024.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\40.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="80.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NooLiteServiceSoft.Settings
@@ -16,125 +10,147 @@ namespace NooLiteServiceSoft.Settings
         byte deviceChannel;
         DeviceTX device = new DeviceTX();
         readonly SerialPort port = Port.TakeDataPort();
-        private const int CS_DROPSHADOW = 0x20000;
-        protected override CreateParams CreateParams {
-            get {
-                CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
-                return cp;
-            }
-        }
-
 
         public SettingRGB(DeviceTX device)
         {
             InitializeComponent();
             deviceChannel = byte.Parse(int.Parse(device.Channel.ToString()).ToString());
-            UpdateColor();
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            byte[] bufferNextColor = new byte[17] { 171, 0, 0, 0, deviceChannel, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 172 };
-            byte[] tx_bufferNextColor = device.CRC(bufferNextColor);
-            if (port.IsOpen == false)
+            try
             {
-                port.Open();
-            }
-            port.Write(tx_bufferNextColor, 0, tx_bufferNextColor.Length);
+                byte[] bufferNextColor = new byte[17] { 171, 0, 0, 0, deviceChannel, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 172 };
+                byte[] tx_bufferNextColor = device.CRC(bufferNextColor);
+                if (port.IsOpen == false)
+                {
+                    port.Open();
+                }
+                port.Write(tx_bufferNextColor, 0, tx_bufferNextColor.Length);
 
-            if (port.IsOpen)
+                if (port.IsOpen)
+                {
+                    port.Close();
+                }
+            }
+            catch
             {
-                port.Close();
+                using (DisconnectMTRF disconnectMTRF = new DisconnectMTRF())
+                {
+                    disconnectMTRF.ShowDialog();
+                }
+                Application.Exit();
             }
         }
 
         private void Switch_Color(object sender, EventArgs e)
         {
-            byte[] bufferNextColor = new byte[17] { 171, 0, 0, 0, deviceChannel, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 172 };
-            byte[] tx_bufferNextColor = device.CRC(bufferNextColor);
-            if (port.IsOpen == false)
+            try
             {
-                port.Open();
-            }
-            port.Write(tx_bufferNextColor, 0, tx_bufferNextColor.Length);
+                byte[] bufferNextColor = new byte[17] { 171, 0, 0, 0, deviceChannel, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 172 };
+                byte[] tx_bufferNextColor = device.CRC(bufferNextColor);
+                if (port.IsOpen == false)
+                {
+                    port.Open();
+                }
+                port.Write(tx_bufferNextColor, 0, tx_bufferNextColor.Length);
 
-            if (port.IsOpen)
+                if (port.IsOpen)
+                {
+                    port.Close();
+                }
+            }
+            catch
             {
-                port.Close();
+                using (DisconnectMTRF disconnectMTRF = new DisconnectMTRF())
+                {
+                    disconnectMTRF.ShowDialog();
+                }
+                Application.Exit();
             }
         }
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            byte[] bufferNextColor = new byte[17] { 171, 0, 0, 0, deviceChannel, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 172 };
-            byte[] tx_bufferNextColor = device.CRC(bufferNextColor);
-            if (port.IsOpen == false)
+            try
             {
-                port.Open();
-            }
-            port.Write(tx_bufferNextColor, 0, tx_bufferNextColor.Length);
+                byte[] bufferNextColor = new byte[17] { 171, 0, 0, 0, deviceChannel, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 172 };
+                byte[] tx_bufferNextColor = device.CRC(bufferNextColor);
+                if (port.IsOpen == false)
+                {
+                    port.Open();
+                }
+                port.Write(tx_bufferNextColor, 0, tx_bufferNextColor.Length);
 
-            if (port.IsOpen)
+                if (port.IsOpen)
+                {
+                    port.Close();
+                }
+            }
+            catch
             {
-                port.Close();
+                using (DisconnectMTRF disconnectMTRF = new DisconnectMTRF())
+                {
+                    disconnectMTRF.ShowDialog();
+                }
+                Application.Exit();
             }
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            byte[] bufferNextColor = new byte[17] { 171, 0, 0, 0, deviceChannel, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 172 };
-            byte[] tx_bufferNextColor = device.CRC(bufferNextColor);
-            if (port.IsOpen == false)
+            try
             {
-                port.Open();
+                byte[] bufferNextColor = new byte[17] { 171, 0, 0, 0, deviceChannel, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 172 };
+                byte[] tx_bufferNextColor = device.CRC(bufferNextColor);
+                if (port.IsOpen == false)
+                {
+                    port.Open();
+                }
+                port.Write(tx_bufferNextColor, 0, tx_bufferNextColor.Length);
+
+                if (port.IsOpen)
+                {
+                    port.Close();
+                }
             }
-            port.Write(tx_bufferNextColor, 0, tx_bufferNextColor.Length);
-
-            if (port.IsOpen)
+            catch
             {
-                port.Close();
-            }
-        }
-
-        private void UpdateColor()
-        {
-            Color c = Color.FromArgb(trackBar2.Value, trackBar3.Value, trackBar4.Value);
-            panel1.BackColor = c;
-        }
-
-        private void SendUpdateColorCmd()
-        {
-            Color c = Color.FromArgb(trackBar2.Value, trackBar3.Value, trackBar4.Value);
-            panel1.BackColor = c;
-            int red = ((trackBar2.Value - 0) * 100 / (255 - 0));
-            int green = ((trackBar3.Value - 0) * 100 / (255 - 0));
-            int blue = ((trackBar4.Value - 0) * 100 / (255 - 0));
-
-            byte[] bufferNextColor = new byte[17] { 171, 0, 0, 0, deviceChannel, 6, 3, byte.Parse(red.ToString()), byte.Parse(green.ToString()), byte.Parse(blue.ToString()), 0, 0, 0, 0, 0, 0, 172 };
-            byte[] tx_bufferNextColor = device.CRC(bufferNextColor);
-            if (port.IsOpen == false)
-            {
-                port.Open();
-            }
-            port.Write(tx_bufferNextColor, 0, tx_bufferNextColor.Length);
-
-            if (port.IsOpen)
-            {
-                port.Close();
+                using (DisconnectMTRF disconnectMTRF = new DisconnectMTRF())
+                {
+                    disconnectMTRF.ShowDialog();
+                }
+                Application.Exit();
             }
         }
 
-        private void TrackBar2_Scroll(object sender, EventArgs e)
+        private void SendUpdateColorCmd(Color c)
         {
-            UpdateColor();
-        }
+            try
+            {
+                byte[] bufferNextColor = new byte[17] { 171, 0, 0, 0, deviceChannel, 6, 3, c.R, c.G, c.B, 0, 0, 0, 0, 0, 0, 172 };
+                byte[] tx_bufferNextColor = device.CRC(bufferNextColor);
+                if (port.IsOpen == false)
+                {
+                    port.Open();
+                }
+                port.Write(tx_bufferNextColor, 0, tx_bufferNextColor.Length);
 
-        private void TrackBar2_MouseUp(object sender, MouseEventArgs e)
-        {
-            SendUpdateColorCmd();
+                if (port.IsOpen)
+                {
+                    port.Close();
+                }
+            }
+            catch
+            {
+                using (DisconnectMTRF disconnectMTRF = new DisconnectMTRF())
+                {
+                    disconnectMTRF.ShowDialog();
+                }
+                Application.Exit();
+            }
         }
-
 
         private void TrackBright_Scroll(object sender, EventArgs e)
         {
@@ -148,24 +164,43 @@ namespace NooLiteServiceSoft.Settings
 
         public void BrightControl()
         {
-            label1.Text = ((trackBar1.Value - 28) * 100 / (156 - 28)).ToString() + "%";
-            byte[] bufferNextColor = new byte[17] { 171, 0, 0, 0, deviceChannel, 6, 1, byte.Parse(trackBar1.Value.ToString()), 0, 0, 0, 0, 0, 0, 0, 0, 172 };
-            byte[] tx_bufferNextColor = device.CRC(bufferNextColor);
-            if (port.IsOpen == false)
+            try
             {
-                port.Open();
-            }
-            port.Write(tx_bufferNextColor, 0, tx_bufferNextColor.Length);
+                label1.Text = ((trackBar1.Value - 28) * 100 / (156 - 28)).ToString() + "%";
+                byte[] bufferNextColor = new byte[17] { 171, 0, 0, 0, deviceChannel, 6, 1, byte.Parse(trackBar1.Value.ToString()), 0, 0, 0, 0, 0, 0, 0, 0, 172 };
+                byte[] tx_bufferNextColor = device.CRC(bufferNextColor);
+                if (port.IsOpen == false)
+                {
+                    port.Open();
+                }
+                port.Write(tx_bufferNextColor, 0, tx_bufferNextColor.Length);
 
-            if (port.IsOpen)
+                if (port.IsOpen)
+                {
+                    port.Close();
+                }
+            }
+            catch
             {
-                port.Close();
+                using (DisconnectMTRF disconnectMTRF = new DisconnectMTRF())
+                {
+                    disconnectMTRF.ShowDialog();
+                }
+                Application.Exit();
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Button5_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void СhangeColor_Button_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            panel1.BackColor = colorDialog1.Color;
+            SendUpdateColorCmd(colorDialog1.Color);
         }
     }
 }

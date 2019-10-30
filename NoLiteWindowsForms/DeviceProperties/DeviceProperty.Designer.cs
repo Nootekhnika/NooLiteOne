@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeviceProperty));
             this.label_typeDevice = new System.Windows.Forms.Label();
             this.label_IdDevice = new System.Windows.Forms.Label();
             this.labelValue_TypeDevice = new System.Windows.Forms.Label();
@@ -526,9 +527,10 @@
             this.Controls.Add(this.label_IdDevice);
             this.Controls.Add(this.label_typeDevice);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DeviceProperty";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "NooLiteOne";
+            this.Text = "nooLiteDesktopControl";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel5.ResumeLayout(false);

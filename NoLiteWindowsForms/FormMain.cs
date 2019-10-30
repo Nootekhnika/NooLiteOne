@@ -1,16 +1,12 @@
 ﻿using System;
 using System.IO.Ports;
 using System.Windows.Forms;
-using System.Threading;
-using System.Linq;
 using NooLiteServiceSoft.IconClass;
 using System.IO;
 using System.Drawing;
 using NooLiteServiceSoft.Design;
-using NooLiteServiceSoft.DeviceProperties;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace NooLiteServiceSoft
 {
@@ -21,49 +17,52 @@ namespace NooLiteServiceSoft
         Icons icons = new Icons();
         Form form = new Form();
         Port port = new Port();
+        bool flagSplash=true;
+        OperationWithMainForm operationWithMainForm = new OperationWithMainForm();
         SerialPort _port = Port.TakeDataPort();
+        FormSplashScreen screen = new FormSplashScreen();   
         UpdateFW.UpdateDeviceFW update = new UpdateFW.UpdateDeviceFW();
         MyRenderer m = new MyRenderer();
         private bool isDragging = false;
         private Point lastCursor;
         private Point lastForm;
-        private const int CS_DROPSHADOW = 0x20000;
-        protected override CreateParams CreateParams {
-            get {
-                CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
-                return cp;
-            }
-        }
-
 
         public FormMain()
         {
             InitializeComponent();
+            if (flagSplash) screen.Show();
             menuStrip1.Renderer = new MyRenderer();
             port.CreatePort(false);
             icons.StatusMtrf(label_Mtrf);
-            if (File.Exists("deviceTypes.xml") == false)
+            if (File.Exists("rooms.xml") == false)
             {
                 xmlTypeDevice.CreateXmlFile();
+                if (File.Exists("devices.xml") == false) xmlDevice.CreateXmlFile();
+                if (File.Exists("devicesTX.xml") == false) xmlDevice.CreateXmlFileTX();
             }
-            icons.IconAddallDevices(tabPage1);
-            icons.AddRooms(tabControl,tabPage1);
-
+            icons.IconAddallDevices(tabControl, tabPage1);
+            icons.AddRooms(tabControl, tabPage1);
+            operationWithMainForm.CheckScroll(tabControl, tabPage1);
             if (contextToolStripMenuItem.Checked == true) { contextToolStripMenuItem.ForeColor = Color.White; }
+            if (flagSplash)
+            {
+                flagSplash = false;
+                screen.Hide();
+            }
         }
+
+
 
         public FormMain(DeviceTX deviceForm2)
         {
             InitializeComponent();
             menuStrip1.Renderer = new MyRenderer();
-            DeviceTX deviceTX = new DeviceTX();
             icons.StatusMtrf(label_Mtrf);
             try
             {
-                deviceTX.BindCommandTX(deviceForm2);// BIND
-                icons.IconAddallDevices(tabPage1);
+                icons.IconAddallDevices(tabControl,tabPage1);
                 icons.AddRooms(tabControl,tabPage1);
+                operationWithMainForm.CheckScroll(tabControl, tabPage1);
             }
             catch (IOException)
             {
@@ -79,8 +78,8 @@ namespace NooLiteServiceSoft
             Device device = new Device();
             try
             {
-                device.BindCommandFTX(deviceForm2);// BIND
-                icons.IconAddallDevices(tabPage1);
+                device.BindCommandFTX(deviceForm2);
+                icons.IconAddallDevices(tabControl,tabPage1);
                 icons.AddRooms(tabControl,tabPage1);
             }
             catch (IOException)
@@ -96,7 +95,6 @@ namespace NooLiteServiceSoft
 
         private void FormMain_Closed(object sender, FormClosedEventArgs e)
         {
-            //File.Delete("port.xml");
             Application.Exit();
         }
 
@@ -104,9 +102,8 @@ namespace NooLiteServiceSoft
         {
             contextToolStripMenuItem.ForeColor = Color.Black;
             await Task.Delay(100);
-            FormAddRoom rooms = new FormAddRoom(tabControl,tabPage1);           
-                rooms.ShowDialog();
-            
+            FormAddRoom rooms = new FormAddRoom(tabControl, tabPage1);
+            rooms.ShowDialog();
         }
 
         private void AddToolStripMenuItem_Click(object sender, EventArgs e)
@@ -122,8 +119,7 @@ namespace NooLiteServiceSoft
         {
            serviceToolStripMenuItem.ForeColor = Color.Black;
             await Task.Delay(100);
-            icons.IconAddallDevices(tabPage1);
-          
+            icons.IconAddallDevices(tabControl,tabPage1);
         }
        
         private void TabPage1_MouseUp(object sender, MouseEventArgs e)
@@ -134,7 +130,7 @@ namespace NooLiteServiceSoft
                 ToolStripMenuItem menuItem1 = new ToolStripMenuItem();
                 context.Items.AddRange(new ToolStripMenuItem[] { menuItem1});
                 menuItem1.Text = "Обновить все устройства";
-                menuItem1.Click += delegate (object _sender, EventArgs _e) { icons.IconAddallDevices(tabPage1); };
+                menuItem1.Click += delegate (object _sender, EventArgs _e) { icons.IconAddallDevices(tabControl,tabPage1); };
                 context.Show(Cursor.Position);
             }
         }
@@ -143,10 +139,10 @@ namespace NooLiteServiceSoft
         {
             contextToolStripMenuItem.ForeColor = Color.Black;
             await Task.Delay(100);
-            using (PortBaudRateProperties menuBaudRate = new PortBaudRateProperties())
+            using (Route menu = new Route())
             {
-                menuBaudRate.ShowDialog();
-            }
+                menu.ShowDialog();
+            }         
         }
         private async void WebToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -154,44 +150,21 @@ namespace NooLiteServiceSoft
             await Task.Delay(100);
             Process.Start("https://noo.by/");
         }
-
-        //Дизайн    
+ 
         private void ContextToolStripMenuItem_MouseEnter(object sender, EventArgs e)
         {
             contextToolStripMenuItem.ForeColor = Color.White;
         }
-
-        //Hide picture
-        //private void HidePicture_MouseEnter(object sender, EventArgs e)
-        //{
-        //    hidePicture.Image = NooLiteServiceSoft.Properties.Resources.mini2;
-        //}
-
-        //private void HidePicture_MouseLeave(object sender, EventArgs e)
-        //{
-        //    hidePicture.Image = NooLiteServiceSoft.Properties.Resources.mini1;
-        //}
-
+      
         private void HidePicture_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-
-        //Close Picture
+        
         private void ClosePicture_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-        //private void ClosePicture_MouseEnter(object sender, EventArgs e)
-        //{
-        //    closePicture.Image = NooLiteServiceSoft.Properties.Resources.close2;
-        //}
-
-        //private void ClosePicture_MouseLeave(object sender, EventArgs e)
-        //{
-        //    closePicture.Image = NooLiteServiceSoft.Properties.Resources.close1;
-        //}
 
         private void Panel2_MouseDown(object sender, MouseEventArgs e)
         {
@@ -212,14 +185,13 @@ namespace NooLiteServiceSoft
         private void Panel2_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;
-            //UpdateTabPage();
         }    
 
         private void UpdatePoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             const string DEFAULTVALUEFORMTRF64 = "0";
             const string DEFAULTVALUEFORMTRF64ID = "0&0&0&0";
-
+            Cursor.Current = Cursors.WaitCursor;
             update.PreUpdateFW(_port, DEFAULTVALUEFORMTRF64, DEFAULTVALUEFORMTRF64ID, DEFAULTVALUEFORMTRF64);
         }
 
@@ -239,7 +211,7 @@ namespace NooLiteServiceSoft
             }
         }
 
-        private void tabControl_DrawItem(object sender, DrawItemEventArgs e)
+        private void TabControl_DrawItem(object sender, DrawItemEventArgs e)
         {
             TabPage page = tabControl.TabPages[e.Index];
             e.Graphics.FillRectangle(new SolidBrush(page.BackColor), e.Bounds);

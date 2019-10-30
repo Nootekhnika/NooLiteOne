@@ -1,6 +1,5 @@
 ﻿using NooLiteServiceSoft.XML;
 using System;
-using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -24,8 +23,6 @@ namespace NooLiteServiceSoft
             }
         }
 
-
-
         public FormMenu(FormMain form)
         {
             InitializeComponent();
@@ -33,7 +30,6 @@ namespace NooLiteServiceSoft
             comboBox_typeDeviceTx.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-       
         private void ShowFormOne_Click(object sender, EventArgs e)
         {
             FormMain main = new FormMain();
@@ -48,7 +44,7 @@ namespace NooLiteServiceSoft
             string[] channel = dvcForm1.ChannelCount();
             comboBoxSelectChannel.Items.AddRange(channel);
             comboBox_mode.Items.AddRange(dvcForm1.ModeServ());
-            comboBox_typeDeviceTx.Items.AddRange(dvcForm1.TypeDevicesTX());        
+            comboBox_typeDeviceTx.Items.AddRange(dvcForm1.TypeDevicesTX());
             if (roomName != null)
             {
                 comboBoxGroup.Items.Add("Все устройства");
@@ -67,7 +63,6 @@ namespace NooLiteServiceSoft
 
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
-
             if (comboBox_mode.Text.Equals("NooLite TX"))
             {
                 dvcForm1TX.NameDevice = textBox_name.Text;
@@ -76,10 +71,11 @@ namespace NooLiteServiceSoft
                 dvcForm1TX.Mode = comboBox_mode.Text;
                 dvcForm1TX.TypeName = comboBox_typeDeviceTx.Text;
                 dvcForm1TX.RoomName = validator.ComboBoxValidation(comboBoxGroup.Text);
-
+                dvcForm1TX.BindCommandTX(dvcForm1TX);
                 DialogResult dialogResult = MessageBox.Show("Вы подтвердили привязку, нажав дважды сервисную кнопку на устройстве?", "Окно подтверждения", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
+                    Cursor.Current = Cursors.WaitCursor;
                     try
                     {
                         xmlDevice.LoadXMLFileTX(dvcForm1TX);
@@ -98,6 +94,7 @@ namespace NooLiteServiceSoft
             }
             else
             {
+                Cursor.Current = Cursors.WaitCursor;
                 dvcForm1.NameDevice = textBox_name.Text;
                 int channel = int.Parse(comboBoxSelectChannel.Text) - 1;
                 dvcForm1.Channel = byte.Parse(channel.ToString());
@@ -128,7 +125,7 @@ namespace NooLiteServiceSoft
         {
             if (comboBox_mode.SelectedIndex == 1)
             {
-                validator.Form2ValidationSecond(textBox_name, comboBoxSelectChannel, buttonAdd, comboBox_mode,comboBox_typeDeviceTx);
+                validator.Form2ValidationSecond(textBox_name, comboBoxSelectChannel, buttonAdd, comboBox_mode, comboBox_typeDeviceTx);
             }
             else
             {
@@ -138,10 +135,10 @@ namespace NooLiteServiceSoft
 
         private void ComboBox_mode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             if (comboBox_mode.SelectedIndex == 1)
             {
-                validator.Form2ValidationSecond(textBox_name, comboBoxSelectChannel, buttonAdd, comboBox_mode,comboBox_typeDeviceTx);
+                validator.Form2ValidationSecond(textBox_name, comboBoxSelectChannel, buttonAdd, comboBox_mode, comboBox_typeDeviceTx);
                 comboBox_typeDeviceTx.Visible = true;
                 label_typeDeviceTX.Visible = true;
                 label_typeDeviceTX.Top = 290;
@@ -165,7 +162,7 @@ namespace NooLiteServiceSoft
             validator.Form2ValidationSecond(textBox_name, comboBoxSelectChannel, buttonAdd, comboBox_mode, comboBox_typeDeviceTx);
         }
 
-        private void button_Close_Click(object sender, EventArgs e)
+        private void Button_Close_Click(object sender, EventArgs e)
         {
             Close();
         }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace NooLiteServiceSoft.Design
@@ -24,6 +19,7 @@ namespace NooLiteServiceSoft.Design
                 e.Item.BackColor = Color.FromArgb(117, 117, 117);
             }
         }
+
         protected override void OnRenderItemText(ToolStripItemTextRenderEventArgs e)
         {
             base.OnRenderItemText(e);

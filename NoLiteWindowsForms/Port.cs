@@ -15,14 +15,12 @@ namespace NooLiteServiceSoft
     public class Port
     {
         XmlPort xmlPort = new XmlPort();
-
         List<string> channel = new List<string>();
         List<string> typeDevice = new List<string>();
         List<string> IdDevice = new List<string>();
 
         internal void CreatePort(bool flag)
         {
-
             string[] ports = SerialPort.GetPortNames();
             int baudRate = 9600;
             if (File.Exists("port.xml") == true)
@@ -51,18 +49,17 @@ namespace NooLiteServiceSoft
 
                             }
                         }
-                        port.Write(buffer, 0, buffer.Length);
-                        Thread.Sleep(500);
+                        WriteData(port, buffer);
                         try
                         {
-                            port.Read(rx_buffer, 0, rx_buffer.Length);
+                            WaitData(port, rx_buffer);
                         }
                         catch
                         {
 
                             if (port.IsOpen == true) port.Close();
                         }
-                        if (rx_buffer[8] != 0)// to do
+                        if (rx_buffer[8] != 0)
                         {
                             byte[] idPort = new byte[] { rx_buffer[11], rx_buffer[12], rx_buffer[13], rx_buffer[14] };
                             if (port.IsOpen == true) port.Close();
@@ -75,7 +72,6 @@ namespace NooLiteServiceSoft
                             {
                                 xmlPort.UpdatePortName(port, idPort);
                             }
-                            //return port;
                         }
                     }
                 }
@@ -89,6 +85,43 @@ namespace NooLiteServiceSoft
         }
 
 
+        public void WaitData(SerialPort port, byte[] read)
+        {
+            int count = 0;
+            port.ReadTimeout = 3000;
+
+            try
+            {
+                while (count < read.Length)
+                {
+                    count += port.Read(read, count, read.Length - count);
+                }
+            }
+            catch (TimeoutException)
+            {
+            }
+        }
+
+        public void WriteData(SerialPort port, byte[] arrayData)
+        {
+            try
+            {
+                if (port.IsOpen == false)
+                {
+                    port.Open();
+                }
+
+                port.Write(arrayData, 0, arrayData.Length);
+            }
+            catch
+            {
+                using (DisconnectMTRF disconnectMTRF = new DisconnectMTRF())
+                {
+                    disconnectMTRF.ShowDialog();
+                }
+                Application.Exit();
+            }
+        }
 
 
         public SerialPort TakeDataAboutPort()
@@ -109,7 +142,6 @@ namespace NooLiteServiceSoft
         {
             try
             {
-
                 XDocument xdoc = XDocument.Load("port.xml");
                 var roomElements = from el in xdoc.Root.Elements("port")
                                    select new
@@ -126,10 +158,8 @@ namespace NooLiteServiceSoft
             }
             catch (IOException)
             {
-                //MessageBox.Show("Ни одной комнаты не добавлено");
             }
             return null;
-
         }
 
         public void ValidationPortId(Port port, string[] portOldId)
@@ -141,7 +171,7 @@ namespace NooLiteServiceSoft
             bool flag = true;
             if (EqualsPortId(portOldId, idPortArray) != true)
             {
-                MainValidationFunc(port,flag);
+                MainValidationFunc(port, flag);
             }
             for (int i = 0; i < IdDevice.Count; i++)
             {
@@ -185,10 +215,8 @@ namespace NooLiteServiceSoft
 
         private void MainValidationFunc(Port port, bool flag)
         {
-
             XmlDevice xmlDevice = new XmlDevice();
             Device device = new Device();
-
 
             xmlDevice.DeviceRemoveAllXml();
             using (SerialPort _port = port.TakeDataAboutPort())
@@ -221,13 +249,10 @@ namespace NooLiteServiceSoft
                             break;
                         }
                     }
-
-
                 }
                 _port.Close();
-            }          
+            }
         }
-        
     }
 }
 

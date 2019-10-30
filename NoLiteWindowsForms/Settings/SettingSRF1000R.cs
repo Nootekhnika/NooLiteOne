@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NooLiteServiceSoft.Settings
@@ -15,6 +11,7 @@ namespace NooLiteServiceSoft.Settings
         private RadioButton CalibrationOff;
         private RadioButton On_State;
         private RadioButton Off_State;
+        private Label labelCalibration;
         private RadioButton CmdNlOn;
         private RadioButton CmdNlOff;
 
@@ -29,7 +26,6 @@ namespace NooLiteServiceSoft.Settings
 
         public void FormDesign(SettingFTX settingFTX)
         {
-
             GroupBox Calibration = new GroupBox()
             {
                 Left = 207,
@@ -39,6 +35,17 @@ namespace NooLiteServiceSoft.Settings
                 Text = "Калибровка",
                 BackColor = Color.FromArgb(239, 239, 239)
             };
+
+            Label calibration = new Label
+            {
+                Left = 5,
+                Top = 50,
+                Width = 195,
+                Height = 96,
+                BackColor = Color.FromArgb(239, 239, 239)
+            };
+
+            labelCalibration = calibration;
 
             RadioButton calibrationOn = new RadioButton
             {
@@ -59,6 +66,7 @@ namespace NooLiteServiceSoft.Settings
             CalibrationOff = calibrationOff;
 
             settingFTX.Controls.Add(Calibration);
+            Calibration.Controls.Add(labelCalibration);
             Calibration.Controls.Add(CalibrationOn);
             Calibration.Controls.Add(CalibrationOff);
         }
@@ -74,36 +82,41 @@ namespace NooLiteServiceSoft.Settings
             {
                 On_State.Checked = false;
                 Off_State.Checked = true;
-            }          
+            }
 
             if (resultByte[2] == 1)
             {
 
                 CmdNlOn.Checked = false;
-                CmdNlOff.Checked = true;             
+                CmdNlOff.Checked = true;
             }
             else
             {
                 CmdNlOn.Checked = true;
                 CmdNlOff.Checked = false;
             }
-            
+
             if (resultByte[6] == 1)
             {
                 CalibrationOn.Checked = true;
                 CalibrationOff.Checked = false;
+                labelCalibration.Text = "Откалибровано";
             }
             else
             {
 
                 CalibrationOn.Checked = false;
                 CalibrationOff.Checked = true;
+                labelCalibration.Text = "Неоткалибровано";
             }
 
             CalibrationOff.Enabled = false;
             CalibrationOn.Enabled = false;
+            CalibrationOn.Visible = false;
+            CalibrationOn.Visible = false;
         }
-        private static byte SaveSRF11000RSetting(RadioButton ColibrationOn, RadioButton on_State,RadioButton allowReceivingCommandFromNL)
+
+        private static byte SaveSRF11000RSetting(RadioButton ColibrationOn, RadioButton on_State, RadioButton allowReceivingCommandFromNL)
         {
             byte[] resultByte = new byte[7];
             string stringByte = "";
@@ -144,15 +157,25 @@ namespace NooLiteServiceSoft.Settings
 
         public void WriteSettingSRF11000R(SettingFTX settingFTX, SerialPort port, string devicesChannel, byte typeCode, byte[] idArray)
         {
-            byte d0 = SaveSRF11000RSetting(CalibrationOn, On_State,CmdNlOn);
-            byte[] bufferMainPropertiesFirstWrite = new byte[17] { 171, 2, 8, 0, byte.Parse(devicesChannel), 129, 16, d0, 0, 127, 0, idArray[0], idArray[1], idArray[2], idArray[3], 0, 172 };
-            byte[] tx_bufferSettingWrite = CRC(bufferMainPropertiesFirstWrite);
-            if (port.IsOpen == false) port.Open();
-            port.Write(tx_bufferSettingWrite, 0, tx_bufferSettingWrite.Length);
-            port.DiscardInBuffer();
-            if (port.IsOpen) port.Close();
-            settingFTX.Close();
+            try
+            {
+                byte d0 = SaveSRF11000RSetting(CalibrationOn, On_State, CmdNlOn);
+                byte[] bufferMainPropertiesFirstWrite = new byte[17] { 171, 2, 8, 0, byte.Parse(devicesChannel), 129, 16, d0, 0, 127, 0, idArray[0], idArray[1], idArray[2], idArray[3], 0, 172 };
+                byte[] tx_bufferSettingWrite = CRC(bufferMainPropertiesFirstWrite);
+                if (port.IsOpen == false) port.Open();
+                port.Write(tx_bufferSettingWrite, 0, tx_bufferSettingWrite.Length);
+                port.DiscardInBuffer();
+                if (port.IsOpen) port.Close();
+                settingFTX.Close();
+            }
+            catch
+            {
+                using (DisconnectMTRF disconnectMTRF = new DisconnectMTRF())
+                {
+                    disconnectMTRF.ShowDialog();
+                }
+                Application.Exit();
+            }
         }
-
     }
 }

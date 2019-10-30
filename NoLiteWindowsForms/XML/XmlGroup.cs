@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
@@ -14,9 +10,7 @@ namespace NooLiteServiceSoft.XML
         public void LoadXMLFile(Room room)
         {
             XDocument xdocs = XDocument.Load("rooms.xml");
-
             var roomElements = xdocs.Descendants().Elements("room");
-
             XElement group = new XElement("room");
             XElement rooms = new XElement("rooms");
 
@@ -24,56 +18,58 @@ namespace NooLiteServiceSoft.XML
             {
                 rooms.Add(xe);
             }
-            // create attr
             XAttribute GroupNameAttr = new XAttribute("name", room.RoomName);
             XElement groupId = new XElement("roomId", room.Id);
             group.Add(GroupNameAttr);
             group.Add(groupId);
             xdocs.Root.Add(group);
-            //save document
             xdocs.Save("rooms.xml");
         }
 
         public void CreateXmlFile(Room room)
         {
             XDocument xdocs = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
-
             XElement group = new XElement("room");
-            // create attr
             XAttribute GroupNameAttr = new XAttribute("name", room.RoomName);
-            XElement groupId = new XElement("roomId",room.Id);
+            XElement groupId = new XElement("roomId", room.Id);
             XElement groups = new XElement("rooms");
             group.Add(GroupNameAttr);
             group.Add(groupId);
             groups.Add(group);
             xdocs.Add(groups);
-            //save document
             xdocs.Save("rooms.xml");
         }
+
+        public void CreateXmlFile()
+        {
+            XDocument xdocs = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
+            XElement groups = new XElement("rooms");
+            xdocs.Add(groups);
+            xdocs.Save("rooms.xml");
+        }
+
 
         public string[] RoomNameXml()
         {
             try
             {
-                
                 XDocument xdoc = XDocument.Load("rooms.xml");
                 int count = 0;
                 var roomElements = from el in xdoc.Root.Elements("room")
-                                     select new
-                                     {
-                                         dName = el.Attribute("name")
-                                     };
+                                   select new
+                                   {
+                                       dName = el.Attribute("name")
+                                   };
                 var roomName = new string[roomElements.Count()];
                 foreach (var param in roomElements)
                 {
-                    roomName[count] =(string)param.dName;
+                    roomName[count] = (string)param.dName;
                     count++;
                 }
                 return roomName;
             }
             catch (IOException)
             {
-                //MessageBox.Show("Ни одной комнаты не добавлено");
             }
             return null;
         }
@@ -82,7 +78,7 @@ namespace NooLiteServiceSoft.XML
         {
             XDocument xdoc = XDocument.Load("rooms.xml");
             var roomElements = xdoc.Root.Elements("room").Where(s => s.Attribute("name").Value.Equals(roomName));
-            if(roomElements.Count() != 0)
+            if (roomElements.Count() != 0)
             {
                 return true;
             }
@@ -92,7 +88,7 @@ namespace NooLiteServiceSoft.XML
             }
         }
 
-        public void UpdateRoom(string roomName,string newRoomName,TabPage page,TabPage mainPage)
+        public void UpdateRoom(string roomName, string newRoomName, TabPage page, TabPage mainPage)
         {
             XDocument xdoc = XDocument.Load("rooms.xml");
             XDocument xdocdevice = XDocument.Load("devices.xml");
@@ -100,9 +96,9 @@ namespace NooLiteServiceSoft.XML
             var query = from c in xdoc.Root.Elements("room")
                         select c;
             var queryDevice = from c in xdocdevice.Root.Elements("device")
-                        select c;
-            var queryDeviceTX = from c in xdocdeviceTX.Root.Elements("device")
                               select c;
+            var queryDeviceTX = from c in xdocdeviceTX.Root.Elements("device")
+                                select c;
             foreach (XElement p in query)
             {
                 if (p.Attribute("name").Value.Equals(roomName))
@@ -110,7 +106,7 @@ namespace NooLiteServiceSoft.XML
                     p.Attribute("name").Value = newRoomName;
 
                     xdoc.Save("rooms.xml");
-                    page.Text = $"{"  "}{newRoomName}";
+                    page.Text = newRoomName;
                 }
             }
 
@@ -154,17 +150,17 @@ namespace NooLiteServiceSoft.XML
                         }
                     }
                 }
-              }
             }
+        }
 
 
         public void RemoveRoom(string roomName)
         {
             XDocument xdoc = XDocument.Load("rooms.xml");
-            var roomElements = xdoc.Root.Elements("room").Where(s=>s.Attribute("name").Value.Equals(roomName));                             
+            var roomElements = xdoc.Root.Elements("room").Where(s => s.Attribute("name").Value.Equals(roomName));
             roomElements.Remove();
             xdoc.Save("rooms.xml");
-            if (File.Exists("devices.xml")==true)
+            if (File.Exists("devices.xml") == true)
             {
                 XDocument xdevice = XDocument.Load("devices.xml");
                 var deviceElements = xdevice.Root.Elements("device").Where(s => s.Element("RoomName").Value.Equals(roomName));
@@ -183,7 +179,7 @@ namespace NooLiteServiceSoft.XML
                     p.Element("RoomName").Value = "";
                 }
                 xdeviceTX.Save("devicesTX.xml");
-            }         
+            }
         }
     }
 }

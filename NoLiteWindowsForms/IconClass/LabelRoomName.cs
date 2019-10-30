@@ -1,33 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace NooLiteServiceSoft.IconClass
 {
     public class LabelRoomName
     {
-        public void CreateLabelRoomName(int i, PictureBox pct, string[] roomName)
+        public void CreateLabelRoomName(int i, PictureBox pct, string[] roomName, string typeDevice)
         {
-            Label labelRoomName = new Label
+            Label labelRoomName;
+            if (typeDevice.Equals("6"))
             {
-                Height = 20,
-                Width = 96,
-                Name = "roomName" + i.ToString(),
-                Top = 55,
-                Left = 2,
-                BackColor = Color.White,
-                Text = roomName[i],
-                TextAlign = ContentAlignment.MiddleCenter
+                labelRoomName = new Label
+                {
+                    Height = 20,
+                    Width = 96,
+                    Name = "roomName" + i.ToString(),
+                    Top = 63,
+                    Left = 2,
+                    BackColor = Color.White,
+                    Text = roomName[i],
+                    TextAlign = ContentAlignment.MiddleCenter
 
-            };
-            if (labelRoomName.Text.Length >= 14)
+                };
+            }
+            else
             {
-                labelRoomName.Width = 100;
-                labelRoomName.Left = 0;
+                labelRoomName = new Label
+                {
+                    Height = 20,
+                    Width = 96,
+                    Name = "roomName" + i.ToString(),
+                    Top = 55,
+                    Left = 2,
+                    BackColor = Color.White,
+                    Text = roomName[i],
+                    TextAlign = ContentAlignment.MiddleCenter
+
+                };
+            }
+            if (labelRoomName.Text.Length >= 13)
+            {
+                labelRoomName.Width = 94;
+                labelRoomName.Left = 3;
             }
 
             ToolTip yourToolTip = new ToolTip
@@ -37,7 +51,7 @@ namespace NooLiteServiceSoft.IconClass
                 ShowAlways = true,
                 BackColor = Color.White
             };
-            if (labelRoomName.Text.Length > 13)
+            if (labelRoomName.Text.Length > 12)
             {
                 yourToolTip.SetToolTip(labelRoomName, labelRoomName.Text);
             }
