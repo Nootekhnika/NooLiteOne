@@ -93,16 +93,16 @@
             this.label_name.AutoSize = true;
             this.label_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_name.ForeColor = System.Drawing.Color.Black;
-            this.label_name.Location = new System.Drawing.Point(39, 63);
+            this.label_name.Location = new System.Drawing.Point(21, 63);
             this.label_name.Name = "label_name";
-            this.label_name.Size = new System.Drawing.Size(197, 20);
+            this.label_name.Size = new System.Drawing.Size(91, 20);
             this.label_name.TabIndex = 3;
-            this.label_name.Text = "Название устройства:";
+            this.label_name.Text = "Название";
             // 
             // textBox_name
             // 
             this.textBox_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_name.Location = new System.Drawing.Point(44, 93);
+            this.textBox_name.Location = new System.Drawing.Point(26, 93);
             this.textBox_name.Name = "textBox_name";
             this.textBox_name.Size = new System.Drawing.Size(285, 27);
             this.textBox_name.TabIndex = 1;
@@ -114,18 +114,18 @@
             this.labelChannel.BackColor = System.Drawing.Color.White;
             this.labelChannel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelChannel.ForeColor = System.Drawing.Color.Black;
-            this.labelChannel.Location = new System.Drawing.Point(39, 214);
+            this.labelChannel.Location = new System.Drawing.Point(21, 214);
             this.labelChannel.Name = "labelChannel";
-            this.labelChannel.Size = new System.Drawing.Size(65, 20);
+            this.labelChannel.Size = new System.Drawing.Size(60, 20);
             this.labelChannel.TabIndex = 6;
-            this.labelChannel.Text = "Канал:";
+            this.labelChannel.Text = "Канал";
             // 
             // comboBoxSelectChannel
             // 
             this.comboBoxSelectChannel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSelectChannel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSelectChannel.FormattingEnabled = true;
-            this.comboBoxSelectChannel.Location = new System.Drawing.Point(44, 244);
+            this.comboBoxSelectChannel.Location = new System.Drawing.Point(26, 244);
             this.comboBoxSelectChannel.Name = "comboBoxSelectChannel";
             this.comboBoxSelectChannel.Size = new System.Drawing.Size(285, 28);
             this.comboBoxSelectChannel.TabIndex = 3;
@@ -136,9 +136,9 @@
             this.buttonAdd.BackColor = System.Drawing.Color.White;
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAdd.Location = new System.Drawing.Point(377, 414);
+            this.buttonAdd.Location = new System.Drawing.Point(399, 428);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(115, 35);
+            this.buttonAdd.Size = new System.Drawing.Size(86, 28);
             this.buttonAdd.TabIndex = 31;
             this.buttonAdd.Text = "Привязать";
             this.buttonAdd.UseVisualStyleBackColor = false;
@@ -149,7 +149,7 @@
             this.comboBox_mode.BackColor = System.Drawing.Color.White;
             this.comboBox_mode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_mode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox_mode.Location = new System.Drawing.Point(45, 165);
+            this.comboBox_mode.Location = new System.Drawing.Point(27, 165);
             this.comboBox_mode.Name = "comboBox_mode";
             this.comboBox_mode.Size = new System.Drawing.Size(285, 28);
             this.comboBox_mode.TabIndex = 2;
@@ -160,17 +160,17 @@
             this.label_mode.AutoSize = true;
             this.label_mode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_mode.ForeColor = System.Drawing.Color.Black;
-            this.label_mode.Location = new System.Drawing.Point(40, 136);
+            this.label_mode.Location = new System.Drawing.Point(22, 136);
             this.label_mode.Name = "label_mode";
-            this.label_mode.Size = new System.Drawing.Size(69, 20);
+            this.label_mode.Size = new System.Drawing.Size(64, 20);
             this.label_mode.TabIndex = 10;
-            this.label_mode.Text = "Режим:";
+            this.label_mode.Text = "Режим";
             // 
             // comboBox_typeDeviceTx
             // 
             this.comboBox_typeDeviceTx.BackColor = System.Drawing.Color.White;
             this.comboBox_typeDeviceTx.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox_typeDeviceTx.Location = new System.Drawing.Point(43, 327);
+            this.comboBox_typeDeviceTx.Location = new System.Drawing.Point(25, 327);
             this.comboBox_typeDeviceTx.Name = "comboBox_typeDeviceTx";
             this.comboBox_typeDeviceTx.Size = new System.Drawing.Size(285, 28);
             this.comboBox_typeDeviceTx.TabIndex = 11;
@@ -182,11 +182,11 @@
             this.label_typeDeviceTX.AutoSize = true;
             this.label_typeDeviceTX.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_typeDeviceTX.ForeColor = System.Drawing.Color.Black;
-            this.label_typeDeviceTX.Location = new System.Drawing.Point(38, 297);
+            this.label_typeDeviceTX.Location = new System.Drawing.Point(20, 297);
             this.label_typeDeviceTX.Name = "label_typeDeviceTX";
-            this.label_typeDeviceTX.Size = new System.Drawing.Size(98, 20);
+            this.label_typeDeviceTX.Size = new System.Drawing.Size(93, 20);
             this.label_typeDeviceTX.TabIndex = 12;
-            this.label_typeDeviceTX.Text = "Тип блока:";
+            this.label_typeDeviceTX.Text = "Тип блока";
             this.label_typeDeviceTX.Visible = false;
             // 
             // labelname_group
@@ -194,11 +194,11 @@
             this.labelname_group.AutoSize = true;
             this.labelname_group.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelname_group.ForeColor = System.Drawing.Color.Black;
-            this.labelname_group.Location = new System.Drawing.Point(39, 297);
+            this.labelname_group.Location = new System.Drawing.Point(21, 297);
             this.labelname_group.Name = "labelname_group";
-            this.labelname_group.Size = new System.Drawing.Size(72, 20);
+            this.labelname_group.Size = new System.Drawing.Size(67, 20);
             this.labelname_group.TabIndex = 14;
-            this.labelname_group.Text = "Группа:";
+            this.labelname_group.Text = "Группа";
             // 
             // comboBoxGroup
             // 
@@ -206,7 +206,7 @@
             this.comboBoxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGroup.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.comboBoxGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBoxGroup.Location = new System.Drawing.Point(43, 327);
+            this.comboBoxGroup.Location = new System.Drawing.Point(25, 327);
             this.comboBoxGroup.Name = "comboBoxGroup";
             this.comboBoxGroup.Size = new System.Drawing.Size(285, 28);
             this.comboBoxGroup.TabIndex = 30;
@@ -215,7 +215,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(38, 22);
+            this.label3.Location = new System.Drawing.Point(20, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(229, 24);
             this.label3.TabIndex = 29;
@@ -227,7 +227,7 @@
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.pictureBox6);
             this.panel6.Controls.Add(this.pictureBox7);
-            this.panel6.Location = new System.Drawing.Point(658, -7);
+            this.panel6.Location = new System.Drawing.Point(604, -7);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(2, 487);
             this.panel6.TabIndex = 26;
@@ -288,7 +288,7 @@
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Location = new System.Drawing.Point(0, -6);
+            this.panel3.Location = new System.Drawing.Point(-1, -6);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(2, 490);
             this.panel3.TabIndex = 27;
@@ -349,7 +349,7 @@
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.pictureBox8);
             this.panel5.Controls.Add(this.pictureBox9);
-            this.panel5.Location = new System.Drawing.Point(0, 478);
+            this.panel5.Location = new System.Drawing.Point(0, 479);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(660, 2);
             this.panel5.TabIndex = 28;
@@ -410,7 +410,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pictureBox11);
             this.panel1.Controls.Add(this.pictureBox12);
-            this.panel1.Location = new System.Drawing.Point(-2, 0);
+            this.panel1.Location = new System.Drawing.Point(-2, -1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(660, 2);
             this.panel1.TabIndex = 32;
@@ -470,9 +470,9 @@
             this.button_Close.BackColor = System.Drawing.Color.White;
             this.button_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Close.Location = new System.Drawing.Point(507, 414);
+            this.button_Close.Location = new System.Drawing.Point(495, 428);
             this.button_Close.Name = "button_Close";
-            this.button_Close.Size = new System.Drawing.Size(115, 35);
+            this.button_Close.Size = new System.Drawing.Size(86, 28);
             this.button_Close.TabIndex = 33;
             this.button_Close.Text = "Отмена";
             this.button_Close.UseVisualStyleBackColor = false;
@@ -483,7 +483,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(660, 480);
+            this.ClientSize = new System.Drawing.Size(605, 480);
             this.Controls.Add(this.button_Close);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.comboBoxSelectChannel);
@@ -504,8 +504,8 @@
             this.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(660, 480);
-            this.MinimumSize = new System.Drawing.Size(660, 480);
+            this.MaximumSize = new System.Drawing.Size(605, 480);
+            this.MinimumSize = new System.Drawing.Size(605, 480);
             this.Name = "FormMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "nooLiteDesktopControl";

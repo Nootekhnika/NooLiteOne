@@ -62,6 +62,7 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTemp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel8.SuspendLayout();
@@ -88,11 +89,11 @@
             // 
             // trackBarTemp
             // 
-            this.trackBarTemp.Location = new System.Drawing.Point(29, 129);
+            this.trackBarTemp.Location = new System.Drawing.Point(19, 128);
             this.trackBarTemp.Maximum = 50;
             this.trackBarTemp.Minimum = 5;
             this.trackBarTemp.Name = "trackBarTemp";
-            this.trackBarTemp.Size = new System.Drawing.Size(253, 56);
+            this.trackBarTemp.Size = new System.Drawing.Size(274, 56);
             this.trackBarTemp.TabIndex = 0;
             this.trackBarTemp.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBarTemp.Value = 5;
@@ -101,8 +102,9 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(25, 181);
+            this.button1.Location = new System.Drawing.Point(29, 181);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 35);
             this.button1.TabIndex = 1;
@@ -113,6 +115,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.Location = new System.Drawing.Point(167, 181);
             this.button2.Name = "button2";
@@ -124,10 +127,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::NooLiteServiceSoft.Properties.Resources.icon_tempreture;
-            this.pictureBox1.Location = new System.Drawing.Point(25, 73);
+            this.pictureBox1.Image = global::NooLiteServiceSoft.Properties.Resources.temp2;
+            this.pictureBox1.Location = new System.Drawing.Point(22, 66);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(26, 35);
+            this.pictureBox1.Size = new System.Drawing.Size(34, 44);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -136,11 +139,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(116, 85);
+            this.label1.Location = new System.Drawing.Point(98, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 18);
+            this.label1.Size = new System.Drawing.Size(59, 18);
             this.label1.TabIndex = 4;
-            this.label1.Text = "SRF-1-3000T";
+            this.label1.Text = "Датчик";
             // 
             // temp
             // 
@@ -168,9 +171,9 @@
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.pictureBox10);
             this.panel8.Controls.Add(this.pictureBox11);
-            this.panel8.Location = new System.Drawing.Point(0, -13);
+            this.panel8.Location = new System.Drawing.Point(-1, -13);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(2, 323);
+            this.panel8.Size = new System.Drawing.Size(2, 326);
             this.panel8.TabIndex = 24;
             // 
             // panel9
@@ -240,9 +243,9 @@
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.pictureBox4);
             this.panel4.Controls.Add(this.pictureBox5);
-            this.panel4.Location = new System.Drawing.Point(487, -4);
+            this.panel4.Location = new System.Drawing.Point(488, -4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(2, 317);
+            this.panel4.Size = new System.Drawing.Size(2, 322);
             this.panel4.TabIndex = 27;
             // 
             // panel5
@@ -301,9 +304,9 @@
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.pictureBox7);
             this.panel6.Controls.Add(this.pictureBox12);
-            this.panel6.Location = new System.Drawing.Point(0, 303);
+            this.panel6.Location = new System.Drawing.Point(0, 304);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(487, 2);
+            this.panel6.Size = new System.Drawing.Size(493, 2);
             this.panel6.TabIndex = 28;
             // 
             // panel7
@@ -362,7 +365,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pictureBox8);
             this.panel1.Controls.Add(this.pictureBox13);
-            this.panel1.Location = new System.Drawing.Point(1, 0);
+            this.panel1.Location = new System.Drawing.Point(1, -1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(487, 2);
             this.panel1.TabIndex = 29;
@@ -420,14 +423,25 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(355, 249);
+            this.button3.Location = new System.Drawing.Point(353, 249);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(115, 35);
             this.button3.TabIndex = 30;
-            this.button3.Text = "Отмена";
+            this.button3.Text = "Закрыть";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.Button3_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(98, 90);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 18);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Установка";
             // 
             // SettingSRF13000T
             // 
@@ -435,6 +449,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(489, 305);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
@@ -520,5 +535,6 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label7;
     }
 }

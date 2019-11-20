@@ -66,7 +66,7 @@ namespace NooLiteServiceSoft
             if (comboBox_mode.Text.Equals("NooLite TX"))
             {
                 dvcForm1TX.NameDevice = textBox_name.Text;
-                int channel = int.Parse(comboBoxSelectChannel.Text) - 1;
+                int channel = int.Parse(comboBoxSelectChannel.Text);
                 dvcForm1TX.Channel = byte.Parse(channel.ToString());
                 dvcForm1TX.Mode = comboBox_mode.Text;
                 dvcForm1TX.TypeName = comboBox_typeDeviceTx.Text;
@@ -96,7 +96,7 @@ namespace NooLiteServiceSoft
             {
                 Cursor.Current = Cursors.WaitCursor;
                 dvcForm1.NameDevice = textBox_name.Text;
-                int channel = int.Parse(comboBoxSelectChannel.Text) - 1;
+                int channel = int.Parse(comboBoxSelectChannel.Text);
                 dvcForm1.Channel = byte.Parse(channel.ToString());
                 dvcForm1.Mode = comboBox_mode.Text;
                 dvcForm1.RoomName = validator.ComboBoxValidation(comboBoxGroup.Text);
@@ -143,7 +143,7 @@ namespace NooLiteServiceSoft
                 label_typeDeviceTX.Visible = true;
                 label_typeDeviceTX.Top = 290;
                 comboBox_typeDeviceTx.Top = 315;
-                comboBox_typeDeviceTx.Left = 44;
+                comboBox_typeDeviceTx.Left = 26;
                 comboBoxGroup.Top = 390;
                 labelname_group.Top = 365;
             }

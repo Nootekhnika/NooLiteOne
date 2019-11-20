@@ -141,5 +141,10 @@ namespace NooLiteServiceSoft
                 textBox_Route.BackColor = Color.White;
             }
         }
+
+        private void operationModecomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

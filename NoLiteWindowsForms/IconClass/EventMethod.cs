@@ -91,6 +91,15 @@ namespace NooLiteServiceSoft.IconClass
             }
         }
 
+        public void ShowSuf13000Window(SerialPort port, string devicesChannel, string idDevices)
+        {
+            using (SetttingSUF1300 settingSUF13000 = new SetttingSUF1300(port, devicesChannel, idDevices))
+            {
+                settingSUF13000.ShowDialog();
+            }
+        }
+
+
         public void MenuItemSRF11000R_Setting(object _sender, MouseEventArgs e, SerialPort port, PictureBox pct, string devicesChannel, string devicesName, string idDevices, PictureDeviceOn _deviceOn, PictureDeviceOff deviceOff, PictureDeviceNoConnection deviceNoConnection, int i)
         {
             try

@@ -7,6 +7,7 @@ using System.Drawing;
 using NooLiteServiceSoft.Design;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace NooLiteServiceSoft
 {
@@ -98,10 +99,10 @@ namespace NooLiteServiceSoft
             Application.Exit();
         }
 
-        private async void AddRoomStripMenuItem_Click(object sender, EventArgs e)
+        private void AddRoomStripMenuItem_Click(object sender, EventArgs e)
         {
             contextToolStripMenuItem.ForeColor = Color.Black;
-            await Task.Delay(100);
+            Thread.Sleep(100);
             FormAddRoom rooms = new FormAddRoom(tabControl, tabPage1);
             rooms.ShowDialog();
         }
@@ -115,10 +116,10 @@ namespace NooLiteServiceSoft
             }
         }
 
-        private async void UpdateAllDevicesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UpdateAllDevicesToolStripMenuItem_Click(object sender, EventArgs e)
         {
            serviceToolStripMenuItem.ForeColor = Color.Black;
-            await Task.Delay(100);
+            Thread.Sleep(100);
             icons.IconAddallDevices(tabControl,tabPage1);
         }
        
@@ -135,19 +136,19 @@ namespace NooLiteServiceSoft
             }
         }
 
-        private async void ComPortToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ComPortToolStripMenuItem_Click(object sender, EventArgs e)
         {
             contextToolStripMenuItem.ForeColor = Color.Black;
-            await Task.Delay(100);
+            Thread.Sleep(100);
             using (Route menu = new Route())
             {
                 menu.ShowDialog();
             }         
         }
-        private async void WebToolStripMenuItem_Click(object sender, EventArgs e)
+        private void WebToolStripMenuItem_Click(object sender, EventArgs e)
         {
             infoToolStripMenuItem.ForeColor = Color.Black;
-            await Task.Delay(100);
+            Thread.Sleep(100);
             Process.Start("https://noo.by/");
         }
  

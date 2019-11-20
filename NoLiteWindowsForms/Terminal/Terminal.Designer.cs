@@ -160,6 +160,7 @@
             this.operationModecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.operationModecomboBox.FormattingEnabled = true;
             this.operationModecomboBox.Location = new System.Drawing.Point(37, 97);
+            this.operationModecomboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.operationModecomboBox.Name = "operationModecomboBox";
             this.operationModecomboBox.Size = new System.Drawing.Size(201, 24);
             this.operationModecomboBox.TabIndex = 1;
@@ -172,6 +173,7 @@
             this.comandNooLite_comboBox.FormattingEnabled = true;
             this.comandNooLite_comboBox.IntegralHeight = false;
             this.comandNooLite_comboBox.Location = new System.Drawing.Point(37, 201);
+            this.comandNooLite_comboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comandNooLite_comboBox.Name = "comandNooLite_comboBox";
             this.comandNooLite_comboBox.Size = new System.Drawing.Size(201, 24);
             this.comandNooLite_comboBox.TabIndex = 2;
@@ -192,8 +194,9 @@
             this.button_SendArr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_SendArr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_SendArr.Location = new System.Drawing.Point(1208, 437);
+            this.button_SendArr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_SendArr.Name = "button_SendArr";
-            this.button_SendArr.Size = new System.Drawing.Size(115, 35);
+            this.button_SendArr.Size = new System.Drawing.Size(115, 34);
             this.button_SendArr.TabIndex = 15;
             this.button_SendArr.Text = "Передать";
             this.button_SendArr.UseVisualStyleBackColor = false;
@@ -207,7 +210,8 @@
             this.comboBox_cmdIL.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.comboBox_cmdIL.FormattingEnabled = true;
             this.comboBox_cmdIL.IntegralHeight = false;
-            this.comboBox_cmdIL.Location = new System.Drawing.Point(37, 307);
+            this.comboBox_cmdIL.Location = new System.Drawing.Point(37, 306);
+            this.comboBox_cmdIL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox_cmdIL.Name = "comboBox_cmdIL";
             this.comboBox_cmdIL.Size = new System.Drawing.Size(201, 24);
             this.comboBox_cmdIL.TabIndex = 3;
@@ -216,7 +220,7 @@
             // 
             this.label_cmdIl.AutoSize = true;
             this.label_cmdIl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label_cmdIl.Location = new System.Drawing.Point(33, 275);
+            this.label_cmdIl.Location = new System.Drawing.Point(33, 274);
             this.label_cmdIl.Name = "label_cmdIl";
             this.label_cmdIl.Size = new System.Drawing.Size(205, 20);
             this.label_cmdIl.TabIndex = 5;
@@ -224,7 +228,8 @@
             // 
             // numericUpDown_Chaneel
             // 
-            this.numericUpDown_Chaneel.Location = new System.Drawing.Point(154, 389);
+            this.numericUpDown_Chaneel.Location = new System.Drawing.Point(155, 389);
+            this.numericUpDown_Chaneel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDown_Chaneel.Maximum = new decimal(new int[] {
             63,
             0,
@@ -238,7 +243,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(150, 358);
+            this.label1.Location = new System.Drawing.Point(149, 358);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 20);
             this.label1.TabIndex = 8;
@@ -248,7 +253,7 @@
             // 
             this.label_ResTogl.AutoSize = true;
             this.label_ResTogl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label_ResTogl.Location = new System.Drawing.Point(38, 357);
+            this.label_ResTogl.Location = new System.Drawing.Point(37, 357);
             this.label_ResTogl.Name = "label_ResTogl";
             this.label_ResTogl.Size = new System.Drawing.Size(43, 20);
             this.label_ResTogl.TabIndex = 10;
@@ -257,6 +262,7 @@
             // numericUpDown_ResTogl
             // 
             this.numericUpDown_ResTogl.Location = new System.Drawing.Point(41, 389);
+            this.numericUpDown_ResTogl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDown_ResTogl.Maximum = new decimal(new int[] {
             255,
             0,
@@ -279,6 +285,7 @@
             // numericUpDown_FMT
             // 
             this.numericUpDown_FMT.Location = new System.Drawing.Point(264, 389);
+            this.numericUpDown_FMT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDown_FMT.Maximum = new decimal(new int[] {
             255,
             0,
@@ -300,7 +307,8 @@
             // 
             // numericUpDown2_D0
             // 
-            this.numericUpDown2_D0.Location = new System.Drawing.Point(374, 389);
+            this.numericUpDown2_D0.Location = new System.Drawing.Point(373, 389);
+            this.numericUpDown2_D0.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDown2_D0.Maximum = new decimal(new int[] {
             255,
             0,
@@ -314,7 +322,7 @@
             // 
             this.label_D1.AutoSize = true;
             this.label_D1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label_D1.Location = new System.Drawing.Point(474, 359);
+            this.label_D1.Location = new System.Drawing.Point(475, 359);
             this.label_D1.Name = "label_D1";
             this.label_D1.Size = new System.Drawing.Size(31, 20);
             this.label_D1.TabIndex = 16;
@@ -322,7 +330,8 @@
             // 
             // numericUpDown_D1
             // 
-            this.numericUpDown_D1.Location = new System.Drawing.Point(478, 389);
+            this.numericUpDown_D1.Location = new System.Drawing.Point(477, 389);
+            this.numericUpDown_D1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDown_D1.Maximum = new decimal(new int[] {
             255,
             0,
@@ -336,7 +345,7 @@
             // 
             this.label_D2.AutoSize = true;
             this.label_D2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label_D2.Location = new System.Drawing.Point(578, 359);
+            this.label_D2.Location = new System.Drawing.Point(579, 359);
             this.label_D2.Name = "label_D2";
             this.label_D2.Size = new System.Drawing.Size(31, 20);
             this.label_D2.TabIndex = 18;
@@ -346,6 +355,7 @@
             // numericUpDown_D2
             // 
             this.numericUpDown_D2.Location = new System.Drawing.Point(583, 389);
+            this.numericUpDown_D2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDown_D2.Maximum = new decimal(new int[] {
             255,
             0,
@@ -368,6 +378,7 @@
             // numericUpDown_D3
             // 
             this.numericUpDown_D3.Location = new System.Drawing.Point(688, 389);
+            this.numericUpDown_D3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDown_D3.Maximum = new decimal(new int[] {
             255,
             0,
@@ -382,9 +393,10 @@
             this.button_clear.BackColor = System.Drawing.Color.White;
             this.button_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_clear.Location = new System.Drawing.Point(42, 437);
+            this.button_clear.Location = new System.Drawing.Point(43, 437);
+            this.button_clear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_clear.Name = "button_clear";
-            this.button_clear.Size = new System.Drawing.Size(115, 35);
+            this.button_clear.Size = new System.Drawing.Size(115, 34);
             this.button_clear.TabIndex = 18;
             this.button_clear.Text = "Очистить";
             this.button_clear.UseVisualStyleBackColor = false;
@@ -392,7 +404,8 @@
             // 
             // textBox_ID0
             // 
-            this.textBox_ID0.Location = new System.Drawing.Point(790, 389);
+            this.textBox_ID0.Location = new System.Drawing.Point(789, 389);
+            this.textBox_ID0.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_ID0.Name = "textBox_ID0";
             this.textBox_ID0.Size = new System.Drawing.Size(51, 22);
             this.textBox_ID0.TabIndex = 11;
@@ -403,7 +416,7 @@
             // 
             this.label_ID0.AutoSize = true;
             this.label_ID0.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label_ID0.Location = new System.Drawing.Point(786, 361);
+            this.label_ID0.Location = new System.Drawing.Point(787, 361);
             this.label_ID0.Name = "label_ID0";
             this.label_ID0.Size = new System.Drawing.Size(35, 20);
             this.label_ID0.TabIndex = 24;
@@ -413,7 +426,7 @@
             // 
             this.label_ID1.AutoSize = true;
             this.label_ID1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label_ID1.Location = new System.Drawing.Point(866, 361);
+            this.label_ID1.Location = new System.Drawing.Point(867, 361);
             this.label_ID1.Name = "label_ID1";
             this.label_ID1.Size = new System.Drawing.Size(35, 20);
             this.label_ID1.TabIndex = 26;
@@ -421,7 +434,8 @@
             // 
             // textBox_ID1
             // 
-            this.textBox_ID1.Location = new System.Drawing.Point(870, 389);
+            this.textBox_ID1.Location = new System.Drawing.Point(869, 389);
+            this.textBox_ID1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_ID1.Name = "textBox_ID1";
             this.textBox_ID1.Size = new System.Drawing.Size(51, 22);
             this.textBox_ID1.TabIndex = 12;
@@ -432,7 +446,7 @@
             // 
             this.label_ID2.AutoSize = true;
             this.label_ID2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label_ID2.Location = new System.Drawing.Point(942, 361);
+            this.label_ID2.Location = new System.Drawing.Point(941, 361);
             this.label_ID2.Name = "label_ID2";
             this.label_ID2.Size = new System.Drawing.Size(35, 20);
             this.label_ID2.TabIndex = 28;
@@ -440,7 +454,8 @@
             // 
             // textBox_ID2
             // 
-            this.textBox_ID2.Location = new System.Drawing.Point(946, 389);
+            this.textBox_ID2.Location = new System.Drawing.Point(947, 389);
+            this.textBox_ID2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_ID2.Name = "textBox_ID2";
             this.textBox_ID2.Size = new System.Drawing.Size(51, 22);
             this.textBox_ID2.TabIndex = 13;
@@ -460,6 +475,7 @@
             // textBox_ID3
             // 
             this.textBox_ID3.Location = new System.Drawing.Point(1019, 389);
+            this.textBox_ID3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_ID3.Name = "textBox_ID3";
             this.textBox_ID3.Size = new System.Drawing.Size(51, 22);
             this.textBox_ID3.TabIndex = 14;
@@ -491,6 +507,7 @@
             listViewGroup1});
             this.listView_Write.HideSelection = false;
             this.listView_Write.Location = new System.Drawing.Point(259, 86);
+            this.listView_Write.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView_Write.MultiSelect = false;
             this.listView_Write.Name = "listView_Write";
             this.listView_Write.ShowGroups = false;
@@ -588,6 +605,7 @@
             listViewGroup2});
             this.listView_Read.HideSelection = false;
             this.listView_Read.Location = new System.Drawing.Point(859, 86);
+            this.listView_Read.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView_Read.MultiSelect = false;
             this.listView_Read.Name = "listView_Read";
             this.listView_Read.ShowGroups = false;
@@ -657,7 +675,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(256, 66);
+            this.label2.Location = new System.Drawing.Point(263, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 18);
             this.label2.TabIndex = 31;
@@ -667,7 +685,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(845, 66);
+            this.label3.Location = new System.Drawing.Point(863, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 17);
             this.label3.TabIndex = 32;
@@ -679,9 +697,10 @@
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.pictureBox6);
             this.panel6.Controls.Add(this.pictureBox7);
-            this.panel6.Location = new System.Drawing.Point(1483, 0);
+            this.panel6.Location = new System.Drawing.Point(1484, 0);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(3, 509);
+            this.panel6.Size = new System.Drawing.Size(3, 510);
             this.panel6.TabIndex = 33;
             // 
             // panel7
@@ -690,14 +709,16 @@
             this.panel7.Controls.Add(this.pictureBox5);
             this.panel7.Controls.Add(this.label5);
             this.panel7.Location = new System.Drawing.Point(343, 60);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(34, 55);
+            this.panel7.Size = new System.Drawing.Size(35, 55);
             this.panel7.TabIndex = 11;
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::NooLiteServiceSoft.Properties.Resources.logo;
             this.pictureBox5.Location = new System.Drawing.Point(12, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(100, 50);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -710,7 +731,7 @@
             this.label5.BackColor = System.Drawing.Color.Black;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(686, 26);
+            this.label5.Location = new System.Drawing.Point(685, 26);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 18);
             this.label5.TabIndex = 9;
@@ -720,6 +741,7 @@
             // 
             this.pictureBox6.Image = global::NooLiteServiceSoft.Properties.Resources.close1;
             this.pictureBox6.Location = new System.Drawing.Point(869, 0);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(31, 34);
             this.pictureBox6.TabIndex = 1;
@@ -729,6 +751,7 @@
             // 
             this.pictureBox7.Image = global::NooLiteServiceSoft.Properties.Resources.mini1;
             this.pictureBox7.Location = new System.Drawing.Point(836, 0);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(37, 34);
             this.pictureBox7.TabIndex = 2;
@@ -740,9 +763,10 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Location = new System.Drawing.Point(0, -4);
+            this.panel1.Location = new System.Drawing.Point(-1, -4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2, 511);
+            this.panel1.Size = new System.Drawing.Size(3, 511);
             this.panel1.TabIndex = 34;
             // 
             // panel2
@@ -751,14 +775,16 @@
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(343, 60);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(34, 55);
+            this.panel2.Size = new System.Drawing.Size(35, 55);
             this.panel2.TabIndex = 11;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::NooLiteServiceSoft.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(12, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -771,7 +797,7 @@
             this.label4.BackColor = System.Drawing.Color.Black;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(686, 26);
+            this.label4.Location = new System.Drawing.Point(685, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 18);
             this.label4.TabIndex = 9;
@@ -781,6 +807,7 @@
             // 
             this.pictureBox2.Image = global::NooLiteServiceSoft.Properties.Resources.close1;
             this.pictureBox2.Location = new System.Drawing.Point(869, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 34);
             this.pictureBox2.TabIndex = 1;
@@ -790,6 +817,7 @@
             // 
             this.pictureBox3.Image = global::NooLiteServiceSoft.Properties.Resources.mini1;
             this.pictureBox3.Location = new System.Drawing.Point(836, 0);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(37, 34);
             this.pictureBox3.TabIndex = 2;
@@ -801,8 +829,9 @@
             this.button_closeTerminal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_closeTerminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_closeTerminal.Location = new System.Drawing.Point(1336, 437);
+            this.button_closeTerminal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_closeTerminal.Name = "button_closeTerminal";
-            this.button_closeTerminal.Size = new System.Drawing.Size(115, 35);
+            this.button_closeTerminal.Size = new System.Drawing.Size(115, 34);
             this.button_closeTerminal.TabIndex = 35;
             this.button_closeTerminal.Text = "Отмена";
             this.button_closeTerminal.UseVisualStyleBackColor = false;
@@ -814,7 +843,8 @@
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.pictureBox11);
             this.panel3.Controls.Add(this.pictureBox12);
-            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Location = new System.Drawing.Point(0, -1);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1485, 2);
             this.panel3.TabIndex = 43;
@@ -825,14 +855,16 @@
             this.panel4.Controls.Add(this.pictureBox10);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Location = new System.Drawing.Point(343, 60);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(34, 55);
+            this.panel4.Size = new System.Drawing.Size(35, 55);
             this.panel4.TabIndex = 11;
             // 
             // pictureBox10
             // 
             this.pictureBox10.Image = global::NooLiteServiceSoft.Properties.Resources.logo;
             this.pictureBox10.Location = new System.Drawing.Point(12, 4);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(100, 50);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -845,7 +877,7 @@
             this.label6.BackColor = System.Drawing.Color.Black;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(686, 26);
+            this.label6.Location = new System.Drawing.Point(685, 26);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 18);
             this.label6.TabIndex = 9;
@@ -855,6 +887,7 @@
             // 
             this.pictureBox11.Image = global::NooLiteServiceSoft.Properties.Resources.close1;
             this.pictureBox11.Location = new System.Drawing.Point(869, 0);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(31, 34);
             this.pictureBox11.TabIndex = 1;
@@ -864,6 +897,7 @@
             // 
             this.pictureBox12.Image = global::NooLiteServiceSoft.Properties.Resources.mini1;
             this.pictureBox12.Location = new System.Drawing.Point(836, 0);
+            this.pictureBox12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(37, 34);
             this.pictureBox12.TabIndex = 2;
@@ -875,9 +909,10 @@
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.pictureBox8);
             this.panel5.Controls.Add(this.pictureBox9);
-            this.panel5.Location = new System.Drawing.Point(0, 499);
+            this.panel5.Location = new System.Drawing.Point(0, 500);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1486, 2);
+            this.panel5.Size = new System.Drawing.Size(1485, 2);
             this.panel5.TabIndex = 44;
             // 
             // panel8
@@ -886,14 +921,16 @@
             this.panel8.Controls.Add(this.pictureBox4);
             this.panel8.Controls.Add(this.label7);
             this.panel8.Location = new System.Drawing.Point(343, 60);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(34, 55);
+            this.panel8.Size = new System.Drawing.Size(35, 55);
             this.panel8.TabIndex = 11;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::NooLiteServiceSoft.Properties.Resources.logo;
             this.pictureBox4.Location = new System.Drawing.Point(12, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(100, 50);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -906,7 +943,7 @@
             this.label7.BackColor = System.Drawing.Color.Black;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(686, 26);
+            this.label7.Location = new System.Drawing.Point(685, 26);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 18);
             this.label7.TabIndex = 9;
@@ -916,6 +953,7 @@
             // 
             this.pictureBox8.Image = global::NooLiteServiceSoft.Properties.Resources.close1;
             this.pictureBox8.Location = new System.Drawing.Point(869, 0);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(31, 34);
             this.pictureBox8.TabIndex = 1;
@@ -925,6 +963,7 @@
             // 
             this.pictureBox9.Image = global::NooLiteServiceSoft.Properties.Resources.mini1;
             this.pictureBox9.Location = new System.Drawing.Point(836, 0);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(37, 34);
             this.pictureBox9.TabIndex = 2;
@@ -934,7 +973,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(33, 19);
+            this.label8.Location = new System.Drawing.Point(33, 18);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(99, 24);
             this.label8.TabIndex = 45;
@@ -942,9 +981,10 @@
             // 
             // panel9
             // 
-            this.panel9.Location = new System.Drawing.Point(2, 2);
+            this.panel9.Location = new System.Drawing.Point(3, 2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1480, 19);
+            this.panel9.Size = new System.Drawing.Size(1480, 18);
             this.panel9.TabIndex = 46;
             this.panel9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel9_MouseDown);
             this.panel9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel9_MouseMove);
@@ -952,7 +992,8 @@
             // 
             // panelForWindowDrop
             // 
-            this.panelForWindowDrop.Location = new System.Drawing.Point(131, 19);
+            this.panelForWindowDrop.Location = new System.Drawing.Point(131, 18);
+            this.panelForWindowDrop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelForWindowDrop.Name = "panelForWindowDrop";
             this.panelForWindowDrop.Size = new System.Drawing.Size(1351, 43);
             this.panelForWindowDrop.TabIndex = 47;
@@ -965,7 +1006,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1486, 501);
+            this.ClientSize = new System.Drawing.Size(1485, 501);
             this.Controls.Add(this.panelForWindowDrop);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.label8);
@@ -1011,6 +1052,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Terminal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "nooLiteDesktopControl";

@@ -23,18 +23,18 @@ namespace NooLiteServiceSoft.Settings
 
         public void FormDesign(SettingFTX settingFTX, Button buttonSave, Button buttonCancel,Panel panelLeft,Panel panelDown,Panel panelRight)
         {
-            settingFTX.Width = 609;
-            settingFTX.Height = 410;
+            settingFTX.Width = 622;
+            settingFTX.Height = 409;
             panelLeft.Height = 700;
             panelDown.Top = 408;
             panelRight.Height = 700;
-            settingFTX.MaximumSize = new Size(609, 410);
-            settingFTX.MinimumSize = new Size(609, 410);
-            buttonSave.Top = 360;
-            buttonCancel.Top = 360;
+            settingFTX.MaximumSize = new Size(622, 409);
+            settingFTX.MinimumSize = new Size(622, 409);
+            buttonSave.Top = 365;
+            buttonCancel.Top = 365;
             GroupBox exitType = new GroupBox
             {
-                Left = 8,
+                Left = 16,
                 Top = 140,
                 Width = 195,
                 Height = 100,
@@ -44,10 +44,10 @@ namespace NooLiteServiceSoft.Settings
             };
             RadioButton relay = new RadioButton
             {
-                Text = "Релейный",
+                Text = "Реле",
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 40,
-                Left = 5
+                Left = 9
             };
             RelayRB = relay;
 
@@ -56,7 +56,7 @@ namespace NooLiteServiceSoft.Settings
                 Text = "Диммирование",
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 65,
-                Left = 5
+                Left = 9
             };
             DimerRB = dimer;
 
@@ -66,7 +66,7 @@ namespace NooLiteServiceSoft.Settings
 
             GroupBox functionRetranclationNooLite = new GroupBox
             {
-                Left = 207,
+                Left = 214,
                 Top = 140,
                 Width = 195,
                 Height = 100,
@@ -79,7 +79,7 @@ namespace NooLiteServiceSoft.Settings
                 Text = "Включена",
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 40,
-                Left = 5
+                Left = 9
             };
             RetranslOn = onRetranslation;
 
@@ -88,7 +88,7 @@ namespace NooLiteServiceSoft.Settings
                 Text = "Выключена",
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 65,
-                Left = 5
+                Left = 9
 
             };
             RetranslOff = offRetranslation;
@@ -98,7 +98,7 @@ namespace NooLiteServiceSoft.Settings
 
             GroupBox operationModeControlInput = new GroupBox
             {
-                Left = 406,
+                Left = 413,
                 Top = 140,
                 Width = 195,
                 Height = 210,
@@ -113,7 +113,7 @@ namespace NooLiteServiceSoft.Settings
                 Width = 250,
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 40,
-                Left = 5
+                Left = 9
 
             };
             SwitchOff = switchingSwitch;
@@ -123,7 +123,7 @@ namespace NooLiteServiceSoft.Settings
                 Text = "Кнопка",
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 65,
-                Left = 5
+                Left = 9
 
             };
             Button = button;
@@ -133,7 +133,7 @@ namespace NooLiteServiceSoft.Settings
                 Text = "Выключатель",
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 90,
-                Left = 5
+                Left = 9
 
             };
             OffMode = offMode;
@@ -144,7 +144,7 @@ namespace NooLiteServiceSoft.Settings
                 Width = 200,
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 115,
-                Left = 5
+                Left = 9
 
             };
             NotUsing = notUsing;
@@ -157,7 +157,7 @@ namespace NooLiteServiceSoft.Settings
 
             GroupBox InputDimerValue = new GroupBox
             {
-                Left = 8,
+                Left = 16,
                 Top = 245,
                 Width = 195,
                 Height = 105,
@@ -168,27 +168,48 @@ namespace NooLiteServiceSoft.Settings
             };
             Label minValueLabel = new Label
             {
-                Text = "min,%",
-
+                Text = "мин",
                 Width = 40,
                 Height = 20,
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 40,
                 Left = 5
             };
+
+            Label minValueLabelP = new Label
+            {
+                Text = "%",
+                Width = 40,
+                Height = 20,
+                BackColor = Color.FromArgb(239, 239, 239),
+                Top = 40,
+                Left = 100,
+            };
             minValueLabel.Font = new Font("Microsoft Sans Serif", 10);
+            minValueLabelP.Font = new Font("Microsoft Sans Serif", 10);
+
 
             Label maxValueLabel = new Label
             {
-                Text = "max,%",
+                Text = "макс",
                 Width = 40,
                 Height = 20,
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 65,
                 Left = 5
             };
-            maxValueLabel.Font = new Font("Microsoft Sans Serif", 10);
 
+            Label maxValueLabelP = new Label
+            {
+                Text = "%",
+                Width = 40,
+                Height = 20,
+                BackColor = Color.FromArgb(239, 239, 239),
+                Top = 65,
+                Left = 100
+            };
+            maxValueLabel.Font = new Font("Microsoft Sans Serif", 10);
+            maxValueLabelP.Font = new Font("Microsoft Sans Serif", 10);
 
             TextBox minValue = new TextBox
             {
@@ -214,13 +235,15 @@ namespace NooLiteServiceSoft.Settings
             MaxValue = maxValue;
             settingFTX.Controls.Add(InputDimerValue);
             InputDimerValue.Controls.Add(minValueLabel);
+            InputDimerValue.Controls.Add(minValueLabelP);
             InputDimerValue.Controls.Add(maxValueLabel);
+            InputDimerValue.Controls.Add(maxValueLabelP);
             InputDimerValue.Controls.Add(MinValue);
             InputDimerValue.Controls.Add(MaxValue);
 
             GroupBox InputLvlOn = new GroupBox
             {
-                Left = 207,
+                Left = 214,
                 Top = 245,
                 Width = 195,
                 Height = 105,
@@ -232,14 +255,24 @@ namespace NooLiteServiceSoft.Settings
 
             Label minLvlValueLabel = new Label
             {
-                Text = "Минимальный уровень включения, %",
-
+                Text = "Минимальный уровень включения",
                 Width = 110,
                 Height = 100,
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 40,
                 Left = 5
             };
+            Label minLvlValueLabelP = new Label
+            {
+                Text = "%",
+                Width = 20,
+                Height = 20,
+                BackColor = Color.FromArgb(239, 239, 239),
+                Top = 50,
+                Left = 170
+            };
+            minLvlValueLabelP.Font = new Font("Microsoft Sans Serif", 10);
+
 
             TextBox minLvlValue = new TextBox
             {
@@ -248,11 +281,12 @@ namespace NooLiteServiceSoft.Settings
                 Height = 5,
                 BackColor = Color.White,
                 Top = 50,
-                Left = 125
+                Left = 115
             };
             MinLvlValue = minLvlValue;
             settingFTX.Controls.Add(InputLvlOn);
             InputLvlOn.Controls.Add(minLvlValueLabel);
+            InputLvlOn.Controls.Add(minLvlValueLabelP);
             InputLvlOn.Controls.Add(MinLvlValue);
 
             //cобытия

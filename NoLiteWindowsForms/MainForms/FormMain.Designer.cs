@@ -78,7 +78,8 @@
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(917, 133);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(12, 10, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(917, 151);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -219,10 +220,10 @@
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPage1);
-            this.tabControl.Font = new System.Drawing.Font("Segoe Marker", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabControl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tabControl.ItemSize = new System.Drawing.Size(42, 20);
-            this.tabControl.Location = new System.Drawing.Point(34, 198);
+            this.tabControl.Location = new System.Drawing.Point(37, 213);
             this.tabControl.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl.Name = "tabControl";
             this.tabControl.Padding = new System.Drawing.Point(0, 0);
@@ -239,8 +240,9 @@
             this.tabPage1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(837, 417);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Все";
@@ -252,7 +254,8 @@
             this.label_Mtrf.BackColor = System.Drawing.Color.Black;
             this.label_Mtrf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_Mtrf.ForeColor = System.Drawing.Color.White;
-            this.label_Mtrf.Location = new System.Drawing.Point(694, 26);
+            this.label_Mtrf.Location = new System.Drawing.Point(673, 32);
+            this.label_Mtrf.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Mtrf.Name = "label_Mtrf";
             this.label_Mtrf.Size = new System.Drawing.Size(50, 18);
             this.label_Mtrf.TabIndex = 9;
@@ -270,17 +273,19 @@
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label_Mtrf);
-            this.panel1.Location = new System.Drawing.Point(0, 24);
+            this.panel1.Location = new System.Drawing.Point(0, 25);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(917, 70);
+            this.panel1.Size = new System.Drawing.Size(917, 77);
             this.panel1.TabIndex = 10;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::NooLiteServiceSoft.Properties.Resources.circle;
-            this.pictureBox2.Location = new System.Drawing.Point(857, 25);
+            this.pictureBox2.Location = new System.Drawing.Point(866, 29);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(17, 19);
+            this.pictureBox2.Size = new System.Drawing.Size(23, 23);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 10;
             this.pictureBox2.TabStop = false;
@@ -288,9 +293,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::NooLiteServiceSoft.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(39, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(52, 7);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(80, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(107, 62);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -301,8 +307,9 @@
             this.panel2.Controls.Add(this.closePicture);
             this.panel2.Controls.Add(this.hidePicture);
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(917, 24);
+            this.panel2.Size = new System.Drawing.Size(917, 26);
             this.panel2.TabIndex = 11;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseDown);
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseMove);
@@ -311,9 +318,10 @@
             // closePicture
             // 
             this.closePicture.Image = global::NooLiteServiceSoft.Properties.Resources.cross;
-            this.closePicture.Location = new System.Drawing.Point(897, 6);
+            this.closePicture.Location = new System.Drawing.Point(897, 7);
+            this.closePicture.Margin = new System.Windows.Forms.Padding(4);
             this.closePicture.Name = "closePicture";
-            this.closePicture.Size = new System.Drawing.Size(12, 12);
+            this.closePicture.Size = new System.Drawing.Size(16, 15);
             this.closePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.closePicture.TabIndex = 1;
             this.closePicture.TabStop = false;
@@ -322,9 +330,10 @@
             // hidePicture
             // 
             this.hidePicture.Image = global::NooLiteServiceSoft.Properties.Resources.roll_up;
-            this.hidePicture.Location = new System.Drawing.Point(873, 9);
+            this.hidePicture.Location = new System.Drawing.Point(865, 11);
+            this.hidePicture.Margin = new System.Windows.Forms.Padding(4);
             this.hidePicture.Name = "hidePicture";
-            this.hidePicture.Size = new System.Drawing.Size(15, 15);
+            this.hidePicture.Size = new System.Drawing.Size(20, 18);
             this.hidePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.hidePicture.TabIndex = 2;
             this.hidePicture.TabStop = false;
@@ -333,16 +342,18 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(0, 136);
+            this.panel3.Location = new System.Drawing.Point(0, 149);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(916, 2);
+            this.panel3.Size = new System.Drawing.Size(1221, 2);
             this.panel3.TabIndex = 12;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(38, 154);
+            this.label3.Location = new System.Drawing.Point(39, 174);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 23);
             this.label3.TabIndex = 16;
@@ -365,7 +376,8 @@
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximumSize = new System.Drawing.Size(1220, 789);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(1220, 800);
             this.MinimumSize = new System.Drawing.Size(600, 650);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

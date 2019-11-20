@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>NooLiteServiceSoft</RootNamespace>
     <AssemblyName>NooLiteServiceSoft</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -190,6 +190,12 @@
     <Compile Include="MainForms\SettingFTX.Designer.cs">
       <DependentUpon>SettingFTX.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings\SetttingSUF1300.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\SetttingSUF1300.Designer.cs">
+      <DependentUpon>SetttingSUF1300.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings\SettingRGB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,6 +275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms\SettingFTX.resx">
       <DependentUpon>SettingFTX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\SetttingSUF1300.resx">
+      <DependentUpon>SetttingSUF1300.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\SettingRGB.resx">
       <DependentUpon>SettingRGB.cs</DependentUpon>
@@ -370,6 +379,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\80.ico" />
+    <None Include="Resources\SplashScreen.png" />
+    <None Include="Resources\dotNetFx40_Full_x86_x64.exe" />
+    <None Include="Resources\CDM21228_Setup.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

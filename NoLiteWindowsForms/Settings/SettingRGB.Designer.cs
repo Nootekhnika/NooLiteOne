@@ -94,6 +94,7 @@
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button1.FlatAppearance.BorderSize = 3;
             this.button1.Location = new System.Drawing.Point(37, 114);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 36);
             this.button1.TabIndex = 3;
@@ -107,6 +108,7 @@
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button2.FlatAppearance.BorderSize = 3;
             this.button2.Location = new System.Drawing.Point(212, 114);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(129, 36);
             this.button2.TabIndex = 4;
@@ -116,11 +118,12 @@
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(37, 198);
+            this.trackBar1.Location = new System.Drawing.Point(31, 198);
+            this.trackBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.trackBar1.Maximum = 156;
             this.trackBar1.Minimum = 28;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(304, 56);
+            this.trackBar1.Size = new System.Drawing.Size(320, 56);
             this.trackBar1.TabIndex = 5;
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar1.Value = 28;
@@ -152,6 +155,7 @@
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button3.FlatAppearance.BorderSize = 3;
             this.button3.Location = new System.Drawing.Point(37, 370);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(129, 36);
             this.button3.TabIndex = 8;
@@ -165,6 +169,7 @@
             this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button4.FlatAppearance.BorderSize = 3;
             this.button4.Location = new System.Drawing.Point(212, 370);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(129, 36);
             this.button4.TabIndex = 9;
@@ -176,8 +181,9 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Location = new System.Drawing.Point(212, 271);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(68, 36);
+            this.panel1.Size = new System.Drawing.Size(129, 36);
             this.panel1.TabIndex = 17;
             // 
             // label7
@@ -193,10 +199,12 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.White;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button5.Location = new System.Drawing.Point(495, 437);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(115, 35);
+            this.button5.Size = new System.Drawing.Size(115, 34);
             this.button5.TabIndex = 42;
             this.button5.Text = "Отмена";
             this.button5.UseVisualStyleBackColor = false;
@@ -208,7 +216,8 @@
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.pictureBox6);
             this.panel6.Controls.Add(this.pictureBox7);
-            this.panel6.Location = new System.Drawing.Point(637, -4);
+            this.panel6.Location = new System.Drawing.Point(639, -4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(3, 502);
             this.panel6.TabIndex = 43;
@@ -219,14 +228,16 @@
             this.panel7.Controls.Add(this.pictureBox5);
             this.panel7.Controls.Add(this.label8);
             this.panel7.Location = new System.Drawing.Point(343, 60);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(34, 55);
+            this.panel7.Size = new System.Drawing.Size(35, 55);
             this.panel7.TabIndex = 11;
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::NooLiteServiceSoft.Properties.Resources.logo;
             this.pictureBox5.Location = new System.Drawing.Point(12, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(100, 50);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -239,7 +250,7 @@
             this.label8.BackColor = System.Drawing.Color.Black;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(686, 26);
+            this.label8.Location = new System.Drawing.Point(685, 26);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(50, 18);
             this.label8.TabIndex = 9;
@@ -249,6 +260,7 @@
             // 
             this.pictureBox6.Image = global::NooLiteServiceSoft.Properties.Resources.close1;
             this.pictureBox6.Location = new System.Drawing.Point(869, 0);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(31, 34);
             this.pictureBox6.TabIndex = 1;
@@ -258,6 +270,7 @@
             // 
             this.pictureBox7.Image = global::NooLiteServiceSoft.Properties.Resources.mini1;
             this.pictureBox7.Location = new System.Drawing.Point(836, 0);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(37, 34);
             this.pictureBox7.TabIndex = 2;
@@ -269,9 +282,10 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.pictureBox11);
             this.panel2.Controls.Add(this.pictureBox12);
-            this.panel2.Location = new System.Drawing.Point(-27, 0);
+            this.panel2.Location = new System.Drawing.Point(-27, -1);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(673, 3);
+            this.panel2.Size = new System.Drawing.Size(673, 2);
             this.panel2.TabIndex = 44;
             // 
             // panel3
@@ -280,14 +294,16 @@
             this.panel3.Controls.Add(this.pictureBox10);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Location = new System.Drawing.Point(343, 60);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(34, 55);
+            this.panel3.Size = new System.Drawing.Size(35, 55);
             this.panel3.TabIndex = 11;
             // 
             // pictureBox10
             // 
             this.pictureBox10.Image = global::NooLiteServiceSoft.Properties.Resources.logo;
             this.pictureBox10.Location = new System.Drawing.Point(12, 4);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(100, 50);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -300,7 +316,7 @@
             this.label9.BackColor = System.Drawing.Color.Black;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(686, 26);
+            this.label9.Location = new System.Drawing.Point(685, 26);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(50, 18);
             this.label9.TabIndex = 9;
@@ -310,6 +326,7 @@
             // 
             this.pictureBox11.Image = global::NooLiteServiceSoft.Properties.Resources.close1;
             this.pictureBox11.Location = new System.Drawing.Point(869, 0);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(31, 34);
             this.pictureBox11.TabIndex = 1;
@@ -319,6 +336,7 @@
             // 
             this.pictureBox12.Image = global::NooLiteServiceSoft.Properties.Resources.mini1;
             this.pictureBox12.Location = new System.Drawing.Point(836, 0);
+            this.pictureBox12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(37, 34);
             this.pictureBox12.TabIndex = 2;
@@ -330,9 +348,10 @@
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.pictureBox2);
             this.panel4.Controls.Add(this.pictureBox3);
-            this.panel4.Location = new System.Drawing.Point(-16, 497);
+            this.panel4.Location = new System.Drawing.Point(-16, 499);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(673, 3);
+            this.panel4.Size = new System.Drawing.Size(673, 2);
             this.panel4.TabIndex = 45;
             // 
             // panel5
@@ -341,14 +360,16 @@
             this.panel5.Controls.Add(this.pictureBox1);
             this.panel5.Controls.Add(this.label10);
             this.panel5.Location = new System.Drawing.Point(343, 60);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(34, 55);
+            this.panel5.Size = new System.Drawing.Size(35, 55);
             this.panel5.TabIndex = 11;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::NooLiteServiceSoft.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(12, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -361,7 +382,7 @@
             this.label10.BackColor = System.Drawing.Color.Black;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(686, 26);
+            this.label10.Location = new System.Drawing.Point(685, 26);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(50, 18);
             this.label10.TabIndex = 9;
@@ -371,6 +392,7 @@
             // 
             this.pictureBox2.Image = global::NooLiteServiceSoft.Properties.Resources.close1;
             this.pictureBox2.Location = new System.Drawing.Point(869, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 34);
             this.pictureBox2.TabIndex = 1;
@@ -380,6 +402,7 @@
             // 
             this.pictureBox3.Image = global::NooLiteServiceSoft.Properties.Resources.mini1;
             this.pictureBox3.Location = new System.Drawing.Point(836, 0);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(37, 34);
             this.pictureBox3.TabIndex = 2;
@@ -391,7 +414,8 @@
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.pictureBox8);
             this.panel8.Controls.Add(this.pictureBox9);
-            this.panel8.Location = new System.Drawing.Point(0, -1);
+            this.panel8.Location = new System.Drawing.Point(-1, -1);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(3, 502);
             this.panel8.TabIndex = 46;
@@ -402,14 +426,16 @@
             this.panel9.Controls.Add(this.pictureBox4);
             this.panel9.Controls.Add(this.label11);
             this.panel9.Location = new System.Drawing.Point(343, 60);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(34, 55);
+            this.panel9.Size = new System.Drawing.Size(35, 55);
             this.panel9.TabIndex = 11;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::NooLiteServiceSoft.Properties.Resources.logo;
             this.pictureBox4.Location = new System.Drawing.Point(12, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(100, 50);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -422,7 +448,7 @@
             this.label11.BackColor = System.Drawing.Color.Black;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(686, 26);
+            this.label11.Location = new System.Drawing.Point(685, 26);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(50, 18);
             this.label11.TabIndex = 9;
@@ -432,6 +458,7 @@
             // 
             this.pictureBox8.Image = global::NooLiteServiceSoft.Properties.Resources.close1;
             this.pictureBox8.Location = new System.Drawing.Point(869, 0);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(31, 34);
             this.pictureBox8.TabIndex = 1;
@@ -441,6 +468,7 @@
             // 
             this.pictureBox9.Image = global::NooLiteServiceSoft.Properties.Resources.mini1;
             this.pictureBox9.Location = new System.Drawing.Point(836, 0);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(37, 34);
             this.pictureBox9.TabIndex = 2;
@@ -452,6 +480,7 @@
             this.СhangeColor_Button.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.СhangeColor_Button.FlatAppearance.BorderSize = 3;
             this.СhangeColor_Button.Location = new System.Drawing.Point(37, 271);
+            this.СhangeColor_Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.СhangeColor_Button.Name = "СhangeColor_Button";
             this.СhangeColor_Button.Size = new System.Drawing.Size(129, 36);
             this.СhangeColor_Button.TabIndex = 47;
@@ -487,6 +516,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximumSize = new System.Drawing.Size(640, 500);
             this.MinimumSize = new System.Drawing.Size(640, 500);
             this.Name = "SettingRGB";

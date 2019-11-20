@@ -22,7 +22,7 @@ namespace NooLiteServiceSoft
             string[] channel = new string[64];
             for (int i = 0; i < channel.Length; i++)
             {
-                channel[i] = (i + 1).ToString();
+                channel[i] = i.ToString();
             }
             return channel;
         }

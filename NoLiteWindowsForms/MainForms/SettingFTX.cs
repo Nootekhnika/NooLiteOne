@@ -23,7 +23,7 @@ namespace NooLiteServiceSoft
                 {
                     SettingSRF101000 settingSRF101000 = new SettingSRF101000(on_StateAfterOn, off_StateAfterOn, stateAfterOn, allowReceivingCommandFromNL, banReceivingCommandFromNL, TakeNooLiteCommand, on_State, off_State, stateMemorization);
                     settingSRF101000.OperationWithElements();
-                    labelDeviceSetting.Text = $"Настройка устройства: {xmlTypeDevice.TypeDeviceNameXml(byte.Parse(device.TypeCode.ToString()))}";
+                    labelDeviceSetting.Text = $"Настройка устройства {xmlTypeDevice.TypeDeviceNameXml(byte.Parse(device.TypeCode.ToString()))}";
                     byte[] resultRequest = settingSRF101000.DeviceSettings(port, device.Channel.ToString(), 2, idArray);
                     byte[] resultByte = new byte[resultRequest.Length];
                     Array.Copy(resultRequest, resultByte, resultRequest.Length);
@@ -34,7 +34,7 @@ namespace NooLiteServiceSoft
                 if (device.TypeCode == 3 || device.TypeCode == 4)
                 {
                     SettingSRF13000 settingsSRF13000 = new SettingSRF13000();
-                    labelDeviceSetting.Text = $"Настройка устройства: {xmlTypeDevice.TypeDeviceNameXml(byte.Parse(device.TypeCode.ToString()))}";
+                    labelDeviceSetting.Text = $"Настройка устройства {xmlTypeDevice.TypeDeviceNameXml(byte.Parse(device.TypeCode.ToString()))}";
                     byte[] resultRequest = settingsSRF13000.DeviceSettings(port, device.Channel.ToString(), 3, idArray);
                     byte[] resultByte = new byte[resultRequest.Length];
                     Array.Copy(resultRequest, resultByte, resultRequest.Length);
@@ -47,7 +47,7 @@ namespace NooLiteServiceSoft
                 if (device.TypeCode == 5)
                 {
                     SettingSUF1300 settingSUF1300 = new SettingSUF1300();
-                    labelDeviceSetting.Text = $"Настройка устройства: {xmlTypeDevice.TypeDeviceNameXml(byte.Parse(device.TypeCode.ToString()))}";
+                    labelDeviceSetting.Text = $"Настройка устройства {xmlTypeDevice.TypeDeviceNameXml(byte.Parse(device.TypeCode.ToString()))}";
                     settingSUF1300.FormDesign(this, save_btn, cancel_btn, panel3, panel4, panel1);
                     byte[] resultRequest = settingSUF1300.SUF1300(port, device.Channel.ToString(), 5, idArray);
                     byte[] resultByte = new byte[resultRequest.Length];
@@ -61,7 +61,7 @@ namespace NooLiteServiceSoft
                 if (device.TypeCode == 6)
                 {
                     SettingSRF103000T settingSRF103000T = new SettingSRF103000T(this, stateAfterOn, TakeNooLiteCommand, stateMemorization);
-                    labelDeviceSetting.Text = $"Настройка устройства: {xmlTypeDevice.TypeDeviceNameXml(byte.Parse(device.TypeCode.ToString()))}";
+                    labelDeviceSetting.Text = $"Настройка устройства {xmlTypeDevice.TypeDeviceNameXml(byte.Parse(device.TypeCode.ToString()))}";
                     settingSRF103000T.FormDesign(this, save_btn, cancel_btn, panel4);
                     byte[] resultRequest = settingSRF103000T.DeviceSettings(port, device.Channel.ToString(), 6, idArray);
                     byte[] resultByte = new byte[resultRequest.Length];
@@ -73,7 +73,7 @@ namespace NooLiteServiceSoft
                 if (device.TypeCode == 7)
                 {
                     SettingSRF1000R settingSRF1000R = new SettingSRF1000R(this, stateAfterOn, on_State, off_State, allowReceivingCommandFromNL, banReceivingCommandFromNL);
-                    labelDeviceSetting.Text = $"Настройка устройства: {xmlTypeDevice.TypeDeviceNameXml(byte.Parse(device.TypeCode.ToString()))}";
+                    labelDeviceSetting.Text = $"Настройка устройства {xmlTypeDevice.TypeDeviceNameXml(byte.Parse(device.TypeCode.ToString()))}";
                     settingSRF1000R.FormDesign(this);
                     byte[] resultRequest = settingSRF1000R.DeviceSettings(port, device.Channel.ToString(), 7, idArray);
                     byte[] resultByte = new byte[resultRequest.Length];

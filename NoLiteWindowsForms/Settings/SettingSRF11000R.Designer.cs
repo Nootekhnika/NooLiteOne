@@ -83,6 +83,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.Location = new System.Drawing.Point(85, 80);
             this.button1.Name = "button1";
@@ -95,6 +96,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.Location = new System.Drawing.Point(85, 193);
             this.button2.Name = "button2";
@@ -107,6 +109,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3.Location = new System.Drawing.Point(85, 135);
             this.button3.Name = "button3";
@@ -122,7 +125,7 @@
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.pictureBox4);
             this.panel4.Controls.Add(this.pictureBox5);
-            this.panel4.Location = new System.Drawing.Point(483, -15);
+            this.panel4.Location = new System.Drawing.Point(484, -15);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(3, 313);
             this.panel4.TabIndex = 30;
@@ -194,9 +197,9 @@
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.pictureBox6);
             this.panel6.Controls.Add(this.pictureBox7);
-            this.panel6.Location = new System.Drawing.Point(0, -9);
+            this.panel6.Location = new System.Drawing.Point(-1, -9);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(2, 307);
+            this.panel6.Size = new System.Drawing.Size(2, 317);
             this.panel6.TabIndex = 31;
             // 
             // panel7
@@ -255,7 +258,7 @@
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.pictureBox10);
             this.panel8.Controls.Add(this.pictureBox11);
-            this.panel8.Location = new System.Drawing.Point(-2, 298);
+            this.panel8.Location = new System.Drawing.Point(-2, 299);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(489, 2);
             this.panel8.TabIndex = 32;
@@ -316,7 +319,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pictureBox8);
             this.panel1.Controls.Add(this.pictureBox12);
-            this.panel1.Location = new System.Drawing.Point(-1, 0);
+            this.panel1.Location = new System.Drawing.Point(-1, -1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(489, 2);
             this.panel1.TabIndex = 33;
@@ -374,6 +377,7 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button4.Location = new System.Drawing.Point(355, 249);
             this.button4.Name = "button4";

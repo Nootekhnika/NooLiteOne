@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.IO.Ports;
 using System.Windows.Forms;
 
 namespace NooLiteServiceSoft.IconClass
@@ -6,9 +7,11 @@ namespace NooLiteServiceSoft.IconClass
     public class LabelDeviceName
     {
         // Отображение имени устройства на основной иконке
-        public void CreateLabelDeviceName(int i ,PictureBox pct, string[] devicesName,string typeDevice)
+        public void CreateLabelDeviceName(int i ,PictureBox pct, string[] devicesName,string typeDevice, string devicesChannel, PictureDeviceOn _deviceOn, PictureDeviceOff _deviceoff, PictureDeviceNoConnection deviceNoConnection, string idDevices, TabPage tabPage, int positionPictureTop, int positionPictureLeft, Label srf13000T, Label tempT, Label tempMaxT, TabControl tabControl, SerialPort port)
         {
             Label deviceName ;
+            EventMethod eventClass = new EventMethod();
+
             if (typeDevice.Equals("6"))
             {
                 deviceName = new Label
@@ -56,6 +59,23 @@ namespace NooLiteServiceSoft.IconClass
             if (deviceName.Text.Length > 12)
             {
                 yourToolTip.SetToolTip(deviceName, deviceName.Text);
+            }
+
+            if (typeDevice.Equals("7"))
+            {
+                deviceName.MouseClick += delegate (object sender, MouseEventArgs e) { eventClass.MenuItemSRF11000R_Setting(sender, e, port, pct, devicesChannel, devicesName[i], idDevices, _deviceOn, _deviceoff, deviceNoConnection, i); };
+                deviceName.MouseUp += delegate (object sender, MouseEventArgs e) { eventClass.Btn_MouseUp(sender, e, port, pct, _deviceOn, _deviceoff, deviceNoConnection, devicesChannel, idDevices, pct, devicesName[i], typeDevice, tabPage, srf13000T, tabControl); };
+            }
+
+            if (typeDevice.Equals("6"))
+            {
+                deviceName.MouseClick += delegate (object sender, MouseEventArgs e) { eventClass.MenuItemSRF13000T_Setting(sender, e, port, pct, devicesChannel, devicesName[i], idDevices, _deviceOn, _deviceoff, deviceNoConnection, srf13000T, i, tempT, tempMaxT, tabPage, tabControl); };
+                deviceName.MouseUp += delegate (object sender, MouseEventArgs e) { eventClass.Btn_MouseUp(sender, e, port, pct, _deviceOn, _deviceoff, deviceNoConnection, devicesChannel, idDevices, pct, devicesName[i], typeDevice, tabPage, srf13000T, tabControl); };
+            }
+            else
+            {
+                deviceName.MouseClick += delegate (object sender, MouseEventArgs e) { eventClass.DbClick_Connection(sender, e, port, devicesChannel, _deviceOn, _deviceoff, deviceNoConnection, idDevices); };
+                deviceName.MouseUp += delegate (object sender, MouseEventArgs e) { eventClass.Btn_MouseUp(sender, e, port, pct, _deviceOn, _deviceoff, deviceNoConnection, devicesChannel, idDevices, pct, devicesName[i], typeDevice, tabPage, srf13000T, tabControl); };
             }
 
             pct.Controls.Add(deviceName);

@@ -91,8 +91,8 @@ namespace NooLiteServiceSoft.IconClass
                     pictureSocket.CreatePictureSocket(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl);
                     deviceOff.CreateDeviceOff(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl);
                     deviceNoConnection.CreateDeviceNoConnection(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl);
-                    labelRoomName.CreateLabelRoomName(i, pct, roomName, devicesType[i]);
-                    deviceName.CreateLabelDeviceName(i, pct, devicesName, devicesType[i]);
+                    labelRoomName.CreateLabelRoomName(i, pct, roomName, devicesType[i], devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl,port);
+                    deviceName.CreateLabelDeviceName(i, pct, devicesName, devicesType[i], devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl, port);
                     deviceChannel.CreateLabelDeviceChannel(i, pct, devicesChannel);
                     if (devicesType[i].Equals("6"))
                     {
@@ -192,7 +192,7 @@ namespace NooLiteServiceSoft.IconClass
                     pictureSocket.CreatePictureSocket(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl);
                     deviceOff.CreateDeviceOff(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl);
                     deviceNoConnection.CreateDeviceNoConnection(i, pct, port, devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], devicesName[i], devicesType[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl);
-                    deviceName.CreateLabelDeviceName(i, pct, devicesName, devicesType[i]);
+                    deviceName.CreateLabelDeviceName(i, pct, devicesName, devicesType[i], devicesChannel[i], _deviceOn, deviceOff, deviceNoConnection, idDevices[i], tabPage1, positionTop, positionLeft, labelHeatingSRF13000T, labelTemp, labelTempMax, tabControl, port);
                     deviceChannel.CreateLabelDeviceChannel(i, pct, devicesChannel);
                     if (devicesType[i].Equals("6"))
                     {
@@ -241,7 +241,7 @@ namespace NooLiteServiceSoft.IconClass
                 device.WaitData(port, rx_buffer);
                 if (rx_buffer != null)
                 {
-                    label.Text = xmlTypeDevice.TypeDeviceNameXml(rx_buffer[7]) + $" (V{rx_buffer[8]}): Подключено";
+                    label.Text = xmlTypeDevice.TypeDeviceNameXml(rx_buffer[7]) + $"-USB (V{rx_buffer[8]}): Подключено";
                 }
             }
         }

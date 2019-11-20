@@ -28,19 +28,21 @@ namespace NooLiteServiceSoft.Settings
 
         public void FormDesign(SettingFTX settingFTX, Button buttonSave, Button buttonCancel,Panel panelBottom)
         {
-            settingFTX.Width = 609;
-            settingFTX.Height = 300;
+            settingFTX.Width = 622;
+            settingFTX.Height = 299;
             panelBottom.Top = 298;
             buttonSave.Top = 255;
+            buttonSave.TabIndex = 7;
             buttonCancel.Top = 255;
             GroupBox SelectModeGroupBox = new GroupBox()
             {
-                Left = 8,
+                Left = 16,
                 Top = 40,
                 Width = 195,
                 Height = 100,
                 Text = "Выбор режима",
-                BackColor = Color.FromArgb(239, 239, 239)
+                BackColor = Color.FromArgb(239, 239, 239),
+                TabIndex = 0
             };
 
             RadioButton handsModeRB = new RadioButton
@@ -48,7 +50,7 @@ namespace NooLiteServiceSoft.Settings
                 Text = "Ручной",
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 40,
-                Left = 5
+                Left = 9
             };
             HandsModeRB = handsModeRB;
 
@@ -57,7 +59,7 @@ namespace NooLiteServiceSoft.Settings
                 Text = "Календарный",
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 65,
-                Left = 5
+                Left = 9
             };
             CalendarRB = сalendarRB;
 
@@ -67,19 +69,20 @@ namespace NooLiteServiceSoft.Settings
 
             GroupBox TakeNLCommand = new GroupBox
             {
-                Left = 207,
+                Left = 214,
                 Top = 40,
                 Width = 195,
                 Height = 100,
                 Text = "Приём nooLite",
-                BackColor = Color.FromArgb(239, 239, 239)
+                BackColor = Color.FromArgb(239, 239, 239),
+                TabIndex = 1
             };
             RadioButton nlCommandOn = new RadioButton
             {
                 Text = "Разрешён",
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 40,
-                Left = 5
+                Left = 9
             };
             NLCommandOn = nlCommandOn;
 
@@ -88,7 +91,7 @@ namespace NooLiteServiceSoft.Settings
                 Text = "Запрещён",
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 65,
-                Left = 5
+                Left = 9
 
             };
             NLCommandOff = nlCommandOff;
@@ -98,12 +101,13 @@ namespace NooLiteServiceSoft.Settings
 
             GroupBox SelectSensor = new GroupBox
             {
-                Left = 406,
+                Left = 413,
                 Top = 40,
                 Width = 195,
                 Height = 100,
                 Text = "Выбор активного датчика",
-                BackColor = Color.FromArgb(239, 239, 239)
+                BackColor = Color.FromArgb(239, 239, 239),
+                TabIndex = 2
             };
             RadioButton sensorFloor = new RadioButton
             {
@@ -111,7 +115,7 @@ namespace NooLiteServiceSoft.Settings
                 Width = 250,
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 20,
-                Left = 5
+                Left = 9
 
             };
             SensorFloor = sensorFloor;
@@ -121,7 +125,7 @@ namespace NooLiteServiceSoft.Settings
                 Text = "Датчик воздуха",
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 45,
-                Left = 5,
+                Left = 9,
                 Width = 150,
                 Height = 20
 
@@ -133,7 +137,7 @@ namespace NooLiteServiceSoft.Settings
                 Text = "RF датчик",
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 65,
-                Left = 5
+                Left = 9
 
             };
             SensorRF = sensorRF;
@@ -145,7 +149,7 @@ namespace NooLiteServiceSoft.Settings
 
             GroupBox SaveState = new GroupBox
             {
-                Left = 8,
+                Left = 15,
                 Top = 145,
                 Width = 195,
                 Height = 100,
@@ -154,19 +158,19 @@ namespace NooLiteServiceSoft.Settings
             };
             RadioButton saveStateOn = new RadioButton
             {
-                Text = "Включено",
+                Text = "Есть",
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 40,
-                Left = 5
+                Left = 9
             };
             SaveStateOn = saveStateOn;
 
             RadioButton saveStateOff = new RadioButton
             {
-                Text = "Выключено",
+                Text = "Нет",
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 65,
-                Left = 5
+                Left = 9
 
             };
             SaveStateOff = saveStateOff;
@@ -176,19 +180,20 @@ namespace NooLiteServiceSoft.Settings
 
             GroupBox StateStatus = new GroupBox
             {
-                Left = 207,
+                Left = 214,
                 Top = 145,
                 Width = 195,
                 Height = 100,
                 Text = "Состояние после включения",
-                BackColor = Color.FromArgb(239, 239, 239)
+                BackColor = Color.FromArgb(239, 239, 239),
+                TabIndex = 3
             };
             RadioButton stateOn = new RadioButton
             {
                 Text = "Включено",
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 40,
-                Left = 5
+                Left = 9
             };
             StateOn = stateOn;
 
@@ -197,7 +202,7 @@ namespace NooLiteServiceSoft.Settings
                 Text = "Выключено",
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 65,
-                Left = 5
+                Left = 9
 
             };
             StateOff = stateOff;

@@ -55,7 +55,7 @@
             this.labelDeviceSetting.AutoSize = true;
             this.labelDeviceSetting.Cursor = System.Windows.Forms.Cursors.Default;
             this.labelDeviceSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelDeviceSetting.Location = new System.Drawing.Point(25, 12);
+            this.labelDeviceSetting.Location = new System.Drawing.Point(25, 20);
             this.labelDeviceSetting.Name = "labelDeviceSetting";
             this.labelDeviceSetting.Size = new System.Drawing.Size(0, 25);
             this.labelDeviceSetting.TabIndex = 0;
@@ -66,8 +66,10 @@
             this.stateMemorization.Controls.Add(this.off_State);
             this.stateMemorization.Controls.Add(this.on_State);
             this.stateMemorization.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateMemorization.Location = new System.Drawing.Point(10, 49);
+            this.stateMemorization.Location = new System.Drawing.Point(21, 49);
+            this.stateMemorization.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.stateMemorization.Name = "stateMemorization";
+            this.stateMemorization.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.stateMemorization.Size = new System.Drawing.Size(260, 118);
             this.stateMemorization.TabIndex = 1;
             this.stateMemorization.TabStop = false;
@@ -76,23 +78,25 @@
             // off_State
             // 
             this.off_State.AutoSize = true;
-            this.off_State.Location = new System.Drawing.Point(6, 74);
+            this.off_State.Location = new System.Drawing.Point(12, 74);
+            this.off_State.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.off_State.Name = "off_State";
-            this.off_State.Size = new System.Drawing.Size(111, 22);
+            this.off_State.Size = new System.Drawing.Size(55, 22);
             this.off_State.TabIndex = 1;
             this.off_State.TabStop = true;
-            this.off_State.Text = "Выключено";
+            this.off_State.Text = "Нет";
             this.off_State.UseVisualStyleBackColor = true;
             // 
             // on_State
             // 
             this.on_State.AutoSize = true;
-            this.on_State.Location = new System.Drawing.Point(6, 46);
+            this.on_State.Location = new System.Drawing.Point(12, 46);
+            this.on_State.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.on_State.Name = "on_State";
-            this.on_State.Size = new System.Drawing.Size(100, 22);
+            this.on_State.Size = new System.Drawing.Size(62, 22);
             this.on_State.TabIndex = 0;
             this.on_State.TabStop = true;
-            this.on_State.Text = "Включено";
+            this.on_State.Text = "Есть";
             this.on_State.UseVisualStyleBackColor = true;
             // 
             // stateAfterOn
@@ -101,8 +105,10 @@
             this.stateAfterOn.Controls.Add(this.off_StateAfterOn);
             this.stateAfterOn.Controls.Add(this.on_StateAfterOn);
             this.stateAfterOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateAfterOn.Location = new System.Drawing.Point(276, 49);
+            this.stateAfterOn.Location = new System.Drawing.Point(286, 49);
+            this.stateAfterOn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.stateAfterOn.Name = "stateAfterOn";
+            this.stateAfterOn.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.stateAfterOn.Size = new System.Drawing.Size(260, 118);
             this.stateAfterOn.TabIndex = 2;
             this.stateAfterOn.TabStop = false;
@@ -112,7 +118,8 @@
             // 
             this.off_StateAfterOn.AutoSize = true;
             this.off_StateAfterOn.ForeColor = System.Drawing.Color.Black;
-            this.off_StateAfterOn.Location = new System.Drawing.Point(6, 74);
+            this.off_StateAfterOn.Location = new System.Drawing.Point(11, 74);
+            this.off_StateAfterOn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.off_StateAfterOn.Name = "off_StateAfterOn";
             this.off_StateAfterOn.Size = new System.Drawing.Size(102, 22);
             this.off_StateAfterOn.TabIndex = 1;
@@ -123,7 +130,8 @@
             // on_StateAfterOn
             // 
             this.on_StateAfterOn.AutoSize = true;
-            this.on_StateAfterOn.Location = new System.Drawing.Point(6, 46);
+            this.on_StateAfterOn.Location = new System.Drawing.Point(11, 46);
+            this.on_StateAfterOn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.on_StateAfterOn.Name = "on_StateAfterOn";
             this.on_StateAfterOn.Size = new System.Drawing.Size(91, 22);
             this.on_StateAfterOn.TabIndex = 0;
@@ -137,18 +145,21 @@
             this.TakeNooLiteCommand.Controls.Add(this.banReceivingCommandFromNL);
             this.TakeNooLiteCommand.Controls.Add(this.allowReceivingCommandFromNL);
             this.TakeNooLiteCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TakeNooLiteCommand.Location = new System.Drawing.Point(542, 49);
+            this.TakeNooLiteCommand.Location = new System.Drawing.Point(551, 49);
+            this.TakeNooLiteCommand.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TakeNooLiteCommand.Name = "TakeNooLiteCommand";
+            this.TakeNooLiteCommand.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TakeNooLiteCommand.Size = new System.Drawing.Size(260, 118);
             this.TakeNooLiteCommand.TabIndex = 3;
             this.TakeNooLiteCommand.TabStop = false;
-            this.TakeNooLiteCommand.Text = "Приём nooLite";
+            this.TakeNooLiteCommand.Text = "Приём команд nooLite";
             // 
             // banReceivingCommandFromNL
             // 
             this.banReceivingCommandFromNL.AutoSize = true;
             this.banReceivingCommandFromNL.ForeColor = System.Drawing.Color.Black;
-            this.banReceivingCommandFromNL.Location = new System.Drawing.Point(6, 74);
+            this.banReceivingCommandFromNL.Location = new System.Drawing.Point(12, 74);
+            this.banReceivingCommandFromNL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.banReceivingCommandFromNL.Name = "banReceivingCommandFromNL";
             this.banReceivingCommandFromNL.Size = new System.Drawing.Size(98, 22);
             this.banReceivingCommandFromNL.TabIndex = 1;
@@ -159,7 +170,8 @@
             // allowReceivingCommandFromNL
             // 
             this.allowReceivingCommandFromNL.AutoSize = true;
-            this.allowReceivingCommandFromNL.Location = new System.Drawing.Point(6, 46);
+            this.allowReceivingCommandFromNL.Location = new System.Drawing.Point(12, 46);
+            this.allowReceivingCommandFromNL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.allowReceivingCommandFromNL.Name = "allowReceivingCommandFromNL";
             this.allowReceivingCommandFromNL.Size = new System.Drawing.Size(98, 22);
             this.allowReceivingCommandFromNL.TabIndex = 0;
@@ -172,9 +184,10 @@
             this.save_btn.BackColor = System.Drawing.Color.White;
             this.save_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.save_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.save_btn.Location = new System.Drawing.Point(276, 173);
+            this.save_btn.Location = new System.Drawing.Point(567, 177);
+            this.save_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.save_btn.Name = "save_btn";
-            this.save_btn.Size = new System.Drawing.Size(107, 39);
+            this.save_btn.Size = new System.Drawing.Size(115, 34);
             this.save_btn.TabIndex = 34;
             this.save_btn.Text = "Сохранить";
             this.save_btn.UseVisualStyleBackColor = false;
@@ -184,9 +197,10 @@
             this.cancel_btn.BackColor = System.Drawing.Color.White;
             this.cancel_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancel_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cancel_btn.Location = new System.Drawing.Point(430, 175);
+            this.cancel_btn.Location = new System.Drawing.Point(696, 178);
+            this.cancel_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancel_btn.Name = "cancel_btn";
-            this.cancel_btn.Size = new System.Drawing.Size(106, 39);
+            this.cancel_btn.Size = new System.Drawing.Size(115, 34);
             this.cancel_btn.TabIndex = 35;
             this.cancel_btn.Text = "Отмена";
             this.cancel_btn.UseVisualStyleBackColor = false;
@@ -195,15 +209,17 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(0, -12);
+            this.panel3.Location = new System.Drawing.Point(-1, -12);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(2, 450);
+            this.panel3.Size = new System.Drawing.Size(3, 450);
             this.panel3.TabIndex = 36;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(809, 0);
+            this.panel1.Location = new System.Drawing.Point(828, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(3, 450);
             this.panel1.TabIndex = 37;
@@ -211,17 +227,19 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(-1, 0);
+            this.panel2.Location = new System.Drawing.Point(-1, -1);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(850, 2);
+            this.panel2.Size = new System.Drawing.Size(851, 2);
             this.panel2.TabIndex = 38;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Black;
-            this.panel4.Location = new System.Drawing.Point(-19, 224);
+            this.panel4.Location = new System.Drawing.Point(-19, 225);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(850, 2);
+            this.panel4.Size = new System.Drawing.Size(851, 2);
             this.panel4.TabIndex = 39;
             // 
             // SettingFTX
@@ -229,7 +247,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(812, 226);
+            this.ClientSize = new System.Drawing.Size(830, 226);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -242,6 +260,7 @@
             this.Controls.Add(this.labelDeviceSetting);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SettingFTX";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

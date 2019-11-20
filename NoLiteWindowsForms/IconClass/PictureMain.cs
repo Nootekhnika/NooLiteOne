@@ -33,11 +33,17 @@ namespace NooLiteServiceSoft.IconClass
                 pct.MouseClick += delegate (object sender, MouseEventArgs e) { eventClass.MenuItemSRF13000T_Setting(sender, e, port, pictureBox, devicesChannel, devicesName, idDevices, _deviceOn, _deviceoff, deviceNoConnection, srf13000T,i,tempT,tempMaxT,tabPage, tabControl); };
                 pct.MouseUp += delegate (object sender, MouseEventArgs e) { eventClass.Btn_MouseUp(sender, e, port, pictureBox, _deviceOn, _deviceoff, deviceNoConnection, devicesChannel, idDevices, pct, devicesName, deviceType, tabPage, srf13000T, tabControl); };
                }
+            //if (deviceType.Equals("5"))
+            //{
+            //    pct.MouseClick += delegate (object sender, MouseEventArgs e) { eventClass.ShowSuf13000Window(port, devicesChannel, idDevices); };
+            //    pct.MouseUp += delegate (object sender, MouseEventArgs e) { eventClass.Btn_MouseUp(sender, e, port, pictureBox, _deviceOn, _deviceoff, deviceNoConnection, devicesChannel, idDevices, pct, devicesName, deviceType, tabPage, srf13000T, tabControl); };
+            //}
+
             else
             {
                 pct.MouseClick += delegate (object sender, MouseEventArgs e) { eventClass.DbClick_Connection(sender, e, port, devicesChannel, _deviceOn, _deviceoff, deviceNoConnection, idDevices); };
                 pct.MouseUp += delegate (object sender, MouseEventArgs e) { eventClass.Btn_MouseUp(sender, e, port, pictureBox, _deviceOn, _deviceoff, deviceNoConnection, devicesChannel, idDevices, pct, devicesName, deviceType, tabPage, srf13000T, tabControl); };
-               }
+            }
             tabPage.Controls.Add(pct);
             return pct;
         }

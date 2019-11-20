@@ -52,7 +52,7 @@ namespace NooLiteServiceSoft.Settings
                 Text = "Включена",
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 34,
-                Left = 5
+                Left = 9
             };
             CalibrationOn = calibrationOn;
 
@@ -61,7 +61,7 @@ namespace NooLiteServiceSoft.Settings
                 Text = "Выключена",
                 BackColor = Color.FromArgb(239, 239, 239),
                 Top = 59,
-                Left = 5
+                Left = 9
             };
             CalibrationOff = calibrationOff;
 

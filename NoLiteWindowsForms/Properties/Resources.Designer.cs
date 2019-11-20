@@ -81,6 +81,16 @@ namespace NooLiteServiceSoft.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] CDM21228_Setup {
+            get {
+                object obj = ResourceManager.GetObject("CDM21228_Setup", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap circle {
@@ -117,6 +127,16 @@ namespace NooLiteServiceSoft.Properties {
             get {
                 object obj = ResourceManager.GetObject("cross", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] dotNetFx40_Full_x86_x64 {
+            get {
+                object obj = ResourceManager.GetObject("dotNetFx40_Full_x86_x64", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -296,6 +316,16 @@ namespace NooLiteServiceSoft.Properties {
         internal static System.Drawing.Bitmap Rounded_corner {
             get {
                 object obj = ResourceManager.GetObject("Rounded_corner", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SplashScreen {
+            get {
+                object obj = ResourceManager.GetObject("SplashScreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
