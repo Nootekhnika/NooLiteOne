@@ -8,7 +8,7 @@ namespace NooLiteServiceSoft.DeviceProperties
     {
         private const int CS_DROPSHADOW = 0x20000;
         XmlPort xmlPort = new XmlPort();
-        string[] baudRate = new string[7] { "9600", "14400", "19200", "28800", "38400", "56600", "57600" };
+        string[] baudRate = new string[8] { "9600", "14400", "19200", "28800", "38400", "56600", "57600", "115200" };
         public PortBaudRateProperties()
         {
             InitializeComponent();
